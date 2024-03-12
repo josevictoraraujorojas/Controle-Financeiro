@@ -41,7 +41,7 @@ E as metas que seriam:
 
 ## O Orçamento
 
-Onde poderá definir um limite para as despesas em cada categoria, podendo ser aplicada a regra do 50/30/20, onde 50% do seu saldo disponível seria utilizado para gastos fixos, 30% em gastos variáveis e 20% em investimentos, reserva de emergência ou metas.
+Onde poderá definir um limite para as despesas em cada categoria, podendo ser personalizado ou aplicada a regra do 50/30/20, onde 50% do seu saldo disponível seria utilizado para gastos fixos, 30% em gastos variáveis e 20% em investimentos, reserva de emergência ou metas.
 
  <img src="https://assets-blog.pagseguro.uol.com.br/wp-content/2023/10/INFOIMAGEM_Metodo_50_30_20.jpg">
  
