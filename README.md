@@ -4,11 +4,11 @@
 
 Tem como objetivo auxiliar na gestão e no controle dos gastos pessoais, tornando seus gastos e metas visíveis para facilitar o monitoramento e a gestão. Apresentará seus gastos fixos, os gastos variados e possíveis metas a serem conquistadas.
 
-Terá um sistema de cadastro do usuário:
+## Terá um sistema de cadastro do usuário:
 
 Será informado o nome do usuário, a senha de segurança, telefone, renda disponível, salário mensal e as metas a serem conquistadas.
 
-Haverá a parte de planejamento de gastos:
+## Haverá a parte de planejamento de gastos:
 
 Onde se terá um saldo disponível e as despesas fixas, tais como:
 - Aluguel da casa ou apartamento
