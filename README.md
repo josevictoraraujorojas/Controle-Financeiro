@@ -6,7 +6,7 @@ Tem como objetivo auxiliar na gestão e no controle dos gastos pessoais, tornand
 
 ## Terá um sistema de cadastro do usuário:
 
-Será informado o nome do usuário, a senha de segurança, telefone, renda disponível, salário mensal e as metas a serem conquistadas.
+Será informado o nome do usuário, a senha de segurança, renda disponível, salário mensal e as metas a serem conquistadas.
 
 ## Haverá a parte de planejamento de gastos:
 
