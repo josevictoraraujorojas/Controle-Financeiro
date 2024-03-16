@@ -47,7 +47,7 @@ Onde poderá definir um limite para as despesas em cada categoria, podendo ser p
 
 ## Diagrama de classe:
 
-<img src="Diagrama de classe.jpg" alt="Diagrama"> 
+ <img src="Diagrama de classe.jpg" alt="Diagrama" >
 
  
 
