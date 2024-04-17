@@ -14,6 +14,9 @@ public class Cadastro extends JFrame {
 	GridBagConstraints imagemC;
 	private JPanelComImagemDeFundo menuCadastro;
 	GridBagConstraints menuCadastroC;
+
+	JLabel textoCadastro;
+	GridBagConstraints textoCadastroC;
 	JLabel textoNome;
 	GridBagConstraints textoNomeC;
 	private JTextFieldArredondado nome;
@@ -77,9 +80,14 @@ public class Cadastro extends JFrame {
 		menuCadastroC.ipady = 250;
 		menuCadastroC.ipadx = 250;
 
+		textoCadastroC = new GridBagConstraints();
+		textoCadastroC.gridwidth=GridBagConstraints.REMAINDER;
+
 		textoNomeC = new GridBagConstraints();
+		textoNomeC.insets = new Insets(50, 0, 0, 0);
 
 		nomeC = new GridBagConstraints();
+		nomeC.insets = new Insets(50, 0, 0, 0);
 		nomeC.ipadx=100;
 		nomeC.ipady=20;
 		nomeC.gridwidth=GridBagConstraints.REMAINDER;
@@ -130,13 +138,17 @@ public class Cadastro extends JFrame {
 		menuCadastro.setBorder(borda);
 		fundo.add(menuCadastro, menuCadastroC);
 
+		textoCadastro = new JLabel("Cadastro pessoal");
+		textoCadastro.setFont(fonte);
+		menuCadastro.add(textoCadastro,textoCadastroC);
+
 		textoNome = new JLabel("nome:");
 		textoNome.setFont(fonte);
 		menuCadastro.add(textoNome,textoNomeC);
 
 		nome = new JTextFieldArredondado();
 		nome.setColumns(10);
-		nome.setText("nome");
+		nome.setText("");
 		nome.setFont(fonte);
 		menuCadastro.add(nome,nomeC);
 
@@ -146,7 +158,7 @@ public class Cadastro extends JFrame {
 
 		senha = new JPasswordArredondado();
 		senha.setColumns(10);
-		senha.setText("senha");
+		senha.setText("");
 		senha.setFont(fonte);
 		menuCadastro.add(senha,senhaC);
 
@@ -156,7 +168,7 @@ public class Cadastro extends JFrame {
 
 		rendaDisponivel = new JTextFieldArredondado();
 		rendaDisponivel.setColumns(10);
-		rendaDisponivel.setText("renda disponivel");
+		rendaDisponivel.setText("");
 		rendaDisponivel.setFont(fonte);
 		menuCadastro.add(rendaDisponivel,rendaDisponivelC);
 
@@ -166,12 +178,12 @@ public class Cadastro extends JFrame {
 
 		saldo = new JTextFieldArredondado();
 		saldo.setColumns(10);
-		saldo.setText("saldo");
+		saldo.setText("");
 		saldo.setFont(fonte);
 		menuCadastro.add(saldo,saldoC);
 
 		cadastrar = new BotaoArredondado();
-		cadastrar.setText("cadastrar");
+		cadastrar.setText("avancar");
 		cadastrar.setBackground(Color.green);
 		menuCadastro.add(cadastrar,cadastrarC);
 
