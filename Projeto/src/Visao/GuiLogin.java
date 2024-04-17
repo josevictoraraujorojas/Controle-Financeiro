@@ -89,18 +89,18 @@ public class GuiLogin extends JFrame {
 
 
         login = new BotaoArredondado();
-        Icon icone = new ImageIcon(("C:\\Users\\Jose\\IdeaProjects\\Controle-Financeiro\\Projeto\\src\\Imagem\\Icons8-Windows-8-User-Interface-Login.512 (1) (1).png"));
+        Icon icone = new ImageIcon(getClass().getResource("Imagem\\Icons8-Windows-8-User-Interface-Login.512 (1) (1).png"));
         login.setIcon(icone);
         login.setBackground(Color.white);
 
 
 
         registrar = new BotaoArredondado();
-        Icon icone2 = new ImageIcon(("C:\\Users\\Jose\\IdeaProjects\\Controle-Financeiro\\Projeto\\src\\Imagem\\144688423-editar-ícone-cone-do-lápis-inscrever-se-icon-vector (1).jpg"));
+        Icon icone2 = new ImageIcon(getClass().getResource("Imagem\\144688423-editar-ícone-cone-do-lápis-inscrever-se-icon-vector (1).jpg"));
         registrar.setIcon(icone2);
         registrar.setBackground(Color.white);
 
-        menuLogin = new JPanelComImagemDeFundo("C:\\Users\\Jose\\IdeaProjects\\Controle-Financeiro\\Projeto\\src\\Imagem\\fundo-quadrado-azul-para-cartaz-de-banner-anuncio-de-midia-social-evento-e-varios-trabalhos-de-design_7954-52368.jpg");
+        menuLogin = new JPanelComImagemDeFundo(getClass().getResource("Imagem\\fundo-quadrado-azul-para-cartaz-de-banner-anuncio-de-midia-social-evento-e-varios-trabalhos-de-design_7954-52368.jpg"));
         menuLogin.setLayout(new GridBagLayout());
         Border borda = BorderFactory.createLineBorder(Color.black);
         menuLogin.setBorder(borda);
@@ -113,7 +113,7 @@ public class GuiLogin extends JFrame {
         menuLogin.add(registrar,registreC);
 
 
-        fundo = new JPanelComImagemDeFundo("C:\\Users\\Jose\\IdeaProjects\\Controle-Financeiro\\Projeto\\src\\Imagem\\contas-a-pagar-e-receber.jpeg");
+        fundo = new JPanelComImagemDeFundo(getClass().getResource("Imagem\\contas-a-pagar-e-receber.jpeg"));
         fundo.setLayout(new GridBagLayout());
 
 

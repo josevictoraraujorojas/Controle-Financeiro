@@ -117,15 +117,15 @@ public class Cadastro extends JFrame {
 		cancelarC = new GridBagConstraints();
 		cancelarC.insets = new Insets(50,50,0,0);
 
-		fundo = new JPanelComImagemDeFundo("C:\\Users\\Jose\\IdeaProjects\\Controle-Financeiro\\Projeto\\src\\Imagem\\contas-a-pagar-e-receber.jpeg");
+		fundo = new JPanelComImagemDeFundo(getClass().getResource("Imagem\\contas-a-pagar-e-receber.jpeg"));
 		fundo.setLayout(new GridBagLayout());
 		add(fundo, fundoC);
 
-		imagem = new JPanelComImagemDeFundo("C:\\Users\\Jose\\IdeaProjects\\Controle-Financeiro\\Projeto\\src\\Imagem\\imagem_tela_cadastro.png");
+		imagem = new JPanelComImagemDeFundo(getClass().getResource("Imagem\\imagem_tela_cadastro.png"));
 		fundo.add(imagem,imagemC);
 
 		Border borda =BorderFactory.createLineBorder(Color.black);
-		menuCadastro = new JPanelComImagemDeFundo("C:\\Users\\Jose\\IdeaProjects\\Controle-Financeiro\\Projeto\\src\\Imagem\\fundo-quadrado-azul-para-cartaz-de-banner-anuncio-de-midia-social-evento-e-varios-trabalhos-de-design_7954-52368.jpg");
+		menuCadastro = new JPanelComImagemDeFundo(getClass().getResource("Imagem\\fundo-quadrado-azul-para-cartaz-de-banner-anuncio-de-midia-social-evento-e-varios-trabalhos-de-design_7954-52368.jpg"));
 		menuCadastro.setLayout(new GridBagLayout());
 		menuCadastro.setBorder(borda);
 		fundo.add(menuCadastro, menuCadastroC);

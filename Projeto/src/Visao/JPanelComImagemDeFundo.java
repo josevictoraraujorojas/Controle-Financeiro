@@ -6,15 +6,19 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
 
 public class JPanelComImagemDeFundo extends JPanel {
     private BufferedImage imagemDeFundo;
 
-    public JPanelComImagemDeFundo(String caminhoDaImagem) {
+    public JPanelComImagemDeFundo(URL caminhoDaImagem) {
         try {
-            imagemDeFundo = ImageIO.read(new File(caminhoDaImagem));
+            imagemDeFundo = ImageIO.read(new File(caminhoDaImagem.toURI()));
         } catch (IOException ex) {
             ex.printStackTrace();
+        } catch (URISyntaxException e) {
+            throw new RuntimeException(e);
         }
     }
 
