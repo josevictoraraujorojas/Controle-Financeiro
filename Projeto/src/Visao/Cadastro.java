@@ -121,7 +121,7 @@ public class Cadastro extends JFrame {
 		fundo.setLayout(new GridBagLayout());
 		add(fundo, fundoC);
 
-		imagem = new JPanelComImagemDeFundo("C:\\Users\\Jose\\IdeaProjects\\Controle-Financeiro\\Projeto\\src\\Imagem\\Inserir um subtítulo (2) (3).png");
+		imagem = new JPanelComImagemDeFundo("C:\\Users\\Jose\\IdeaProjects\\Controle-Financeiro\\Projeto\\src\\Imagem\\imagem_tela_cadastro.png");
 		fundo.add(imagem,imagemC);
 
 		Border borda =BorderFactory.createLineBorder(Color.black);
