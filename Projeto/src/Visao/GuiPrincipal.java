@@ -44,8 +44,8 @@ public class GuiPrincipal extends JFrame {
 
         DefaultCategoryDataset barra = new DefaultCategoryDataset();
         barra.addValue( 200, "Meta","" );
-        barra.addValue( 400, "despesas variaveis","" );
         barra.addValue( 600, "despesas fixas","" );
+        barra.addValue( 400, "despesas variaveis","" );
         graficoBarra = ChartFactory.createBarChart("Orcamento","tipos de gastos","quantidade em real",barra,PlotOrientation.HORIZONTAL,true,true,false);
         painelGraficoBarra = new ChartPanel(graficoBarra);
         fundo.add(painelGraficoBarra,painelGraficoBarraC);
