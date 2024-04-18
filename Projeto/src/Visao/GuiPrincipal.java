@@ -3,6 +3,8 @@ package Visao;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 
 import javax.swing.*;
@@ -12,14 +14,18 @@ public class GuiPrincipal extends JFrame {
 
     JPanelComImagemDeFundo fundo;
     GridBagConstraints fundoC;
-    JFreeChart grafico;
-    ChartPanel painelGrafico;
-    GridBagConstraints painelGraficoC;
+    JFreeChart graficoPizza;
+    ChartPanel painelGraficoPizza;
+    GridBagConstraints painelGraficoPizzaC;
+    JFreeChart graficoBarra;
+    ChartPanel painelGraficoBarra;
+    GridBagConstraints painelGraficoBarraC;
     public GuiPrincipal() {
         super("grafico");
         setLayout(new GridBagLayout());
 
-        painelGraficoC = new GridBagConstraints();
+        painelGraficoPizzaC = new GridBagConstraints();
+        GridBagConstraints barraC = new GridBagConstraints();
 
         fundoC = new GridBagConstraints();
         fundoC.weighty = 1;
@@ -31,13 +37,23 @@ public class GuiPrincipal extends JFrame {
         add(fundo,fundoC);
 
         DefaultPieDataset pizza = new DefaultPieDataset();
-        pizza.setValue("metas",20);
-        pizza.setValue("despesas fixas",50);
-        pizza.setValue("despesas variaveis",30);
-        grafico = ChartFactory.createPieChart("orcamento",pizza,true,true,false);
+        pizza.setValue("metas",0.2*1400);
+        pizza.setValue("despesas fixas",0.5*1400);
+        pizza.setValue("despesas variaveis",0.3*1400);
+        graficoPizza = ChartFactory.createPieChart("limite do orcamento",pizza,true,true,false);
 
-        painelGrafico = new ChartPanel(grafico);
-        fundo.add(painelGrafico,painelGraficoC);
+        DefaultCategoryDataset barra = new DefaultCategoryDataset();
+        barra.addValue( 200, "Meta","" );
+        barra.addValue( 400, "despesas variaveis","" );
+        barra.addValue( 600, "despesas fixas","" );
+        graficoBarra = ChartFactory.createBarChart("Orcamento","tipos de gastos","quantidade em real",barra,PlotOrientation.HORIZONTAL,true,true,false);
+        painelGraficoBarra = new ChartPanel(graficoBarra);
+        fundo.add(painelGraficoBarra,painelGraficoBarraC);
+
+        painelGraficoPizza = new ChartPanel(graficoPizza);
+        fundo.add(painelGraficoPizza,painelGraficoPizzaC);
+
+
 
 
     }
