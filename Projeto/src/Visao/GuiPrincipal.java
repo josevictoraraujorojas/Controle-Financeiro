@@ -27,9 +27,15 @@ public class GuiPrincipal extends JFrame {
     JFreeChart graficoBarra;
     ChartPanel painelGraficoBarra;
     GridBagConstraints painelGraficoBarraC;
-    JList lista;
-    GridBagConstraints listaC;
+    JList listaDespesasFixas;
+    GridBagConstraints listaDespesasFixasC;
+    JList listaDespesasVariaveis;
+    GridBagConstraints listaDespesasVariaveisC;
+    JList listaMetas;
+    GridBagConstraints listaMetasC;
+    private static  final String[] metas = {"viajar","comprar um carro","guardar dinheiro"};
     private static  final String[] despesasFixas = {"conta de agua","conta de luz","conta supermercado"};
+    private static  final String[] despesasVariaveis = {"comprei roupa","comprei um sorvete","comprei pizza"};
     public GuiPrincipal() {
         super("grafico");
         setLayout(new GridBagLayout());
@@ -46,16 +52,25 @@ public class GuiPrincipal extends JFrame {
         painelListaC = new GridBagConstraints();
 
         painelGraficoPizzaC = new GridBagConstraints();
-        painelGraficoPizzaC.ipady=-200;
         painelGraficoPizzaC.ipadx=-200;
+        painelGraficoPizzaC.ipady=-200;
 
         painelGraficoBarraC = new GridBagConstraints();
-        painelGraficoBarraC.ipady=-200;
         painelGraficoBarraC.ipadx=-200;
+        painelGraficoBarraC.ipady=-200;
 
-        listaC = new GridBagConstraints();
-        listaC.ipadx=839;
-        listaC.ipady=600;
+        listaMetasC = new GridBagConstraints();
+        listaMetasC.ipadx=206;
+        listaMetasC.ipady=200;
+
+        listaDespesasFixasC = new GridBagConstraints();
+        listaDespesasFixasC.ipadx=206;
+        listaDespesasFixasC.ipady=200;
+
+        listaDespesasVariaveisC = new GridBagConstraints();
+        listaDespesasVariaveisC.ipadx=205;
+        listaDespesasVariaveisC.ipady=200;
+
 
 
 
@@ -109,10 +124,24 @@ public class GuiPrincipal extends JFrame {
         painelLista.setLayout(new GridBagLayout());
         fundo.add(painelLista,painelListaC);
 
-        lista = new JList<>(despesasFixas);
-        lista.setVisibleRowCount(5);
-        lista.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        painelLista.add(lista,listaC);
+        listaMetas = new JList<>(metas);
+        listaMetas.setToolTipText("Metas");
+        listaMetas.setVisibleRowCount(5);
+        listaMetas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        painelLista.add(listaMetas,listaMetasC);
+
+        listaDespesasFixas = new JList<>(despesasFixas);
+        listaDespesasFixas.setToolTipText("Despesas Fixas");
+        listaDespesasFixas.setVisibleRowCount(5);
+        listaDespesasFixas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        painelLista.add(listaDespesasFixas,listaDespesasFixasC);
+
+        listaDespesasVariaveis = new JList<>(despesasVariaveis);
+        listaDespesasVariaveis.setToolTipText("Despesas Variaveis");
+        listaDespesasVariaveis.setVisibleRowCount(5);
+        listaDespesasVariaveis.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        painelLista.add(listaDespesasVariaveis,listaDespesasVariaveisC);
+
 
 
     }

@@ -117,7 +117,6 @@ public class GuiLogin extends JFrame {
         fundo.setLayout(new GridBagLayout());
 
 
-
         fundo.add(menuLogin, menuLoginC);
 
         add(fundo,fundoC);
