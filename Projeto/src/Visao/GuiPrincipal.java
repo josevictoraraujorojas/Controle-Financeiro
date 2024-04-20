@@ -21,25 +21,34 @@ public class GuiPrincipal extends JFrame {
     GridBagConstraints painelGraficosC;
     JPanelComImagemDeFundo painelLista;
     GridBagConstraints painelListaC;
+    JPanel painelTexto;
+    GridBagConstraints painelTextoC;
     JFreeChart graficoPizza;
     ChartPanel painelGraficoPizza;
     GridBagConstraints painelGraficoPizzaC;
     JFreeChart graficoBarra;
     ChartPanel painelGraficoBarra;
     GridBagConstraints painelGraficoBarraC;
+    JLabel textoMetas;
+    GridBagConstraints textoMetasC;
+    JLabel textoDespesasFixas;
+    GridBagConstraints textoDespesasFixasC;
+    JLabel textoDespesasVariaveis;
+    GridBagConstraints textoDespesasVariaveisC;
+    JList listaMetas;
+    GridBagConstraints listaMetasC;
     JList listaDespesasFixas;
     GridBagConstraints listaDespesasFixasC;
     JList listaDespesasVariaveis;
     GridBagConstraints listaDespesasVariaveisC;
-    JList listaMetas;
-    GridBagConstraints listaMetasC;
     private static  final String[] metas = {"viajar","comprar um carro","guardar dinheiro"};
     private static  final String[] despesasFixas = {"conta de agua","conta de luz","conta supermercado"};
     private static  final String[] despesasVariaveis = {"comprei roupa","comprei um sorvete","comprei pizza"};
     public GuiPrincipal() {
         super("grafico");
         setLayout(new GridBagLayout());
-        Font fonte = new Font("Serif",Font.PLAIN,16);
+        Font fonte = new Font("Serif",Font.PLAIN,20);
+
 
         fundoC = new GridBagConstraints();
         fundoC.weighty = 1;
@@ -51,9 +60,23 @@ public class GuiPrincipal extends JFrame {
 
         painelListaC = new GridBagConstraints();
 
+
         painelGraficoPizzaC = new GridBagConstraints();
         painelGraficoPizzaC.ipadx=-200;
         painelGraficoPizzaC.ipady=-200;
+
+        painelTextoC = new GridBagConstraints();
+        painelTextoC.ipadx=721;
+        painelTextoC.gridwidth=GridBagConstraints.REMAINDER;
+
+        textoMetasC = new GridBagConstraints();
+        textoMetasC.weightx=1;
+
+        textoDespesasFixasC = new GridBagConstraints();
+        textoDespesasFixasC.weightx=1;
+
+        textoDespesasVariaveisC = new GridBagConstraints();
+        textoDespesasVariaveisC.weightx=1;
 
         painelGraficoBarraC = new GridBagConstraints();
         painelGraficoBarraC.ipadx=-200;
@@ -97,7 +120,7 @@ public class GuiPrincipal extends JFrame {
         graficoBarra = ChartFactory.createBarChart("Orcamento","tipos de gastos","quantidade em real",barra,PlotOrientation.HORIZONTAL,true,true,false);
         CategoryPlot plot = (CategoryPlot) graficoBarra.getPlot();
 
-        plot.getRangeAxis().setRange(0, 1400); // Altere 800 para o valor máximo desejado
+        plot.getRangeAxis().setRange(0, 1400); // Altere 1400 para o valor máximo desejado
 
         double limiteMetas = 0.2 * 1400; // Limite para metas
         ValueMarker markerMetas = new ValueMarker(limiteMetas);
@@ -119,6 +142,21 @@ public class GuiPrincipal extends JFrame {
 
         painelGraficoBarra = new ChartPanel(graficoBarra);
         painelGraficos.add(painelGraficoBarra,painelGraficoBarraC);
+
+        painelTexto = new JPanel();
+        painelTexto.setLayout(new GridBagLayout());
+        painelTexto.setBackground(Color.WHITE);
+        fundo.add(painelTexto,painelTextoC);
+
+        textoMetas = new JLabel("Metas");
+        painelTexto.add(textoMetas,textoMetasC);
+
+
+        textoDespesasFixas = new JLabel("Despesas Fixas");
+        painelTexto.add(textoDespesasFixas,textoDespesasFixasC);
+
+        textoDespesasVariaveis = new JLabel("Despesas Variaveis");
+        painelTexto.add(textoDespesasVariaveis,textoDespesasVariaveisC);
 
         painelLista = new JPanelComImagemDeFundo(getClass().getResource("Imagem\\fundo-quadrado-azul-para-cartaz-de-banner-anuncio-de-midia-social-evento-e-varios-trabalhos-de-design_7954-52368.jpg"));
         painelLista.setLayout(new GridBagLayout());
