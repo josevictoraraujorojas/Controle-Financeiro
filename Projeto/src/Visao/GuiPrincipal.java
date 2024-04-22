@@ -12,6 +12,9 @@ import org.jfree.data.general.DefaultPieDataset;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.ParseException;
 
 public class GuiPrincipal extends JFrame {
 
@@ -31,10 +34,16 @@ public class GuiPrincipal extends JFrame {
     GridBagConstraints painelGraficoBarraC;
     JLabel textoMetas;
     GridBagConstraints textoMetasC;
+    BotaoArredondado adicionarMetas;
+    GridBagConstraints adicionarMetasC;
     JLabel textoDespesasFixas;
     GridBagConstraints textoDespesasFixasC;
+    BotaoArredondado adicionarDespesasFixas;
+    GridBagConstraints adicionarDespesasFixasC;
     JLabel textoDespesasVariaveis;
     GridBagConstraints textoDespesasVariaveisC;
+    BotaoArredondado adicionarDespesasVariaveis;
+    GridBagConstraints adicionarDespesasVariaveisC;
     JList listaMetas;
     GridBagConstraints listaMetasC;
     JList listaDespesasFixas;
@@ -66,17 +75,23 @@ public class GuiPrincipal extends JFrame {
         painelGraficoPizzaC.ipady=-200;
 
         painelTextoC = new GridBagConstraints();
-        painelTextoC.ipadx=721;
+        painelTextoC.ipadx=422;
         painelTextoC.gridwidth=GridBagConstraints.REMAINDER;
 
         textoMetasC = new GridBagConstraints();
         textoMetasC.weightx=1;
 
+        adicionarMetasC =new GridBagConstraints();
+
         textoDespesasFixasC = new GridBagConstraints();
         textoDespesasFixasC.weightx=1;
 
+        adicionarDespesasFixasC = new GridBagConstraints();
+
         textoDespesasVariaveisC = new GridBagConstraints();
         textoDespesasVariaveisC.weightx=1;
+
+        adicionarDespesasVariaveisC = new GridBagConstraints();
 
         painelGraficoBarraC = new GridBagConstraints();
         painelGraficoBarraC.ipadx=-200;
@@ -151,12 +166,69 @@ public class GuiPrincipal extends JFrame {
         textoMetas = new JLabel("Metas");
         painelTexto.add(textoMetas,textoMetasC);
 
+        adicionarMetas = new BotaoArredondado();
+        adicionarMetas.setText("+");
+        adicionarMetas.setBackground(Color.WHITE);
+        adicionarMetas.setFont(fonte);
+        adicionarMetas.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                GuiAdicionarMetas telaAdicionar = null;
+                try {
+                    telaAdicionar = new GuiAdicionarMetas();
+                } catch (ParseException ex) {
+                    throw new RuntimeException(ex);
+                }
+                telaAdicionar.setVisible(true);
+                telaAdicionar.setSize(700,700);
+            }
+        });
+        painelTexto.add(adicionarMetas,adicionarMetasC);
 
         textoDespesasFixas = new JLabel("Despesas Fixas");
         painelTexto.add(textoDespesasFixas,textoDespesasFixasC);
 
+        adicionarDespesasFixas = new BotaoArredondado();
+        adicionarDespesasFixas.setText("+");
+        adicionarDespesasFixas.setBackground(Color.WHITE);
+        adicionarDespesasFixas.setFont(fonte);
+        adicionarDespesasFixas.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GuiAdicionarDespesasFixas telaAdicionar = null;
+                try {
+                    telaAdicionar = new GuiAdicionarDespesasFixas();
+                } catch (ParseException ex) {
+                    throw new RuntimeException(ex);
+                }
+                telaAdicionar.setVisible(true);
+                telaAdicionar.setSize(700,700);
+            }
+        });
+        painelTexto.add(adicionarDespesasFixas,adicionarDespesasFixasC);
+
         textoDespesasVariaveis = new JLabel("Despesas Variaveis");
         painelTexto.add(textoDespesasVariaveis,textoDespesasVariaveisC);
+
+        adicionarDespesasVariaveis = new BotaoArredondado();
+        adicionarDespesasVariaveis.setText("+");
+        adicionarDespesasVariaveis.setBackground(Color.WHITE);
+        adicionarDespesasVariaveis.setFont(fonte);
+        adicionarDespesasVariaveis.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GuiAdicionarDespesasVariaveis telaAdicionar = null;
+                try {
+                    telaAdicionar = new GuiAdicionarDespesasVariaveis();
+                } catch (ParseException ex) {
+                    throw new RuntimeException(ex);
+                }
+                telaAdicionar.setVisible(true);
+                telaAdicionar.setSize(750,750);
+            }
+        });
+        painelTexto.add(adicionarDespesasVariaveis,adicionarDespesasVariaveisC);
 
         painelLista = new JPanelComImagemDeFundo(getClass().getResource("Imagem\\fundo-quadrado-azul-para-cartaz-de-banner-anuncio-de-midia-social-evento-e-varios-trabalhos-de-design_7954-52368.jpg"));
         painelLista.setLayout(new GridBagLayout());
@@ -179,8 +251,6 @@ public class GuiPrincipal extends JFrame {
         listaDespesasVariaveis.setVisibleRowCount(5);
         listaDespesasVariaveis.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         painelLista.add(listaDespesasVariaveis,listaDespesasVariaveisC);
-
-
 
     }
 }
