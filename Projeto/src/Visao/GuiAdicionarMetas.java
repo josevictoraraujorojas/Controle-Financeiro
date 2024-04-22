@@ -14,15 +14,15 @@ public class GuiAdicionarMetas extends JFrame{
     GridBagConstraints categoriaC;
     JLabel textoDataInicial;
     GridBagConstraints textoDataInicialC;
-    JFormattedTextField dataInicial;
+    JFormattedTextFieldArredondado dataInicial;
     GridBagConstraints dataInicialC;
     JLabel textoDataFinal;
     GridBagConstraints textoDataFinalC;
-    JFormattedTextField dataFinal;
+    JFormattedTextFieldArredondado dataFinal;
     GridBagConstraints dataFinalC;
     JLabel textoDescricao;
     GridBagConstraints textoDescricaoC;
-    JTextArea descricao;
+    JTextAreaArredondado descricao;
     GridBagConstraints descricaoC;
     JLabel textoValorTotal;
     GridBagConstraints textoValorTotalC;
@@ -120,21 +120,23 @@ public class GuiAdicionarMetas extends JFrame{
         textoDataInicial = new JLabel("data inicial:");
         menuAdicionar.add(textoDataInicial,textoDataInicialC);
 
-        dataInicial = new JFormattedTextField(data);
+        dataInicial = new JFormattedTextFieldArredondado(data);
         dataInicial.setText("000000");
         menuAdicionar.add(dataInicial,dataInicialC);
 
         textoDataFinal = new JLabel("data final:");
         menuAdicionar.add(textoDataFinal,textoDataFinalC);
 
-        dataFinal = new JFormattedTextField(data);
+        dataFinal = new JFormattedTextFieldArredondado(data);
         dataFinal.setText("000000");
         menuAdicionar.add(dataFinal,dataFinalC);
 
         textoDescricao = new JLabel("Descricao:");
         menuAdicionar.add(textoDescricao,textoDescricaoC);
 
-        descricao = new JTextArea(2,10);
+        descricao = new JTextAreaArredondado();
+        descricao.setColumns(10);
+        descricao.setRows(2);
         menuAdicionar.add(descricao,descricaoC);
 
         textoValorTotal = new JLabel("valor total:");

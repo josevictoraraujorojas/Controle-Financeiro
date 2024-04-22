@@ -14,15 +14,15 @@ public class GuiAdicionarDespesasVariaveis extends JFrame {
     GridBagConstraints categoriaC;
     JLabel textoDataEmicao;
     GridBagConstraints textoDataEmicaoC;
-    JFormattedTextField dataEmicao;
+    JFormattedTextFieldArredondado dataEmicao;
     GridBagConstraints dataEmicaoC;
     JLabel textoDataVencimento;
     GridBagConstraints textoDataVencimentoC;
-    JFormattedTextField dataVencimento;
+    JFormattedTextFieldArredondado dataVencimento;
     GridBagConstraints dataVencimentoC;
     JLabel textoDescricao;
     GridBagConstraints textoDescricaoC;
-    JTextArea descricao;
+    JTextAreaArredondado descricao;
     GridBagConstraints descricaoC;
     JLabel textoValor;
     GridBagConstraints textoValorC;
@@ -55,7 +55,7 @@ public class GuiAdicionarDespesasVariaveis extends JFrame {
         textoCategoriaC = new GridBagConstraints();
 
         categoriaC = new GridBagConstraints();
-        categoriaC.ipadx=100;
+        categoriaC.ipadx=200;
         categoriaC.ipady=20;
         categoriaC.gridwidth=GridBagConstraints.REMAINDER;
 
@@ -63,54 +63,54 @@ public class GuiAdicionarDespesasVariaveis extends JFrame {
         textoDataEmicaoC.insets = new Insets(50, 0, 0, 0);
 
         dataEmicaoC = new GridBagConstraints();
-        dataEmicaoC.insets = new Insets(50, 0, 0, 0);
-        dataEmicaoC.ipadx=100;
+        dataEmicaoC.ipadx=200;
         dataEmicaoC.ipady=20;
+        dataEmicaoC.insets = new Insets(50, 0, 0, 0);
         dataEmicaoC.gridwidth=GridBagConstraints.REMAINDER;
 
         textoDataVencimentoC = new GridBagConstraints();
         textoDataVencimentoC.insets = new Insets(50, 0, 0, 0);
 
         dataVencimentoC = new GridBagConstraints();
-        dataVencimentoC.insets = new Insets(50, 0, 0, 0);
-        dataVencimentoC.ipadx=100;
+        dataVencimentoC.ipadx=200;
         dataVencimentoC.ipady=20;
+        dataVencimentoC.insets = new Insets(50, 0, 0, 0);
         dataVencimentoC.gridwidth=GridBagConstraints.REMAINDER;
 
         textoDescricaoC = new GridBagConstraints();
         textoDescricaoC.insets = new Insets(50, 0, 0, 0);
 
         descricaoC = new GridBagConstraints();
-        descricaoC.insets = new Insets(50, 0, 0, 0);
-        descricaoC.ipadx=100;
+        descricaoC.ipadx=200;
         descricaoC.ipady=20;
+        descricaoC.insets = new Insets(50, 0, 0, 0);
         descricaoC.gridwidth=GridBagConstraints.REMAINDER;
 
         textoValorC = new GridBagConstraints();
         textoValorC.insets = new Insets(50, 0, 0, 0);
 
         valorC = new GridBagConstraints();
-        valorC.insets = new Insets(50, 0, 0, 0);
-        valorC.ipadx=100;
+        valorC.ipadx=200;
         valorC.ipady=20;
+        valorC.insets = new Insets(50, 0, 0, 0);
         valorC.gridwidth=GridBagConstraints.REMAINDER;
 
         textoQuantidadeParcelasC = new GridBagConstraints();
         textoQuantidadeParcelasC.insets = new Insets(50, 0, 0, 0);
 
         quantidadeParcelasC = new GridBagConstraints();
-        quantidadeParcelasC.insets = new Insets(50, 0, 0, 0);
-        quantidadeParcelasC.ipadx=100;
+        quantidadeParcelasC.ipadx=200;
         quantidadeParcelasC.ipady=20;
+        quantidadeParcelasC.insets = new Insets(50, 0, 0, 0);
         quantidadeParcelasC.gridwidth=GridBagConstraints.REMAINDER;
 
         textoRecorrenciaC = new GridBagConstraints();
         textoRecorrenciaC.insets = new Insets(50, 0, 0, 0);
 
         recorrenciaC = new GridBagConstraints();
-        recorrenciaC.insets = new Insets(50, 0, 0, 0);
-        recorrenciaC.ipadx=100;
+        recorrenciaC.ipadx=200;
         recorrenciaC.ipady=20;
+        recorrenciaC.insets = new Insets(50, 0, 0, 0);
         recorrenciaC.gridwidth=GridBagConstraints.REMAINDER;
 
         adicionarC = new GridBagConstraints();
@@ -133,21 +133,23 @@ public class GuiAdicionarDespesasVariaveis extends JFrame {
         textoDataEmicao = new JLabel("data emicao:");
         menuAdicionar.add(textoDataEmicao,textoDataEmicaoC);
 
-        dataEmicao = new JFormattedTextField(data);
+        dataEmicao = new JFormattedTextFieldArredondado(data);
         dataEmicao.setText("000000");
         menuAdicionar.add(dataEmicao,dataEmicaoC);
 
         textoDataVencimento = new JLabel("data vencimento:");
         menuAdicionar.add(textoDataVencimento,textoDataVencimentoC);
 
-        dataVencimento= new JFormattedTextField(data);
+        dataVencimento= new JFormattedTextFieldArredondado(data);
         dataVencimento.setText("000000");
         menuAdicionar.add(dataVencimento,dataVencimentoC);
 
         textoDescricao = new JLabel("Descricao:");
         menuAdicionar.add(textoDescricao,textoDescricaoC);
 
-        descricao = new JTextArea(2,10);
+        descricao = new JTextAreaArredondado();
+        descricao.setColumns(10);
+        descricao.setRows(2);
         menuAdicionar.add(descricao,descricaoC);
 
         textoValor = new JLabel("valor mensal:");
