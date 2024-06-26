@@ -49,6 +49,16 @@ Onde poderá definir um limite para as despesas em cada categoria, podendo ser p
 
  <img src="Diagrama de classe Controle-Financeiro .jpg" alt="Diagrama" >
 
+## Diagrama entidade relacionamento:
+
+ <img src="Diagrama entidade e relacionamento.jpg" alt="Diagrama" >
+
+## Biblioteca JFreeChart:
+
+Foi usada no projeto para adicionar grafico de barras e de pizza, assim podendo ter uma melhor visualização dos gastos.
+
+
+
  
 
  
