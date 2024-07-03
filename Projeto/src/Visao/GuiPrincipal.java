@@ -11,6 +11,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,18 +21,27 @@ public class GuiPrincipal extends JFrame {
 
     JPanelComImagemDeFundo fundo;
     GridBagConstraints fundoC;
+    JPanel menu;
+    GridBagConstraints menuC;
+
+    BotaoArredondado principal;
+    GridBagConstraints principalC;
+    BotaoArredondado perfil;
+    GridBagConstraints perfilC;
+    BotaoArredondado sair;
+    GridBagConstraints sairC;
+    JPanel telaprincipal;
+    GridBagConstraints telaprincipalC;
     JPanelComImagemDeFundo painelGraficos;
     GridBagConstraints painelGraficosC;
-    JPanelComImagemDeFundo painelLista;
-    GridBagConstraints painelListaC;
-    JPanel painelTexto;
-    GridBagConstraints painelTextoC;
     JFreeChart graficoPizza;
     ChartPanel painelGraficoPizza;
     GridBagConstraints painelGraficoPizzaC;
     JFreeChart graficoBarra;
     ChartPanel painelGraficoBarra;
     GridBagConstraints painelGraficoBarraC;
+    JPanel painelTexto;
+    GridBagConstraints painelTextoC;
     JLabel textoMetas;
     GridBagConstraints textoMetasC;
     BotaoArredondado adicionarMetas;
@@ -44,6 +54,8 @@ public class GuiPrincipal extends JFrame {
     GridBagConstraints textoDespesasVariaveisC;
     BotaoArredondado adicionarDespesasVariaveis;
     GridBagConstraints adicionarDespesasVariaveisC;
+    JPanelComImagemDeFundo painelLista;
+    GridBagConstraints painelListaC;
     JList listaMetas;
     GridBagConstraints listaMetasC;
     JList listaDespesasFixas;
@@ -57,6 +69,7 @@ public class GuiPrincipal extends JFrame {
         super("grafico");
         setLayout(new GridBagLayout());
         Font fonte = new Font("Serif",Font.PLAIN,20);
+        Border borda = BorderFactory.createLineBorder(Color.black, 2);
 
 
         fundoC = new GridBagConstraints();
@@ -64,49 +77,66 @@ public class GuiPrincipal extends JFrame {
         fundoC.weightx = 1;
         fundoC.fill = GridBagConstraints.BOTH;
 
+        menuC = new GridBagConstraints();
+        menuC.ipadx=50;
+        menuC.ipady=637;
+        menuC.gridheight=GridBagConstraints.REMAINDER;
+
+
+        principalC = new GridBagConstraints();
+        principalC.gridwidth=GridBagConstraints.REMAINDER;
+
+        perfilC = new GridBagConstraints();
+        perfilC.gridwidth=GridBagConstraints.REMAINDER;
+        perfilC.weighty=1;
+        perfilC.anchor=GridBagConstraints.NORTH;
+
+        sairC = new GridBagConstraints();
+        sairC.gridwidth=GridBagConstraints.REMAINDER;
+
         painelGraficosC = new GridBagConstraints();
         painelGraficosC.gridwidth=GridBagConstraints.REMAINDER;
 
-        painelListaC = new GridBagConstraints();
-
-
         painelGraficoPizzaC = new GridBagConstraints();
-        painelGraficoPizzaC.ipadx=-200;
-        painelGraficoPizzaC.ipady=-200;
+        painelGraficoPizzaC.ipadx=49;
+        painelGraficoPizzaC.ipady=10;
+
+        painelGraficoBarraC = new GridBagConstraints();
+        painelGraficoBarraC.ipadx=49;
+        painelGraficoBarraC.ipady=10;
+
 
         painelTextoC = new GridBagConstraints();
-        painelTextoC.ipadx=422;
+        painelTextoC.ipadx=830;
         painelTextoC.gridwidth=GridBagConstraints.REMAINDER;
 
         textoMetasC = new GridBagConstraints();
         textoMetasC.weightx=1;
 
-        adicionarMetasC =new GridBagConstraints();
-
         textoDespesasFixasC = new GridBagConstraints();
         textoDespesasFixasC.weightx=1;
-
-        adicionarDespesasFixasC = new GridBagConstraints();
 
         textoDespesasVariaveisC = new GridBagConstraints();
         textoDespesasVariaveisC.weightx=1;
 
+        adicionarMetasC =new GridBagConstraints();
+
+        adicionarDespesasFixasC = new GridBagConstraints();
+
         adicionarDespesasVariaveisC = new GridBagConstraints();
 
-        painelGraficoBarraC = new GridBagConstraints();
-        painelGraficoBarraC.ipadx=-200;
-        painelGraficoBarraC.ipady=-200;
+        painelListaC = new GridBagConstraints();
 
         listaMetasC = new GridBagConstraints();
-        listaMetasC.ipadx=206;
+        listaMetasC.ipadx=333;
         listaMetasC.ipady=200;
 
         listaDespesasFixasC = new GridBagConstraints();
-        listaDespesasFixasC.ipadx=206;
+        listaDespesasFixasC.ipadx=333;
         listaDespesasFixasC.ipady=200;
 
         listaDespesasVariaveisC = new GridBagConstraints();
-        listaDespesasVariaveisC.ipadx=205;
+        listaDespesasVariaveisC.ipadx=331;
         listaDespesasVariaveisC.ipady=200;
 
 
@@ -116,9 +146,35 @@ public class GuiPrincipal extends JFrame {
         fundo.setLayout(new GridBagLayout());
         add(fundo,fundoC);
 
+        menu = new JPanel();
+        menu.setBackground(Color.WHITE);
+        menu.setLayout(new GridBagLayout());
+        menu.setBorder(borda);
+        fundo.add(menu,menuC);
+
+        principal = new BotaoArredondado();
+        principal.setText("principal");
+        principal.setBackground(Color.cyan);
+        menu.add(principal,principalC);
+
+        perfil = new BotaoArredondado();
+        perfil.setText("perfil");
+        perfil.setBackground(Color.cyan);
+        menu.add(perfil,perfilC);
+
+        sair = new BotaoArredondado();
+        sair.setText("sair");
+        sair.setBackground(Color.red);
+        menu.add(sair,sairC);
+
+        telaprincipal = new JPanel();
+        telaprincipal.setLayout(new GridBagLayout());
+        telaprincipal.setBorder(borda);
+        fundo.add(telaprincipal,telaprincipalC);
+
         painelGraficos = new JPanelComImagemDeFundo(getClass().getResource("Imagem\\fundo-quadrado-azul-para-cartaz-de-banner-anuncio-de-midia-social-evento-e-varios-trabalhos-de-design_7954-52368.jpg"));
         painelGraficos.setLayout(new GridBagLayout());
-        fundo.add(painelGraficos,painelGraficosC);
+        telaprincipal.add(painelGraficos,painelGraficosC);
 
         //grafico limite de orcamento em formato de pizza
         DefaultPieDataset pizza = new DefaultPieDataset();
@@ -167,9 +223,10 @@ public class GuiPrincipal extends JFrame {
         painelTexto = new JPanel();
         painelTexto.setLayout(new GridBagLayout());
         painelTexto.setBackground(Color.WHITE);
-        fundo.add(painelTexto,painelTextoC);
+        telaprincipal.add(painelTexto,painelTextoC);
 
         textoMetas = new JLabel("Metas");
+        textoMetas.setFont(fonte);
         painelTexto.add(textoMetas,textoMetasC);
 
         adicionarMetas = new BotaoArredondado();
@@ -193,6 +250,7 @@ public class GuiPrincipal extends JFrame {
         painelTexto.add(adicionarMetas,adicionarMetasC);
 
         textoDespesasFixas = new JLabel("Despesas Fixas");
+        textoDespesasFixas.setFont(fonte);
         painelTexto.add(textoDespesasFixas,textoDespesasFixasC);
 
         adicionarDespesasFixas = new BotaoArredondado();
@@ -215,6 +273,7 @@ public class GuiPrincipal extends JFrame {
         painelTexto.add(adicionarDespesasFixas,adicionarDespesasFixasC);
 
         textoDespesasVariaveis = new JLabel("Despesas Variaveis");
+        textoDespesasVariaveis.setFont(fonte);
         painelTexto.add(textoDespesasVariaveis,textoDespesasVariaveisC);
 
         adicionarDespesasVariaveis = new BotaoArredondado();
@@ -238,21 +297,24 @@ public class GuiPrincipal extends JFrame {
 
         painelLista = new JPanelComImagemDeFundo(getClass().getResource("Imagem\\fundo-quadrado-azul-para-cartaz-de-banner-anuncio-de-midia-social-evento-e-varios-trabalhos-de-design_7954-52368.jpg"));
         painelLista.setLayout(new GridBagLayout());
-        fundo.add(painelLista,painelListaC);
+        telaprincipal.add(painelLista,painelListaC);
 
         listaMetas = new JList<>(metas);
+        listaMetas.setFont(fonte);
         listaMetas.setToolTipText("Metas");
         listaMetas.setVisibleRowCount(5);
         listaMetas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         painelLista.add(listaMetas,listaMetasC);
 
         listaDespesasFixas = new JList<>(despesasFixas);
+        listaDespesasFixas.setFont(fonte);
         listaDespesasFixas.setToolTipText("Despesas Fixas");
         listaDespesasFixas.setVisibleRowCount(5);
         listaDespesasFixas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         painelLista.add(listaDespesasFixas,listaDespesasFixasC);
 
         listaDespesasVariaveis = new JList<>(despesasVariaveis);
+        listaDespesasVariaveis.setFont(fonte);
         listaDespesasVariaveis.setToolTipText("Despesas Variaveis");
         listaDespesasVariaveis.setVisibleRowCount(5);
         listaDespesasVariaveis.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
