@@ -12,7 +12,7 @@ public class Cadastro extends JFrame {
 	GridBagConstraints fundoC;
 	private JPanelComImagemDeFundo imagem;
 	GridBagConstraints imagemC;
-	private JPanelComImagemDeFundo menuCadastro;
+	JPanelComImagemDeFundo menuCadastro;
 	GridBagConstraints menuCadastroC;
 
 	JLabel textoCadastro;
@@ -39,31 +39,8 @@ public class Cadastro extends JFrame {
 	GridBagConstraints cancelarC;
 
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Cadastro frame = new Cadastro();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
 	public Cadastro() {
-
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\joaov\\Downloads\\imagem_de_fundo.jpeg"));
 		setLayout(new GridBagLayout());
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 2020, 2020);
 		Font fonte = new Font("Serif",Font.PLAIN,20);
 
 		fundoC = new GridBagConstraints();
@@ -72,7 +49,7 @@ public class Cadastro extends JFrame {
 		fundoC.fill = GridBagConstraints.BOTH;
 
 		imagemC = new GridBagConstraints();
-		imagemC.ipady = 682;
+		imagemC.ipady = 758;
 		imagemC.ipadx = 400;
 
 

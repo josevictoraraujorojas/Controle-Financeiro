@@ -3,7 +3,6 @@ package Visao;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.annotations.CategoryTextAnnotation;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.ValueMarker;
@@ -16,6 +15,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
+import java.util.Objects;
 
 public class GuiPrincipal extends JFrame {
 
@@ -23,7 +23,6 @@ public class GuiPrincipal extends JFrame {
     GridBagConstraints fundoC;
     JPanel menu;
     GridBagConstraints menuC;
-
     BotaoArredondado principal;
     GridBagConstraints principalC;
     BotaoArredondado perfil;
@@ -32,7 +31,7 @@ public class GuiPrincipal extends JFrame {
     GridBagConstraints sairC;
     JPanel telaprincipal;
     GridBagConstraints telaprincipalC;
-    JPanelComImagemDeFundo painelGraficos;
+    JPanel painelGraficos;
     GridBagConstraints painelGraficosC;
     JFreeChart graficoPizza;
     ChartPanel painelGraficoPizza;
@@ -54,7 +53,7 @@ public class GuiPrincipal extends JFrame {
     GridBagConstraints textoDespesasVariaveisC;
     BotaoArredondado adicionarDespesasVariaveis;
     GridBagConstraints adicionarDespesasVariaveisC;
-    JPanelComImagemDeFundo painelLista;
+    JPanel painelLista;
     GridBagConstraints painelListaC;
     JList listaMetas;
     GridBagConstraints listaMetasC;
@@ -62,9 +61,11 @@ public class GuiPrincipal extends JFrame {
     GridBagConstraints listaDespesasFixasC;
     JList listaDespesasVariaveis;
     GridBagConstraints listaDespesasVariaveisC;
+
     private static  final String[] metas = {"viajar","comprar um carro","guardar dinheiro"};
     private static  final String[] despesasFixas = {"conta de agua","conta de luz","conta supermercado"};
     private static  final String[] despesasVariaveis = {"comprei roupa","comprei um sorvete","comprei pizza"};
+
     public GuiPrincipal() {
         super("grafico");
         setLayout(new GridBagLayout());
@@ -142,12 +143,12 @@ public class GuiPrincipal extends JFrame {
 
 
 
-        fundo = new JPanelComImagemDeFundo(getClass().getResource("Imagem\\contas-a-pagar-e-receber.jpeg"));
+        fundo = new JPanelComImagemDeFundo(Objects.requireNonNull(getClass().getResource("Imagem\\contas-a-pagar-e-receber.jpeg")));
         fundo.setLayout(new GridBagLayout());
         add(fundo,fundoC);
 
         menu = new JPanel();
-        menu.setBackground(Color.WHITE);
+        menu.setBackground(Color.white);
         menu.setLayout(new GridBagLayout());
         menu.setBorder(borda);
         fundo.add(menu,menuC);
@@ -172,7 +173,7 @@ public class GuiPrincipal extends JFrame {
         telaprincipal.setBorder(borda);
         fundo.add(telaprincipal,telaprincipalC);
 
-        painelGraficos = new JPanelComImagemDeFundo(getClass().getResource("Imagem\\fundo-quadrado-azul-para-cartaz-de-banner-anuncio-de-midia-social-evento-e-varios-trabalhos-de-design_7954-52368.jpg"));
+        painelGraficos = new JPanel();
         painelGraficos.setLayout(new GridBagLayout());
         telaprincipal.add(painelGraficos,painelGraficosC);
 
@@ -237,13 +238,14 @@ public class GuiPrincipal extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                GuiAdicionarMetas telaAdicionar = null;
+                GuiAdicionarMetas telaAdicionar;
                 try {
                     telaAdicionar = new GuiAdicionarMetas();
                 } catch (ParseException ex) {
                     throw new RuntimeException(ex);
                 }
                 telaAdicionar.setVisible(true);
+                telaAdicionar.setDefaultCloseOperation(EXIT_ON_CLOSE);
                 telaAdicionar.setSize(700,700);
             }
         });
@@ -260,7 +262,7 @@ public class GuiPrincipal extends JFrame {
         adicionarDespesasFixas.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                GuiAdicionarDespesasFixas telaAdicionar = null;
+                GuiAdicionarDespesasFixas telaAdicionar;
                 try {
                     telaAdicionar = new GuiAdicionarDespesasFixas();
                 } catch (ParseException ex) {
@@ -283,7 +285,7 @@ public class GuiPrincipal extends JFrame {
         adicionarDespesasVariaveis.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                GuiAdicionarDespesasVariaveis telaAdicionar = null;
+                GuiAdicionarDespesasVariaveis telaAdicionar;
                 try {
                     telaAdicionar = new GuiAdicionarDespesasVariaveis();
                 } catch (ParseException ex) {
@@ -295,7 +297,7 @@ public class GuiPrincipal extends JFrame {
         });
         painelTexto.add(adicionarDespesasVariaveis,adicionarDespesasVariaveisC);
 
-        painelLista = new JPanelComImagemDeFundo(getClass().getResource("Imagem\\fundo-quadrado-azul-para-cartaz-de-banner-anuncio-de-midia-social-evento-e-varios-trabalhos-de-design_7954-52368.jpg"));
+        painelLista = new JPanel();
         painelLista.setLayout(new GridBagLayout());
         telaprincipal.add(painelLista,painelListaC);
 

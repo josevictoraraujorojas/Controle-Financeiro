@@ -32,19 +32,6 @@ public class CadastroOrcamento extends JFrame {
     BotaoArredondado cancelar;
     GridBagConstraints cancelarC;
 
-
-    /**
-     * Launch the application.
-     */
-    public static void main(String[] args) {
-        CadastroOrcamento janela =  new CadastroOrcamento();
-        janela.setSize(2040,2040);
-        janela.setVisible(true);
-    }
-
-    /**
-     * Create the frame.
-     */
     public CadastroOrcamento() {
 
         setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\joaov\\Downloads\\imagem_de_fundo.jpeg"));
@@ -59,13 +46,13 @@ public class CadastroOrcamento extends JFrame {
         fundoC.fill = GridBagConstraints.BOTH;
 
         imagemC = new GridBagConstraints();
-        imagemC.ipady = 682;
+        imagemC.ipady = 758;
         imagemC.ipadx = 400;
 
 
         menuCadastroC = new GridBagConstraints();
-        menuCadastroC.ipady = 250;
-        menuCadastroC.ipadx = 250;
+        menuCadastroC.ipady = 350;
+        menuCadastroC.ipadx = 245;
 
         textoOrcamentoC = new GridBagConstraints();
         textoOrcamentoC.gridwidth=GridBagConstraints.REMAINDER;
