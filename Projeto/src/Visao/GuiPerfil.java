@@ -169,12 +169,12 @@ public class GuiPerfil extends JFrame {
 
 
 
-            fundo = new JPanelComImagemDeFundo(getClass().getResource("Imagem\\contas-a-pagar-e-receber.jpeg"));
+            fundo = new JPanelComImagemDeFundo(getClass().getResource("Imagem\\fundo.jpg"));
             fundo.setLayout(new GridBagLayout());
             add(fundo, fundoC);
 
             menu = new JPanel();
-            menu.setBackground(Color.white);
+            menu.setBackground(Color.decode("#82C2D4"));
             menu.setLayout(new GridBagLayout());
             menu.setBorder(borda);
             fundo.add(menu, menuC);

@@ -90,7 +90,7 @@ public class CadastroOrcamento extends JFrame {
         cancelarC = new GridBagConstraints();
         cancelarC.insets = new Insets(50, 50, 0, 0);
 
-        fundo = new JPanelComImagemDeFundo(getClass().getResource("Imagem\\contas-a-pagar-e-receber.jpeg"));
+        fundo = new JPanelComImagemDeFundo(getClass().getResource("Imagem\\fundo.jpg"));
         fundo.setLayout(new GridBagLayout());
         add(fundo, fundoC);
 

@@ -113,7 +113,7 @@ public class GuiLogin extends JFrame {
         menuLogin.add(registrar,registreC);
 
 
-        fundo = new JPanelComImagemDeFundo(getClass().getResource("Imagem\\contas-a-pagar-e-receber.jpeg"));
+        fundo = new JPanelComImagemDeFundo(getClass().getResource("Imagem\\fundo.jpg"));
         fundo.setLayout(new GridBagLayout());
 
 

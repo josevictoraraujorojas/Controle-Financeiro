@@ -143,7 +143,7 @@ public class GuiPrincipal extends JFrame {
 
 
 
-        fundo = new JPanelComImagemDeFundo(Objects.requireNonNull(getClass().getResource("Imagem\\contas-a-pagar-e-receber.jpeg")));
+        fundo = new JPanelComImagemDeFundo(Objects.requireNonNull(getClass().getResource("Imagem\\fundo.jpg")));
         fundo.setLayout(new GridBagLayout());
         add(fundo,fundoC);
 
