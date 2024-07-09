@@ -39,7 +39,7 @@ E as metas que seriam:
 - Economizar para algum gasto futuro
 - Reserva de emergência
 
-## O Orçamento:
+## A carteira:
 
 Onde poderá definir um limite para as despesas em cada categoria, podendo ser personalizado ou aplicada a regra do 50/30/20, onde 50% do seu saldo disponível seria utilizado para gastos fixos, 30% em gastos variáveis e 20% em investimentos, reserva de emergência ou metas.
 
