@@ -51,7 +51,7 @@ Onde poderá definir um limite para as despesas em cada categoria, podendo ser p
 
 ## Diagrama entidade relacionamento:
 
- <img src="Diagrama entidade e relacionamento.jpg" alt="Diagrama" >
+ <img src="Diagrama entidade e relacionamento .jpg" alt="Diagrama" >
 
 ## Biblioteca JFreeChart:
 
