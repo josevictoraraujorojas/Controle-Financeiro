@@ -6,12 +6,12 @@ import javax.swing.border.Border;
 import java.awt.*;
 
 public class GuiLogin extends JFrame {
-    JTextFieldArredondado user;
-    GridBagConstraints userC = new GridBagConstraints();
+    JTextFieldArredondado login;
+    GridBagConstraints loginC = new GridBagConstraints();
     JPasswordArredondado senha;
     GridBagConstraints senhaC = new GridBagConstraints();
-    BotaoArredondado login;
-    GridBagConstraints loginC = new GridBagConstraints();
+    BotaoArredondado botaoLogin;
+    GridBagConstraints botaoLoginC = new GridBagConstraints();
     BotaoArredondado registrar;
     GridBagConstraints registreC = new GridBagConstraints();
     JLabel  textoUser;
@@ -44,9 +44,9 @@ public class GuiLogin extends JFrame {
         menuLoginC.ipady=250;
         menuLoginC.ipadx=250;
 
-        userC = new GridBagConstraints();
-        userC.ipadx=100;
-        userC.ipady=20;
+        loginC = new GridBagConstraints();
+        loginC.ipadx=100;
+        loginC.ipady=20;
 
         userTextoC = new GridBagConstraints();
 
@@ -58,10 +58,11 @@ public class GuiLogin extends JFrame {
         senhaC.ipady=20;
         senhaC.gridy=2;
 
-        loginC = new GridBagConstraints();
-        loginC.ipady=42;
-        loginC.ipadx=20;
-        loginC.gridheight=3;
+        botaoLoginC = new GridBagConstraints();
+        botaoLoginC.ipady=42;
+        botaoLoginC.ipadx=20;
+        botaoLoginC.insets=new Insets(0,20,0,0);
+        botaoLoginC.gridheight=3;
 
         registreC = new GridBagConstraints();
         registreC.gridy=3;
@@ -70,11 +71,11 @@ public class GuiLogin extends JFrame {
         registreC.gridwidth=GridBagConstraints.REMAINDER;
 
 
-        user = new JTextFieldArredondado();
-        user.setText("user");
-        user.setColumns(10);
-        user.setFont(fonte);
-        textoUser = new JLabel("User:");
+        login = new JTextFieldArredondado();
+        login.setText("Login");
+        login.setColumns(10);
+        login.setFont(fonte);
+        textoUser = new JLabel("Login:");
         textoUser.setFont(fonte);
 
 
@@ -88,10 +89,10 @@ public class GuiLogin extends JFrame {
 
 
 
-        login = new BotaoArredondado();
+        botaoLogin = new BotaoArredondado();
         Icon icone = new ImageIcon(getClass().getResource("Imagem\\Icons8-Windows-8-User-Interface-Login.512 (1) (1).png"));
-        login.setIcon(icone);
-        login.setBackground(Color.white);
+        botaoLogin.setIcon(icone);
+        botaoLogin.setBackground(Color.white);
 
 
 
@@ -106,10 +107,10 @@ public class GuiLogin extends JFrame {
         menuLogin.setBorder(borda);
 
         menuLogin.add(textoUser,userTextoC);
-        menuLogin.add(user,userC);
+        menuLogin.add(login,loginC);
         menuLogin.add(textoSenha,senhaTextoC);
         menuLogin.add(senha,senhaC);
-        menuLogin.add(login,loginC);
+        menuLogin.add(botaoLogin,botaoLoginC);
         menuLogin.add(registrar,registreC);
 
 
