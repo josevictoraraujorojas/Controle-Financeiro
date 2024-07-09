@@ -115,6 +115,7 @@ public class GuiAdicionarMetas extends JFrame{
 
         categoria = new JTextFieldArredondado();
         categoria.setColumns(10);
+        categoria.setBackground(Color.white);
         menuAdicionar.add(categoria,categoriaC);
 
         textoDataInicial = new JLabel("data inicial:");
@@ -122,6 +123,7 @@ public class GuiAdicionarMetas extends JFrame{
 
         dataInicial = new JFormattedTextFieldArredondado(data);
         dataInicial.setText("000000");
+        dataInicial.setBackground(Color.white);
         menuAdicionar.add(dataInicial,dataInicialC);
 
         textoDataFinal = new JLabel("data final:");
@@ -129,6 +131,7 @@ public class GuiAdicionarMetas extends JFrame{
 
         dataFinal = new JFormattedTextFieldArredondado(data);
         dataFinal.setText("000000");
+        dataFinal.setBackground(Color.white);
         menuAdicionar.add(dataFinal,dataFinalC);
 
         textoDescricao = new JLabel("Descricao:");
@@ -137,6 +140,7 @@ public class GuiAdicionarMetas extends JFrame{
         descricao = new JTextAreaArredondado();
         descricao.setColumns(10);
         descricao.setRows(2);
+        descricao.setBackground(Color.white);
         menuAdicionar.add(descricao,descricaoC);
 
         textoValorTotal = new JLabel("valor total:");
@@ -144,6 +148,7 @@ public class GuiAdicionarMetas extends JFrame{
 
         valorTotal = new JTextFieldArredondado();
         valorTotal.setColumns(10);
+        valorTotal.setBackground(Color.white);
         menuAdicionar.add(valorTotal,valorTotalC);
 
         textoRecorrencia = new JLabel("recorrencia:");
@@ -151,6 +156,7 @@ public class GuiAdicionarMetas extends JFrame{
 
         recorrencia = new JTextFieldArredondado();
         recorrencia.setColumns(10);
+        recorrencia.setBackground(Color.white);
         menuAdicionar.add(recorrencia,recorrenciaC);
 
         adicionar = new BotaoArredondado();

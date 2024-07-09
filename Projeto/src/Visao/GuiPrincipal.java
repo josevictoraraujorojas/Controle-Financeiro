@@ -12,9 +12,6 @@ import org.jfree.data.general.DefaultPieDataset;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.text.ParseException;
 import java.util.Objects;
 
 public class GuiPrincipal extends JFrame {
@@ -177,12 +174,12 @@ public class GuiPrincipal extends JFrame {
         painelGraficos.setLayout(new GridBagLayout());
         telaprincipal.add(painelGraficos,painelGraficosC);
 
-        //grafico limite de orcamento em formato de pizza
+        //grafico limite da carteira em formato de pizza
         DefaultPieDataset pizza = new DefaultPieDataset();
         pizza.setValue("metas",0.2*1400);
         pizza.setValue("despesas fixas",0.5*1400);
         pizza.setValue("despesas variaveis",0.3*1400);
-        graficoPizza = ChartFactory.createPieChart("limite do orcamento",pizza,true,true,false);
+        graficoPizza = ChartFactory.createPieChart("Limite Da Carteira",pizza,true,true,false);
         painelGraficoPizza = new ChartPanel(graficoPizza);
         painelGraficos.add(painelGraficoPizza,painelGraficoPizzaC);
 
@@ -191,7 +188,7 @@ public class GuiPrincipal extends JFrame {
         barra.addValue( 200, "Metas","metas");
         barra.addValue( 600, "despesas fixas","despesas fixas" );
         barra.addValue( 400, "despesas variaveis","despesas variaveis" );
-        graficoBarra = ChartFactory.createBarChart("Orcamento","tipos de gastos","quantidade em real",barra,PlotOrientation.HORIZONTAL,true,true,false);
+        graficoBarra = ChartFactory.createBarChart("Carteira","tipos de gastos","quantidade em real",barra,PlotOrientation.HORIZONTAL,true,true,false);
         CategoryPlot plot = (CategoryPlot) graficoBarra.getPlot();
 
         // aumenta o grafico de barra para o valor total
@@ -234,21 +231,6 @@ public class GuiPrincipal extends JFrame {
         adicionarMetas.setText("+");
         adicionarMetas.setBackground(Color.WHITE);
         adicionarMetas.setFont(fonte);
-        adicionarMetas.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                GuiAdicionarMetas telaAdicionar;
-                try {
-                    telaAdicionar = new GuiAdicionarMetas();
-                } catch (ParseException ex) {
-                    throw new RuntimeException(ex);
-                }
-                telaAdicionar.setVisible(true);
-                telaAdicionar.setDefaultCloseOperation(EXIT_ON_CLOSE);
-                telaAdicionar.setSize(700,700);
-            }
-        });
         painelTexto.add(adicionarMetas,adicionarMetasC);
 
         textoDespesasFixas = new JLabel("Despesas Fixas");
@@ -259,19 +241,6 @@ public class GuiPrincipal extends JFrame {
         adicionarDespesasFixas.setText("+");
         adicionarDespesasFixas.setBackground(Color.WHITE);
         adicionarDespesasFixas.setFont(fonte);
-        adicionarDespesasFixas.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                GuiAdicionarDespesasFixas telaAdicionar;
-                try {
-                    telaAdicionar = new GuiAdicionarDespesasFixas();
-                } catch (ParseException ex) {
-                    throw new RuntimeException(ex);
-                }
-                telaAdicionar.setVisible(true);
-                telaAdicionar.setSize(700,700);
-            }
-        });
         painelTexto.add(adicionarDespesasFixas,adicionarDespesasFixasC);
 
         textoDespesasVariaveis = new JLabel("Despesas Variaveis");
@@ -282,19 +251,6 @@ public class GuiPrincipal extends JFrame {
         adicionarDespesasVariaveis.setText("+");
         adicionarDespesasVariaveis.setBackground(Color.WHITE);
         adicionarDespesasVariaveis.setFont(fonte);
-        adicionarDespesasVariaveis.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                GuiAdicionarDespesasVariaveis telaAdicionar;
-                try {
-                    telaAdicionar = new GuiAdicionarDespesasVariaveis();
-                } catch (ParseException ex) {
-                    throw new RuntimeException(ex);
-                }
-                telaAdicionar.setVisible(true);
-                telaAdicionar.setSize(750,750);
-            }
-        });
         painelTexto.add(adicionarDespesasVariaveis,adicionarDespesasVariaveisC);
 
         painelLista = new JPanel();

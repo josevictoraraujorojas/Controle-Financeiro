@@ -5,9 +5,8 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.Border;
 
-public class Cadastro extends JFrame {
+public class GuiCadastro extends JFrame {
 
-	private static final long serialVersionUID = 1L;
 	private JPanelComImagemDeFundo fundo;
 	GridBagConstraints fundoC;
 	private JPanelComImagemDeFundo imagem;
@@ -17,10 +16,10 @@ public class Cadastro extends JFrame {
 
 	JLabel textoCadastro;
 	GridBagConstraints textoCadastroC;
-	JLabel textoNome;
-	GridBagConstraints textoNomeC;
-	private JTextFieldArredondado nome;
-	GridBagConstraints nomeC;
+	JLabel textoLogin;
+	GridBagConstraints textoLoginC;
+	private JTextFieldArredondado login;
+	GridBagConstraints loginC;
 	JLabel textoSenha;
 	GridBagConstraints textoSenhaC;
 	private JPasswordArredondado senha;
@@ -39,7 +38,7 @@ public class Cadastro extends JFrame {
 	GridBagConstraints cancelarC;
 
 
-	public Cadastro() {
+	public GuiCadastro() {
 		setLayout(new GridBagLayout());
 		Font fonte = new Font("Serif",Font.PLAIN,20);
 
@@ -60,14 +59,14 @@ public class Cadastro extends JFrame {
 		textoCadastroC = new GridBagConstraints();
 		textoCadastroC.gridwidth=GridBagConstraints.REMAINDER;
 
-		textoNomeC = new GridBagConstraints();
-		textoNomeC.insets = new Insets(50, 0, 0, 0);
+		textoLoginC = new GridBagConstraints();
+		textoLoginC.insets = new Insets(50, 0, 0, 0);
 
-		nomeC = new GridBagConstraints();
-		nomeC.insets = new Insets(50, 0, 0, 0);
-		nomeC.ipadx=100;
-		nomeC.ipady=20;
-		nomeC.gridwidth=GridBagConstraints.REMAINDER;
+		loginC = new GridBagConstraints();
+		loginC.insets = new Insets(50, 0, 0, 0);
+		loginC.ipadx=100;
+		loginC.ipady=20;
+		loginC.gridwidth=GridBagConstraints.REMAINDER;
 
 		textoSenhaC = new GridBagConstraints();
 		textoSenhaC.insets = new Insets(50,0,0,0);
@@ -119,15 +118,15 @@ public class Cadastro extends JFrame {
 		textoCadastro.setFont(fonte);
 		menuCadastro.add(textoCadastro,textoCadastroC);
 
-		textoNome = new JLabel("nome:");
-		textoNome.setFont(fonte);
-		menuCadastro.add(textoNome,textoNomeC);
+		textoLogin = new JLabel("login:");
+		textoLogin.setFont(fonte);
+		menuCadastro.add(textoLogin,textoLoginC);
 
-		nome = new JTextFieldArredondado();
-		nome.setColumns(10);
-		nome.setText("");
-		nome.setFont(fonte);
-		menuCadastro.add(nome,nomeC);
+		login = new JTextFieldArredondado();
+		login.setColumns(10);
+		login.setText("");
+		login.setFont(fonte);
+		menuCadastro.add(login,loginC);
 
 		textoSenha = new JLabel("senha:");
 		textoSenha.setFont(fonte);

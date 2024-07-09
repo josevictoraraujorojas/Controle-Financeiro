@@ -14,8 +14,8 @@ public class GuiLogin extends JFrame {
     GridBagConstraints botaoLoginC = new GridBagConstraints();
     BotaoArredondado registrar;
     GridBagConstraints registreC = new GridBagConstraints();
-    JLabel  textoUser;
-    GridBagConstraints userTextoC = new GridBagConstraints();
+    JLabel  textoLogin;
+    GridBagConstraints textoLoginC = new GridBagConstraints();
     JLabel  textoSenha;
     GridBagConstraints senhaTextoC = new GridBagConstraints();
     JPanelComImagemDeFundo  menuLogin;
@@ -48,7 +48,7 @@ public class GuiLogin extends JFrame {
         loginC.ipadx=100;
         loginC.ipady=20;
 
-        userTextoC = new GridBagConstraints();
+        textoLoginC = new GridBagConstraints();
 
         senhaTextoC = new GridBagConstraints();
         senhaTextoC.gridy=2;
@@ -75,8 +75,8 @@ public class GuiLogin extends JFrame {
         login.setText("Login");
         login.setColumns(10);
         login.setFont(fonte);
-        textoUser = new JLabel("Login:");
-        textoUser.setFont(fonte);
+        textoLogin = new JLabel("Login:");
+        textoLogin.setFont(fonte);
 
 
 
@@ -106,7 +106,7 @@ public class GuiLogin extends JFrame {
         Border borda = BorderFactory.createLineBorder(Color.black);
         menuLogin.setBorder(borda);
 
-        menuLogin.add(textoUser,userTextoC);
+        menuLogin.add(textoLogin,textoLoginC);
         menuLogin.add(login,loginC);
         menuLogin.add(textoSenha,senhaTextoC);
         menuLogin.add(senha,senhaC);

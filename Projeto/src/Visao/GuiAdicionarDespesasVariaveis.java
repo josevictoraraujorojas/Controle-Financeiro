@@ -128,6 +128,7 @@ public class GuiAdicionarDespesasVariaveis extends JFrame {
 
         categoria = new JTextFieldArredondado();
         categoria.setColumns(10);
+        categoria.setBackground(Color.white);
         menuAdicionar.add(categoria,categoriaC);
 
         textoDataEmicao = new JLabel("data emicao:");
@@ -135,6 +136,7 @@ public class GuiAdicionarDespesasVariaveis extends JFrame {
 
         dataEmicao = new JFormattedTextFieldArredondado(data);
         dataEmicao.setText("000000");
+        dataEmicao.setBackground(Color.white);
         menuAdicionar.add(dataEmicao,dataEmicaoC);
 
         textoDataVencimento = new JLabel("data vencimento:");
@@ -142,6 +144,7 @@ public class GuiAdicionarDespesasVariaveis extends JFrame {
 
         dataVencimento= new JFormattedTextFieldArredondado(data);
         dataVencimento.setText("000000");
+        dataVencimento.setBackground(Color.white);
         menuAdicionar.add(dataVencimento,dataVencimentoC);
 
         textoDescricao = new JLabel("Descricao:");
@@ -150,6 +153,7 @@ public class GuiAdicionarDespesasVariaveis extends JFrame {
         descricao = new JTextAreaArredondado();
         descricao.setColumns(10);
         descricao.setRows(2);
+        descricao.setBackground(Color.white);
         menuAdicionar.add(descricao,descricaoC);
 
         textoValor = new JLabel("valor mensal:");
@@ -157,6 +161,7 @@ public class GuiAdicionarDespesasVariaveis extends JFrame {
 
         valor = new JTextFieldArredondado();
         valor.setColumns(10);
+        valor.setBackground(Color.white);
         menuAdicionar.add(valor,valorC);
 
         textoQuantidadeParcelas = new JLabel("quantidade parcelas:");
@@ -164,6 +169,7 @@ public class GuiAdicionarDespesasVariaveis extends JFrame {
 
         quantidadeParcelas = new JTextFieldArredondado();
         quantidadeParcelas.setColumns(10);
+        quantidadeParcelas.setBackground(Color.white);
         menuAdicionar.add(quantidadeParcelas,quantidadeParcelasC);
 
         textoRecorrencia = new JLabel("recorrencia:");
@@ -171,6 +177,7 @@ public class GuiAdicionarDespesasVariaveis extends JFrame {
 
         recorrencia = new JTextFieldArredondado();
         recorrencia.setColumns(10);
+        recorrencia.setBackground(Color.white);
         menuAdicionar.add(recorrencia,recorrenciaC);
 
         adicionar = new BotaoArredondado();

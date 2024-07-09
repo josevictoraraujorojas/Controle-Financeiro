@@ -115,6 +115,7 @@ public class GuiAdicionarDespesasFixas extends JFrame {
 
         categoria = new JTextFieldArredondado();
         categoria.setColumns(10);
+        categoria.setBackground(Color.white);
         menuAdicionar.add(categoria,categoriaC);
 
         textoDataEmicao = new JLabel("data emicao:");
@@ -122,6 +123,7 @@ public class GuiAdicionarDespesasFixas extends JFrame {
 
         dataEmicao = new JFormattedTextFieldArredondado(data);
         dataEmicao.setText("000000");
+        dataEmicao.setBackground(Color.white);
         menuAdicionar.add(dataEmicao,dataEmicaoC);
 
         textoDataVencimento = new JLabel("data vencimento:");
@@ -129,6 +131,7 @@ public class GuiAdicionarDespesasFixas extends JFrame {
 
         dataVencimento= new JFormattedTextFieldArredondado(data);
         dataVencimento.setText("000000");
+        dataVencimento.setBackground(Color.white);
         menuAdicionar.add(dataVencimento,dataVencimentoC);
 
         textoDescricao = new JLabel("Descricao:");
@@ -137,6 +140,7 @@ public class GuiAdicionarDespesasFixas extends JFrame {
         descricao = new JTextAreaArredondado();
         descricao.setColumns(10);
         descricao.setRows(2);
+        descricao.setBackground(Color.white);
         menuAdicionar.add(descricao,descricaoC);
 
         textoValorMensal = new JLabel("valor mensal:");
@@ -144,6 +148,7 @@ public class GuiAdicionarDespesasFixas extends JFrame {
 
         valorMensal = new JTextFieldArredondado();
         valorMensal.setColumns(10);
+        valorMensal.setBackground(Color.white);
         menuAdicionar.add(valorMensal,valorMensalC);
 
         textoRecorrencia = new JLabel("recorrencia:");
@@ -151,6 +156,7 @@ public class GuiAdicionarDespesasFixas extends JFrame {
 
         recorrencia = new JTextFieldArredondado();
         recorrencia.setColumns(10);
+        recorrencia.setBackground(Color.white);
         menuAdicionar.add(recorrencia,recorrenciaC);
 
         adicionar = new BotaoArredondado();

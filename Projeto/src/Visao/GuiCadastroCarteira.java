@@ -5,7 +5,7 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.Border;
 
-public class CadastroOrcamento extends JFrame {
+public class GuiCadastroCarteira extends JFrame {
 
     private JPanelComImagemDeFundo fundo;
     GridBagConstraints fundoC;
@@ -13,8 +13,8 @@ public class CadastroOrcamento extends JFrame {
     GridBagConstraints imagemC;
     private JPanelComImagemDeFundo menuCadastro;
     GridBagConstraints menuCadastroC;
-    JLabel textoOrcamento;
-    GridBagConstraints textoOrcamentoC;
+    JLabel textoCarteira;
+    GridBagConstraints textoCarteiraC;
     JLabel textoLimiteDespesasFixas;
     GridBagConstraints textoLimiteDespesasFixasC;
     private JTextFieldArredondado limiteDespesasFixas;
@@ -32,7 +32,7 @@ public class CadastroOrcamento extends JFrame {
     BotaoArredondado cancelar;
     GridBagConstraints cancelarC;
 
-    public CadastroOrcamento() {
+    public GuiCadastroCarteira() {
 
         setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\joaov\\Downloads\\imagem_de_fundo.jpeg"));
         setLayout(new GridBagLayout());
@@ -54,8 +54,8 @@ public class CadastroOrcamento extends JFrame {
         menuCadastroC.ipady = 350;
         menuCadastroC.ipadx = 245;
 
-        textoOrcamentoC = new GridBagConstraints();
-        textoOrcamentoC.gridwidth=GridBagConstraints.REMAINDER;
+        textoCarteiraC = new GridBagConstraints();
+        textoCarteiraC.gridwidth=GridBagConstraints.REMAINDER;
 
         textoLimiteDespesasFixasC = new GridBagConstraints();
         textoLimiteDespesasFixasC.insets = new Insets(50, 0, 0, 0);
@@ -103,9 +103,9 @@ public class CadastroOrcamento extends JFrame {
         menuCadastro.setBorder(borda);
         fundo.add(menuCadastro, menuCadastroC);
 
-        textoOrcamento = new JLabel("Cadastro Orcamento");
-        textoOrcamento.setFont(fonte);
-        menuCadastro.add(textoOrcamento,textoOrcamentoC);
+        textoCarteira = new JLabel("Cadastro Carteira");
+        textoCarteira.setFont(fonte);
+        menuCadastro.add(textoCarteira, textoCarteiraC);
 
         textoLimiteDespesasFixas = new JLabel("despesas fixas:");
         textoLimiteDespesasFixas.setFont(fonte);
