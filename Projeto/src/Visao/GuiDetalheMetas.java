@@ -6,36 +6,38 @@ import java.awt.*;
 import java.text.ParseException;
 
 public class GuiDetalheMetas extends JFrame{
-    JPanelComImagemDeFundo menuAdicionar;
-    GridBagConstraints menuAdicionarC;
-    JLabel textoCategoria;
-    GridBagConstraints textoCategoriaC;
-    JTextFieldArredondado categoria;
-    GridBagConstraints categoriaC;
-    JLabel textoDataInicial;
-    GridBagConstraints textoDataInicialC;
-    JFormattedTextFieldArredondado dataInicial;
-    GridBagConstraints dataInicialC;
-    JLabel textoDataFinal;
-    GridBagConstraints textoDataFinalC;
-    JFormattedTextFieldArredondado dataFinal;
-    GridBagConstraints dataFinalC;
-    JLabel textoDescricao;
-    GridBagConstraints textoDescricaoC;
-    JTextAreaArredondado descricao;
-    GridBagConstraints descricaoC;
-    JLabel textoValorTotal;
-    GridBagConstraints textoValorTotalC;
-    JTextFieldArredondado valorTotal;
-    GridBagConstraints valorTotalC;
-    JLabel textoRecorrencia;
-    GridBagConstraints textoRecorrenciaC;
-    JTextFieldArredondado recorrencia;
-    GridBagConstraints recorrenciaC;
-    BotaoArredondado editar;
-    GridBagConstraints editarC;
-    BotaoArredondado salvar;
-    GridBagConstraints salvarC;
+    private JPanelComImagemDeFundo menuAdicionar;
+    private GridBagConstraints menuAdicionarC;
+    private JLabel textoCategoria;
+    private GridBagConstraints textoCategoriaC;
+    private JTextFieldArredondado categoria;
+    private GridBagConstraints categoriaC;
+    private JLabel textoDataInicial;
+    private GridBagConstraints textoDataInicialC;
+    private JFormattedTextFieldArredondado dataInicial;
+    private GridBagConstraints dataInicialC;
+    private JLabel textoDataFinal;
+    private GridBagConstraints textoDataFinalC;
+    private JFormattedTextFieldArredondado dataFinal;
+    private GridBagConstraints dataFinalC;
+    private JLabel textoDescricao;
+    private GridBagConstraints textoDescricaoC;
+    private JTextAreaArredondado descricao;
+    private GridBagConstraints descricaoC;
+    private JLabel textoValorTotal;
+    private GridBagConstraints textoValorTotalC;
+    private JTextFieldArredondado valorTotal;
+    private GridBagConstraints valorTotalC;
+    private JLabel textoRecorrencia;
+    private GridBagConstraints textoRecorrenciaC;
+    private JTextFieldArredondado recorrencia;
+    private GridBagConstraints recorrenciaC;
+    private BotaoArredondado editar;
+    private GridBagConstraints editarC;
+    private BotaoArredondado salvar;
+    private GridBagConstraints salvarC;
+    private BotaoArredondado excluir;
+    private GridBagConstraints excluirC;
 
     public GuiDetalheMetas() throws ParseException {
         super("detalhe meta");
@@ -106,6 +108,9 @@ public class GuiDetalheMetas extends JFrame{
         salvarC = new GridBagConstraints();
         salvarC.insets = new Insets(50, 0, 0, 0);
 
+        excluirC = new GridBagConstraints();
+        excluirC.insets = new Insets(50, 0, 0, 0);
+
         menuAdicionar = new JPanelComImagemDeFundo(getClass().getResource("Imagem\\fundo-quadrado-azul-para-cartaz-de-banner-anuncio-de-midia-social-evento-e-varios-trabalhos-de-design_7954-52368.jpg"));
         menuAdicionar.setLayout(new GridBagLayout());
         add(menuAdicionar,menuAdicionarC);
@@ -175,5 +180,9 @@ public class GuiDetalheMetas extends JFrame{
         salvar.setBackground(Color.green);
         menuAdicionar.add(salvar,salvarC);
 
+        excluir = new BotaoArredondado();
+        excluir.setText("excluir");
+        excluir.setBackground(Color.red);
+        menuAdicionar.add(excluir,excluirC);
     }
 }

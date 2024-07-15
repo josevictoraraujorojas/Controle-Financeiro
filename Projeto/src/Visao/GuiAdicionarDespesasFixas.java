@@ -6,36 +6,36 @@ import java.awt.*;
 import java.text.ParseException;
 
 public class GuiAdicionarDespesasFixas extends JFrame {
-    JPanelComImagemDeFundo menuAdicionar;
-    GridBagConstraints menuAdicionarC;
-    JLabel textoCategoria;
-    GridBagConstraints textoCategoriaC;
-    JTextFieldArredondado categoria;
-    GridBagConstraints categoriaC;
-    JLabel textoDataEmicao;
-    GridBagConstraints textoDataEmicaoC;
-    JFormattedTextFieldArredondado dataEmicao;
-    GridBagConstraints dataEmicaoC;
-    JLabel textoDataVencimento;
-    GridBagConstraints textoDataVencimentoC;
-    JFormattedTextFieldArredondado dataVencimento;
-    GridBagConstraints dataVencimentoC;
-    JLabel textoDescricao;
-    GridBagConstraints textoDescricaoC;
-    JTextAreaArredondado descricao;
-    GridBagConstraints descricaoC;
-    JLabel textoValorMensal;
-    GridBagConstraints textoValorMensalC;
-    JTextFieldArredondado valorMensal;
-    GridBagConstraints valorMensalC;
-    JLabel textoRecorrencia;
-    GridBagConstraints textoRecorrenciaC;
-    JTextFieldArredondado recorrencia;
-    GridBagConstraints recorrenciaC;
-    BotaoArredondado adicionar;
-    GridBagConstraints adicionarC;
-    BotaoArredondado cancelar;
-    GridBagConstraints cancelarC;
+    private JPanelComImagemDeFundo menuAdicionar;
+    private GridBagConstraints menuAdicionarC;
+    private JLabel textoCategoria;
+    private GridBagConstraints textoCategoriaC;
+    private JTextFieldArredondado categoria;
+    private GridBagConstraints categoriaC;
+    private JLabel textoDataEmicao;
+    private GridBagConstraints textoDataEmicaoC;
+    private JFormattedTextFieldArredondado dataEmicao;
+    private GridBagConstraints dataEmicaoC;
+    private JLabel textoDataVencimento;
+    private GridBagConstraints textoDataVencimentoC;
+    private JFormattedTextFieldArredondado dataVencimento;
+    private GridBagConstraints dataVencimentoC;
+    private JLabel textoDescricao;
+    private GridBagConstraints textoDescricaoC;
+    private JTextAreaArredondado descricao;
+    private GridBagConstraints descricaoC;
+    private JLabel textoValorMensal;
+    private GridBagConstraints textoValorMensalC;
+    private JTextFieldArredondado valorMensal;
+    private GridBagConstraints valorMensalC;
+    private JLabel textoRecorrencia;
+    private GridBagConstraints textoRecorrenciaC;
+    private JTextFieldArredondado recorrencia;
+    private GridBagConstraints recorrenciaC;
+    private BotaoArredondado adicionar;
+    private GridBagConstraints adicionarC;
+    private BotaoArredondado cancelar;
+    private GridBagConstraints cancelarC;
 
     public GuiAdicionarDespesasFixas() throws ParseException {
         super("adicionar despesas fixas");
@@ -170,4 +170,6 @@ public class GuiAdicionarDespesasFixas extends JFrame {
         menuAdicionar.add(cancelar,cancelarC);
 
     }
+
+
 }

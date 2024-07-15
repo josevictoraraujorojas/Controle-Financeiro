@@ -6,40 +6,42 @@ import java.awt.*;
 import java.text.ParseException;
 
 public class GuiDetalheDespesasVariaveis extends JFrame {
-    JPanelComImagemDeFundo menuAdicionar;
-    GridBagConstraints menuAdicionarC;
-    JLabel textoCategoria;
-    GridBagConstraints textoCategoriaC;
-    JTextFieldArredondado categoria;
-    GridBagConstraints categoriaC;
-    JLabel textoDataEmicao;
-    GridBagConstraints textoDataEmicaoC;
-    JFormattedTextFieldArredondado dataEmicao;
-    GridBagConstraints dataEmicaoC;
-    JLabel textoDataVencimento;
-    GridBagConstraints textoDataVencimentoC;
-    JFormattedTextFieldArredondado dataVencimento;
-    GridBagConstraints dataVencimentoC;
-    JLabel textoDescricao;
-    GridBagConstraints textoDescricaoC;
-    JTextAreaArredondado descricao;
-    GridBagConstraints descricaoC;
-    JLabel textoValor;
-    GridBagConstraints textoValorC;
-    JTextFieldArredondado valor;
-    GridBagConstraints valorC;
-    JLabel textoQuantidadeParcelas;
-    GridBagConstraints textoQuantidadeParcelasC;
-    JTextFieldArredondado quantidadeParcelas;
-    GridBagConstraints quantidadeParcelasC;
-    JLabel textoRecorrencia;
-    GridBagConstraints textoRecorrenciaC;
-    JTextFieldArredondado recorrencia;
-    GridBagConstraints recorrenciaC;
-    BotaoArredondado editar;
-    GridBagConstraints editarC;
-    BotaoArredondado salvar;
-    GridBagConstraints salvarC;
+    private JPanelComImagemDeFundo menuAdicionar;
+    private GridBagConstraints menuAdicionarC;
+    private JLabel textoCategoria;
+    private GridBagConstraints textoCategoriaC;
+    private JTextFieldArredondado categoria;
+    private GridBagConstraints categoriaC;
+    private JLabel textoDataEmicao;
+    private GridBagConstraints textoDataEmicaoC;
+    private JFormattedTextFieldArredondado dataEmicao;
+    private GridBagConstraints dataEmicaoC;
+    private JLabel textoDataVencimento;
+    private GridBagConstraints textoDataVencimentoC;
+    private JFormattedTextFieldArredondado dataVencimento;
+    private GridBagConstraints dataVencimentoC;
+    private JLabel textoDescricao;
+    private GridBagConstraints textoDescricaoC;
+    private JTextAreaArredondado descricao;
+    private GridBagConstraints descricaoC;
+    private JLabel textoValor;
+    private GridBagConstraints textoValorC;
+    private JTextFieldArredondado valor;
+    private GridBagConstraints valorC;
+    private JLabel textoQuantidadeParcelas;
+    private GridBagConstraints textoQuantidadeParcelasC;
+    private JTextFieldArredondado quantidadeParcelas;
+    private GridBagConstraints quantidadeParcelasC;
+    private JLabel textoRecorrencia;
+    private GridBagConstraints textoRecorrenciaC;
+    private JTextFieldArredondado recorrencia;
+    private GridBagConstraints recorrenciaC;
+    private BotaoArredondado editar;
+    private GridBagConstraints editarC;
+    private BotaoArredondado salvar;
+    private GridBagConstraints salvarC;
+    private BotaoArredondado excluir;
+    private GridBagConstraints excluirC;
 
     public GuiDetalheDespesasVariaveis() throws ParseException {
         super("detalhe despesas variaveis");
@@ -119,6 +121,9 @@ public class GuiDetalheDespesasVariaveis extends JFrame {
         salvarC = new GridBagConstraints();
         salvarC.insets = new Insets(50, 0, 0, 0);
 
+        excluirC = new GridBagConstraints();
+        excluirC.insets = new Insets(50, 0, 0, 0);
+
         menuAdicionar = new JPanelComImagemDeFundo(getClass().getResource("Imagem\\fundo-quadrado-azul-para-cartaz-de-banner-anuncio-de-midia-social-evento-e-varios-trabalhos-de-design_7954-52368.jpg"));
         menuAdicionar.setLayout(new GridBagLayout());
         add(menuAdicionar,menuAdicionarC);
@@ -196,5 +201,10 @@ public class GuiDetalheDespesasVariaveis extends JFrame {
         salvar.setText("salvar");
         salvar.setBackground(Color.GREEN);
         menuAdicionar.add(salvar,salvarC);
+
+        excluir = new BotaoArredondado();
+        excluir.setText("excluir");
+        excluir.setBackground(Color.red);
+        menuAdicionar.add(excluir,excluirC);
     }
 }

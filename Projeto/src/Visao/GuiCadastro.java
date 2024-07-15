@@ -8,34 +8,29 @@ import javax.swing.border.Border;
 public class GuiCadastro extends JFrame {
 
 	private JPanelComImagemDeFundo fundo;
-	GridBagConstraints fundoC;
+	private GridBagConstraints fundoC;
 	private JPanelComImagemDeFundo imagem;
-	GridBagConstraints imagemC;
-	JPanelComImagemDeFundo menuCadastro;
-	GridBagConstraints menuCadastroC;
-
-	JLabel textoCadastro;
-	GridBagConstraints textoCadastroC;
-	JLabel textoLogin;
-	GridBagConstraints textoLoginC;
+	private GridBagConstraints imagemC;
+	private JPanelComImagemDeFundo menuCadastro;
+	private GridBagConstraints menuCadastroC;
+	private JLabel textoCadastro;
+	private GridBagConstraints textoCadastroC;
+	private JLabel textoLogin;
+	private GridBagConstraints textoLoginC;
 	private JTextFieldArredondado login;
-	GridBagConstraints loginC;
-	JLabel textoSenha;
-	GridBagConstraints textoSenhaC;
+	private GridBagConstraints loginC;
+	private JLabel textoSenha;
+	private GridBagConstraints textoSenhaC;
 	private JPasswordArredondado senha;
-	GridBagConstraints senhaC;
-	JLabel textoRendaDisponivel;
-	GridBagConstraints textoRendaDisponivelC;
-	private JTextFieldArredondado rendaDisponivel;
-	GridBagConstraints rendaDisponivelC;
-	JLabel textoSaldo;
-	GridBagConstraints textoSaldoC;
+	private GridBagConstraints senhaC;
+	private JLabel textoSaldo;
+	private GridBagConstraints textoSaldoC;
 	private JTextFieldArredondado saldo;
-	GridBagConstraints saldoC;
-	BotaoArredondado cadastrar;
-	GridBagConstraints cadastrarC;
-	BotaoArredondado cancelar;
-	GridBagConstraints cancelarC;
+	private GridBagConstraints saldoC;
+	private BotaoArredondado cadastrar;
+	private GridBagConstraints cadastrarC;
+	private BotaoArredondado cancelar;
+	private GridBagConstraints cancelarC;
 
 
 	public GuiCadastro() {
@@ -53,7 +48,7 @@ public class GuiCadastro extends JFrame {
 
 
 		menuCadastroC = new GridBagConstraints();
-		menuCadastroC.ipady = 250;
+		menuCadastroC.ipady = 350;
 		menuCadastroC.ipadx = 250;
 
 		textoCadastroC = new GridBagConstraints();
@@ -76,15 +71,6 @@ public class GuiCadastro extends JFrame {
 		senhaC.ipadx=100;
 		senhaC.ipady=20;
 		senhaC.gridwidth=GridBagConstraints.REMAINDER;
-
-		textoRendaDisponivelC = new GridBagConstraints();
-		textoRendaDisponivelC.insets = new Insets(50,0,0,0);
-
-		rendaDisponivelC = new GridBagConstraints();
-		rendaDisponivelC.insets = new Insets(50,0,0,0);
-		rendaDisponivelC.ipadx=100;
-		rendaDisponivelC.ipady=20;
-		rendaDisponivelC.gridwidth=GridBagConstraints.REMAINDER;
 
 		textoSaldoC = new GridBagConstraints();
 		textoSaldoC.insets = new Insets(50,0,0,0);
@@ -137,16 +123,6 @@ public class GuiCadastro extends JFrame {
 		senha.setText("");
 		senha.setFont(fonte);
 		menuCadastro.add(senha,senhaC);
-
-		textoRendaDisponivel = new JLabel("renda:");
-		textoRendaDisponivel.setFont(fonte);
-		menuCadastro.add(textoRendaDisponivel,textoRendaDisponivelC);
-
-		rendaDisponivel = new JTextFieldArredondado();
-		rendaDisponivel.setColumns(10);
-		rendaDisponivel.setText("");
-		rendaDisponivel.setFont(fonte);
-		menuCadastro.add(rendaDisponivel,rendaDisponivelC);
 
 		textoSaldo = new JLabel("saldo:");
 		textoSaldo.setFont(fonte);

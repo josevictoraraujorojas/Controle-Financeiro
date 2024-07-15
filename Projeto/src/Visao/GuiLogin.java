@@ -6,22 +6,22 @@ import javax.swing.border.Border;
 import java.awt.*;
 
 public class GuiLogin extends JFrame {
-    JTextFieldArredondado login;
-    GridBagConstraints loginC = new GridBagConstraints();
-    JPasswordArredondado senha;
-    GridBagConstraints senhaC = new GridBagConstraints();
-    BotaoArredondado botaoLogin;
-    GridBagConstraints botaoLoginC = new GridBagConstraints();
-    BotaoArredondado registrar;
-    GridBagConstraints registreC = new GridBagConstraints();
-    JLabel  textoLogin;
-    GridBagConstraints textoLoginC = new GridBagConstraints();
-    JLabel  textoSenha;
-    GridBagConstraints senhaTextoC = new GridBagConstraints();
-    JPanelComImagemDeFundo  menuLogin;
-    GridBagConstraints menuLoginC;
-    JPanelComImagemDeFundo  fundo;
-    GridBagConstraints fundoC;
+    private JTextFieldArredondado login;
+    private GridBagConstraints loginC = new GridBagConstraints();
+    private JPasswordArredondado senha;
+    private GridBagConstraints senhaC = new GridBagConstraints();
+    private BotaoArredondado botaoLogin;
+    private GridBagConstraints botaoLoginC = new GridBagConstraints();
+    private BotaoArredondado registrar;
+    private GridBagConstraints registreC = new GridBagConstraints();
+    private JLabel  textoLogin;
+    private GridBagConstraints textoLoginC = new GridBagConstraints();
+    private JLabel  textoSenha;
+    private GridBagConstraints senhaTextoC = new GridBagConstraints();
+    private JPanelComImagemDeFundo  menuLogin;
+    private GridBagConstraints menuLoginC;
+    private JPanelComImagemDeFundo  fundo;
+    private GridBagConstraints fundoC;
 
     public GuiLogin() throws HeadlessException {
         super("tela login");

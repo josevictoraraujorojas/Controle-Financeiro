@@ -8,29 +8,29 @@ import javax.swing.border.Border;
 public class GuiCadastroCarteira extends JFrame {
 
     private JPanelComImagemDeFundo fundo;
-    GridBagConstraints fundoC;
+    private GridBagConstraints fundoC;
     private JPanelComImagemDeFundo imagem;
-    GridBagConstraints imagemC;
+    private GridBagConstraints imagemC;
     private JPanelComImagemDeFundo menuCadastro;
-    GridBagConstraints menuCadastroC;
-    JLabel textoCarteira;
-    GridBagConstraints textoCarteiraC;
-    JLabel textoLimiteDespesasFixas;
-    GridBagConstraints textoLimiteDespesasFixasC;
+    private GridBagConstraints menuCadastroC;
+    private JLabel textoCarteira;
+    private GridBagConstraints textoCarteiraC;
+    private JLabel textoLimiteDespesasFixas;
+    private GridBagConstraints textoLimiteDespesasFixasC;
     private JTextFieldArredondado limiteDespesasFixas;
-    GridBagConstraints limiteDespesasFixasC;
-    JLabel textoLimiteDespesasVariaveis;
-    GridBagConstraints textoLimiteDespesasVariaveisC;
+    private GridBagConstraints limiteDespesasFixasC;
+    private JLabel textoLimiteDespesasVariaveis;
+    private GridBagConstraints textoLimiteDespesasVariaveisC;
     private JTextFieldArredondado LimiteDespesasVariaveis;
-    GridBagConstraints LimiteDespesasVariaveisC;
-    JLabel textoLimiteMetas;
-    GridBagConstraints textoLimiteMetasC;
+    private GridBagConstraints LimiteDespesasVariaveisC;
+    private JLabel textoLimiteMetas;
+    private GridBagConstraints textoLimiteMetasC;
     private JTextFieldArredondado limiteMetas;
-    GridBagConstraints limiteMetasC;
-    BotaoArredondado cadastrar;
-    GridBagConstraints cadastrarC;
-    BotaoArredondado cancelar;
-    GridBagConstraints cancelarC;
+    private GridBagConstraints limiteMetasC;
+    private BotaoArredondado cadastrar;
+    private GridBagConstraints cadastrarC;
+    private BotaoArredondado cancelar;
+    private GridBagConstraints cancelarC;
 
     public GuiCadastroCarteira() {
 
@@ -103,7 +103,7 @@ public class GuiCadastroCarteira extends JFrame {
         menuCadastro.setBorder(borda);
         fundo.add(menuCadastro, menuCadastroC);
 
-        textoCarteira = new JLabel("Cadastro Carteira");
+        textoCarteira = new JLabel("Cadastro Limite Da Carteira");
         textoCarteira.setFont(fonte);
         menuCadastro.add(textoCarteira, textoCarteiraC);
 

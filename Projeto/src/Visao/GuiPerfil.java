@@ -6,56 +6,52 @@ import java.awt.*;
 
 public class GuiPerfil extends JFrame {
 
-    JPanelComImagemDeFundo fundo;
-    GridBagConstraints fundoC;
-    JPanel menu;
-    GridBagConstraints menuC;
-    BotaoArredondado principal;
-    GridBagConstraints principalC;
-    BotaoArredondado botaoPerfil;
-    GridBagConstraints botaoPerfilC;
-    BotaoArredondado sair;
-    GridBagConstraints sairC;
-    JPanel perfil;
-    GridBagConstraints perfilC;
-    JLabel textoPerfil;
-    GridBagConstraints textoPerfilC;
-    JPanel detalheCarteira;
-    GridBagConstraints detalheCarteiraC;
-    JLabel textoLimiteDespesasFixas;
-    GridBagConstraints textoLimiteDespesasFixasC;
-    JTextFieldArredondado limiteDespesasFixas;
-    GridBagConstraints limiteDespesasFixasC;
-    JLabel textoLimiteDespesasVariaveis;
-    GridBagConstraints textoLimiteDespesasVariaveisC;
-    JTextFieldArredondado limiteDespesasVariaveis;
-    GridBagConstraints limiteDespesasVariaveisC;
-    JLabel textoLimiteMetas;
-    GridBagConstraints textoLimiteMetasC;
-    JTextFieldArredondado limiteMetas;
-    GridBagConstraints limiteMetasC;
-    JPanel detalhePessoal;
-    GridBagConstraints detalhePessoalC;
-    JLabel textoLogin;
-    GridBagConstraints textoLoginC;
-    JTextFieldArredondado login;
-    GridBagConstraints loginC;
-    JLabel textoSenha;
-    GridBagConstraints textoSenhaC;
-    JPasswordArredondado senha;
-    GridBagConstraints senhaC;
-    JLabel textoRendaDisponivel;
-    GridBagConstraints textoRendaDisponivelC;
-    JTextFieldArredondado rendaDisponivel;
-    GridBagConstraints rendaDisponivelC;
-    JLabel textoSaldo;
-    GridBagConstraints textoSaldoC;
-    JTextFieldArredondado saldo;
-    GridBagConstraints saldoC;
-    BotaoArredondado editar;
-    GridBagConstraints editarC;
-    BotaoArredondado salvar;
-    GridBagConstraints salvarC;
+    private JPanelComImagemDeFundo fundo;
+    private GridBagConstraints fundoC;
+    private JPanel menu;
+    private GridBagConstraints menuC;
+    private BotaoArredondado principal;
+    private GridBagConstraints principalC;
+    private BotaoArredondado botaoPerfil;
+    private GridBagConstraints botaoPerfilC;
+    private BotaoArredondado sair;
+    private GridBagConstraints sairC;
+    private JPanel perfil;
+    private GridBagConstraints perfilC;
+    private JLabel textoPerfil;
+    private GridBagConstraints textoPerfilC;
+    private JPanel detalheCarteira;
+    private GridBagConstraints detalheCarteiraC;
+    private JLabel textoLimiteDespesasFixas;
+    private GridBagConstraints textoLimiteDespesasFixasC;
+    private JTextFieldArredondado limiteDespesasFixas;
+    private GridBagConstraints limiteDespesasFixasC;
+    private JLabel textoLimiteDespesasVariaveis;
+    private GridBagConstraints textoLimiteDespesasVariaveisC;
+    private JTextFieldArredondado limiteDespesasVariaveis;
+    private GridBagConstraints limiteDespesasVariaveisC;
+    private JLabel textoLimiteMetas;
+    private GridBagConstraints textoLimiteMetasC;
+    private JTextFieldArredondado limiteMetas;
+    private GridBagConstraints limiteMetasC;
+    private JPanel detalhePessoal;
+    private GridBagConstraints detalhePessoalC;
+    private JLabel textoLogin;
+    private GridBagConstraints textoLoginC;
+    private JTextFieldArredondado login;
+    private GridBagConstraints loginC;
+    private JLabel textoSenha;
+    private GridBagConstraints textoSenhaC;
+    private JPasswordArredondado senha;
+    private GridBagConstraints senhaC;
+    private JLabel textoSaldo;
+    private GridBagConstraints textoSaldoC;
+    private JTextFieldArredondado saldo;
+    private GridBagConstraints saldoC;
+    private BotaoArredondado editar;
+    private GridBagConstraints editarC;
+    private BotaoArredondado salvar;
+    private GridBagConstraints salvarC;
 
 
         public GuiPerfil() {
@@ -114,15 +110,6 @@ public class GuiPerfil extends JFrame {
             senhaC.ipadx=100;
             senhaC.ipady=20;
             senhaC.gridwidth=GridBagConstraints.REMAINDER;
-
-            textoRendaDisponivelC = new GridBagConstraints();
-            textoRendaDisponivelC.insets = new Insets(50,0,0,0);
-
-            rendaDisponivelC = new GridBagConstraints();
-            rendaDisponivelC.insets = new Insets(50,0,0,0);
-            rendaDisponivelC.ipadx=100;
-            rendaDisponivelC.ipady=20;
-            rendaDisponivelC.gridwidth=GridBagConstraints.REMAINDER;
 
             textoSaldoC = new GridBagConstraints();
             textoSaldoC.insets = new Insets(50,0,0,0);
@@ -242,18 +229,6 @@ public class GuiPerfil extends JFrame {
             senha.setFont(fonte);
             senha.setEditable(false);
             detalhePessoal.add(senha,senhaC);
-
-            textoRendaDisponivel = new JLabel("renda:");
-            textoRendaDisponivel.setFont(fonte);
-            detalhePessoal.add(textoRendaDisponivel,textoRendaDisponivelC);
-
-            rendaDisponivel = new JTextFieldArredondado();
-            rendaDisponivel.setBackground(Color.cyan);
-            rendaDisponivel.setColumns(10);
-            rendaDisponivel.setText("1400");
-            rendaDisponivel.setFont(fonte);
-            rendaDisponivel.setEditable(false);
-            detalhePessoal.add(rendaDisponivel,rendaDisponivelC);
 
             textoSaldo = new JLabel("saldo:");
             textoSaldo.setFont(fonte);
