@@ -4,8 +4,9 @@ package Visao;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.util.Objects;
 
-public class GuiLogin extends JFrame {
+public class JpanelLogin extends JPanel {
     private JTextFieldArredondado login;
     private GridBagConstraints loginC = new GridBagConstraints();
     private JPasswordArredondado senha;
@@ -20,25 +21,13 @@ public class GuiLogin extends JFrame {
     private GridBagConstraints senhaTextoC = new GridBagConstraints();
     private JPanelComImagemDeFundo  menuLogin;
     private GridBagConstraints menuLoginC;
-    private JPanelComImagemDeFundo  fundo;
-    private GridBagConstraints fundoC;
 
-    public GuiLogin() throws HeadlessException {
-        super("tela login");
+
+
+    public JpanelLogin(){
         setLayout(new GridBagLayout());
-        getContentPane().setBackground(Color.white);
-
-
-        Menu();
-
-    }
-    public void Menu(){
         Font fonte = new Font("Serif",Font.PLAIN,20);
 
-        fundoC = new GridBagConstraints();
-        fundoC.weighty=1;
-        fundoC.weightx=1;
-        fundoC.fill=GridBagConstraints.BOTH;
 
         menuLoginC = new GridBagConstraints();
         menuLoginC.ipady=250;
@@ -90,21 +79,22 @@ public class GuiLogin extends JFrame {
 
 
         botaoLogin = new BotaoArredondado();
-        Icon icone = new ImageIcon(getClass().getResource("Imagem\\Icons8-Windows-8-User-Interface-Login.512 (1) (1).png"));
+        Icon icone = new ImageIcon(Objects.requireNonNull(getClass().getResource("Imagem\\Icons8-Windows-8-User-Interface-Login.512 (1) (1).png")));
         botaoLogin.setIcon(icone);
         botaoLogin.setBackground(Color.white);
 
 
 
         registrar = new BotaoArredondado();
-        Icon icone2 = new ImageIcon(getClass().getResource("Imagem\\144688423-editar-ícone-cone-do-lápis-inscrever-se-icon-vector (1).jpg"));
+        Icon icone2 = new ImageIcon(Objects.requireNonNull(getClass().getResource("Imagem\\144688423-editar-ícone-cone-do-lápis-inscrever-se-icon-vector (1).jpg")));
         registrar.setIcon(icone2);
         registrar.setBackground(Color.white);
 
-        menuLogin = new JPanelComImagemDeFundo(getClass().getResource("Imagem\\fundo-quadrado-azul-para-cartaz-de-banner-anuncio-de-midia-social-evento-e-varios-trabalhos-de-design_7954-52368.jpg"));
+        menuLogin = new JPanelComImagemDeFundo(Objects.requireNonNull(getClass().getResource("Imagem\\fundo-quadrado-azul-para-cartaz-de-banner-anuncio-de-midia-social-evento-e-varios-trabalhos-de-design_7954-52368.jpg")));
         menuLogin.setLayout(new GridBagLayout());
         Border borda = BorderFactory.createLineBorder(Color.black);
         menuLogin.setBorder(borda);
+        add(menuLogin,menuLoginC);
 
         menuLogin.add(textoLogin,textoLoginC);
         menuLogin.add(login,loginC);
@@ -112,14 +102,61 @@ public class GuiLogin extends JFrame {
         menuLogin.add(senha,senhaC);
         menuLogin.add(botaoLogin,botaoLoginC);
         menuLogin.add(registrar,registreC);
+    }
 
+    public JTextFieldArredondado getLogin() {
+        return login;
+    }
 
-        fundo = new JPanelComImagemDeFundo(getClass().getResource("Imagem\\fundo.jpg"));
-        fundo.setLayout(new GridBagLayout());
+    public GridBagConstraints getLoginC() {
+        return loginC;
+    }
 
+    public JPasswordArredondado getSenha() {
+        return senha;
+    }
 
-        fundo.add(menuLogin, menuLoginC);
+    public GridBagConstraints getSenhaC() {
+        return senhaC;
+    }
 
-        add(fundo,fundoC);
+    public BotaoArredondado getBotaoLogin() {
+        return botaoLogin;
+    }
+
+    public GridBagConstraints getBotaoLoginC() {
+        return botaoLoginC;
+    }
+
+    public BotaoArredondado getRegistrar() {
+        return registrar;
+    }
+
+    public GridBagConstraints getRegistreC() {
+        return registreC;
+    }
+
+    public JLabel getTextoLogin() {
+        return textoLogin;
+    }
+
+    public GridBagConstraints getTextoLoginC() {
+        return textoLoginC;
+    }
+
+    public JLabel getTextoSenha() {
+        return textoSenha;
+    }
+
+    public GridBagConstraints getSenhaTextoC() {
+        return senhaTextoC;
+    }
+
+    public JPanelComImagemDeFundo getMenuLogin() {
+        return menuLogin;
+    }
+
+    public GridBagConstraints getMenuLoginC() {
+        return menuLoginC;
     }
 }

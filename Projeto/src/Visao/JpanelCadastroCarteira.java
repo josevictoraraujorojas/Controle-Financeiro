@@ -5,10 +5,8 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.Border;
 
-public class GuiCadastroCarteira extends JFrame {
+public class JpanelCadastroCarteira extends JPanel {
 
-    private JPanelComImagemDeFundo fundo;
-    private GridBagConstraints fundoC;
     private JPanelComImagemDeFundo imagem;
     private GridBagConstraints imagemC;
     private JPanelComImagemDeFundo menuCadastro;
@@ -32,18 +30,11 @@ public class GuiCadastroCarteira extends JFrame {
     private BotaoArredondado cancelar;
     private GridBagConstraints cancelarC;
 
-    public GuiCadastroCarteira() {
+    public JpanelCadastroCarteira() {
 
-        setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\joaov\\Downloads\\imagem_de_fundo.jpeg"));
         setLayout(new GridBagLayout());
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 2020, 2020);
         Font fonte = new Font("Serif", Font.PLAIN, 20);
 
-        fundoC = new GridBagConstraints();
-        fundoC.weighty = 1;
-        fundoC.weightx = 1;
-        fundoC.fill = GridBagConstraints.BOTH;
 
         imagemC = new GridBagConstraints();
         imagemC.ipady = 758;
@@ -90,18 +81,15 @@ public class GuiCadastroCarteira extends JFrame {
         cancelarC = new GridBagConstraints();
         cancelarC.insets = new Insets(50, 50, 0, 0);
 
-        fundo = new JPanelComImagemDeFundo(getClass().getResource("Imagem\\fundo.jpg"));
-        fundo.setLayout(new GridBagLayout());
-        add(fundo, fundoC);
-
         imagem = new JPanelComImagemDeFundo(getClass().getResource("Imagem\\imagem_tela_cadastro.png"));
-        fundo.add(imagem, imagemC);
+        add(imagem, imagemC);
 
         Border borda = BorderFactory.createLineBorder(Color.black);
+
         menuCadastro = new JPanelComImagemDeFundo(getClass().getResource("Imagem\\fundo-quadrado-azul-para-cartaz-de-banner-anuncio-de-midia-social-evento-e-varios-trabalhos-de-design_7954-52368.jpg"));
         menuCadastro.setLayout(new GridBagLayout());
         menuCadastro.setBorder(borda);
-        fundo.add(menuCadastro, menuCadastroC);
+        add(menuCadastro, menuCadastroC);
 
         textoCarteira = new JLabel("Cadastro Limite Da Carteira");
         textoCarteira.setFont(fonte);

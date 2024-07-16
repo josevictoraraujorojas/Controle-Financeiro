@@ -4,18 +4,8 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 
-public class GuiPerfil extends JFrame {
+public class JpanelPerfil extends JFrame {
 
-    private JPanelComImagemDeFundo fundo;
-    private GridBagConstraints fundoC;
-    private JPanel menu;
-    private GridBagConstraints menuC;
-    private BotaoArredondado principal;
-    private GridBagConstraints principalC;
-    private BotaoArredondado botaoPerfil;
-    private GridBagConstraints botaoPerfilC;
-    private BotaoArredondado sair;
-    private GridBagConstraints sairC;
     private JPanel perfil;
     private GridBagConstraints perfilC;
     private JLabel textoPerfil;
@@ -54,34 +44,12 @@ public class GuiPerfil extends JFrame {
     private GridBagConstraints salvarC;
 
 
-        public GuiPerfil() {
+        public JpanelPerfil() {
             super("grafico");
             setLayout(new GridBagLayout());
             Font fonte = new Font("Serif", Font.PLAIN, 20);
             Border borda = BorderFactory.createLineBorder(Color.black, 2);
 
-
-            fundoC = new GridBagConstraints();
-            fundoC.weighty = 1;
-            fundoC.weightx = 1;
-            fundoC.fill = GridBagConstraints.BOTH;
-
-            menuC = new GridBagConstraints();
-            menuC.ipadx = 50;
-            menuC.ipady = 637;
-            menuC.gridheight = GridBagConstraints.REMAINDER;
-
-
-            principalC = new GridBagConstraints();
-            principalC.gridwidth = GridBagConstraints.REMAINDER;
-
-            botaoPerfilC = new GridBagConstraints();
-            botaoPerfilC.gridwidth = GridBagConstraints.REMAINDER;
-            botaoPerfilC.weighty = 1;
-            botaoPerfilC.anchor = GridBagConstraints.NORTH;
-
-            sairC = new GridBagConstraints();
-            sairC.gridwidth = GridBagConstraints.REMAINDER;
 
             perfilC = new GridBagConstraints();
             perfilC.ipady = 215;
@@ -161,38 +129,11 @@ public class GuiPerfil extends JFrame {
             salvarC.gridx=1;
             salvarC.anchor = GridBagConstraints.LAST_LINE_END;
 
-
-
-            fundo = new JPanelComImagemDeFundo(getClass().getResource("Imagem\\fundo.jpg"));
-            fundo.setLayout(new GridBagLayout());
-            add(fundo, fundoC);
-
-            menu = new JPanel();
-            menu.setBackground(Color.decode("#82C2D4"));
-            menu.setLayout(new GridBagLayout());
-            menu.setBorder(borda);
-            fundo.add(menu, menuC);
-
-            principal = new BotaoArredondado();
-            principal.setText("principal");
-            principal.setBackground(Color.cyan);
-            menu.add(principal, principalC);
-
-            botaoPerfil = new BotaoArredondado();
-            botaoPerfil.setText("perfil");
-            botaoPerfil.setBackground(Color.cyan);
-            menu.add(botaoPerfil, botaoPerfilC);
-
-            sair = new BotaoArredondado();
-            sair.setText("sair");
-            sair.setBackground(Color.red);
-            menu.add(sair, sairC);
-
             perfil = new JPanel();
             perfil.setBackground(Color.white);
             perfil.setLayout(new GridBagLayout());
             perfil.setBorder(borda);
-            fundo.add(perfil, perfilC);
+            add(perfil, perfilC);
 
             textoPerfil = new JLabel();
             textoPerfil.setText("Informacoes do Usuario");

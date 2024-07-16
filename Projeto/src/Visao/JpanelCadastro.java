@@ -1,14 +1,14 @@
 package Visao;
 
 import java.awt.*;
+import java.util.Objects;
 
 import javax.swing.*;
 import javax.swing.border.Border;
 
-public class GuiCadastro extends JFrame {
+public class JpanelCadastro extends JFrame {
 
-	private JPanelComImagemDeFundo fundo;
-	private GridBagConstraints fundoC;
+
 	private JPanelComImagemDeFundo imagem;
 	private GridBagConstraints imagemC;
 	private JPanelComImagemDeFundo menuCadastro;
@@ -33,14 +33,9 @@ public class GuiCadastro extends JFrame {
 	private GridBagConstraints cancelarC;
 
 
-	public GuiCadastro() {
+	public JpanelCadastro() {
 		setLayout(new GridBagLayout());
 		Font fonte = new Font("Serif",Font.PLAIN,20);
-
-		fundoC = new GridBagConstraints();
-		fundoC.weighty = 1;
-		fundoC.weightx = 1;
-		fundoC.fill = GridBagConstraints.BOTH;
 
 		imagemC = new GridBagConstraints();
 		imagemC.ipady = 758;
@@ -87,18 +82,16 @@ public class GuiCadastro extends JFrame {
 		cancelarC = new GridBagConstraints();
 		cancelarC.insets = new Insets(50,50,0,0);
 
-		fundo = new JPanelComImagemDeFundo(getClass().getResource("Imagem\\fundo.jpg"));
-		fundo.setLayout(new GridBagLayout());
-		add(fundo, fundoC);
 
-		imagem = new JPanelComImagemDeFundo(getClass().getResource("Imagem\\imagem_tela_cadastro.png"));
-		fundo.add(imagem,imagemC);
+
+		imagem = new JPanelComImagemDeFundo(Objects.requireNonNull(getClass().getResource("Imagem\\imagem_tela_cadastro.png")));
+		add(imagem,imagemC);
 
 		Border borda =BorderFactory.createLineBorder(Color.black);
-		menuCadastro = new JPanelComImagemDeFundo(getClass().getResource("Imagem\\fundo-quadrado-azul-para-cartaz-de-banner-anuncio-de-midia-social-evento-e-varios-trabalhos-de-design_7954-52368.jpg"));
+		menuCadastro = new JPanelComImagemDeFundo(Objects.requireNonNull(getClass().getResource("Imagem\\fundo-quadrado-azul-para-cartaz-de-banner-anuncio-de-midia-social-evento-e-varios-trabalhos-de-design_7954-52368.jpg")));
 		menuCadastro.setLayout(new GridBagLayout());
 		menuCadastro.setBorder(borda);
-		fundo.add(menuCadastro, menuCadastroC);
+		add(menuCadastro, menuCadastroC);
 
 		textoCadastro = new JLabel("Cadastro pessoal");
 		textoCadastro.setFont(fonte);

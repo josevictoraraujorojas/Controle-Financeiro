@@ -13,20 +13,10 @@ import javax.swing.*;
 import javax.swing.border.Border;
 
 import java.awt.*;
-import java.util.Objects;
 
-public class GuiPrincipal extends JFrame {
+public class JpanelPrincipal extends JPanel {
 
-    private JPanelComImagemDeFundo fundo;
-    private GridBagConstraints fundoC;
-    private JPanel menu;
-    private GridBagConstraints menuC;
-    private BotaoArredondado principal;
-    private GridBagConstraints principalC;
-    private BotaoArredondado perfil;
-    private GridBagConstraints perfilC;
-    private BotaoArredondado sair;
-    private GridBagConstraints sairC;
+
     private JPanel telaprincipal;
     private GridBagConstraints telaprincipalC;
     private JPanel painelGraficos;
@@ -64,34 +54,11 @@ public class GuiPrincipal extends JFrame {
     private static  final String[] despesasFixas = {"conta de agua","conta de luz","conta supermercado"};
     private static  final String[] despesasVariaveis = {"comprei roupa","comprei um sorvete","comprei pizza"};
 
-    public GuiPrincipal() {
-        super("grafico");
+    public JpanelPrincipal() {
         setLayout(new GridBagLayout());
         Font fonte = new Font("Serif",Font.PLAIN,20);
         Border borda = BorderFactory.createLineBorder(Color.black, 2);
 
-
-        fundoC = new GridBagConstraints();
-        fundoC.weighty = 1;
-        fundoC.weightx = 1;
-        fundoC.fill = GridBagConstraints.BOTH;
-
-        menuC = new GridBagConstraints();
-        menuC.ipadx=50;
-        menuC.ipady=637;
-        menuC.gridheight=GridBagConstraints.REMAINDER;
-
-
-        principalC = new GridBagConstraints();
-        principalC.gridwidth=GridBagConstraints.REMAINDER;
-
-        perfilC = new GridBagConstraints();
-        perfilC.gridwidth=GridBagConstraints.REMAINDER;
-        perfilC.weighty=1;
-        perfilC.anchor=GridBagConstraints.NORTH;
-
-        sairC = new GridBagConstraints();
-        sairC.gridwidth=GridBagConstraints.REMAINDER;
 
         painelGraficosC = new GridBagConstraints();
         painelGraficosC.gridwidth=GridBagConstraints.REMAINDER;
@@ -138,38 +105,10 @@ public class GuiPrincipal extends JFrame {
         listaDespesasVariaveisC.ipadx=331;
         listaDespesasVariaveisC.ipady=200;
 
-
-
-
-        fundo = new JPanelComImagemDeFundo(Objects.requireNonNull(getClass().getResource("Imagem\\fundo.jpg")));
-        fundo.setLayout(new GridBagLayout());
-        add(fundo,fundoC);
-
-        menu = new JPanel();
-        menu.setBackground(Color.decode("#82C2D4"));
-        menu.setLayout(new GridBagLayout());
-        menu.setBorder(borda);
-        fundo.add(menu,menuC);
-
-        principal = new BotaoArredondado();
-        principal.setText("principal");
-        principal.setBackground(Color.cyan);
-        menu.add(principal,principalC);
-
-        perfil = new BotaoArredondado();
-        perfil.setText("perfil");
-        perfil.setBackground(Color.cyan);
-        menu.add(perfil,perfilC);
-
-        sair = new BotaoArredondado();
-        sair.setText("sair");
-        sair.setBackground(Color.red);
-        menu.add(sair,sairC);
-
         telaprincipal = new JPanel();
         telaprincipal.setLayout(new GridBagLayout());
         telaprincipal.setBorder(borda);
-        fundo.add(telaprincipal,telaprincipalC);
+        add(telaprincipal,telaprincipalC);
 
         painelGraficos = new JPanel();
         painelGraficos.setLayout(new GridBagLayout());
