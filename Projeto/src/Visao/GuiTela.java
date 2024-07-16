@@ -2,8 +2,6 @@ package Visao;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class GuiTela extends JFrame {
     private JPanelComImagemDeFundo fundo;
