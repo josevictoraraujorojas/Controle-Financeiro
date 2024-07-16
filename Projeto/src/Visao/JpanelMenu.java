@@ -56,4 +56,36 @@ public class JpanelMenu extends JPanel{
         sair.setBackground(Color.red);
         menu.add(sair,sairC);
     }
+
+    public JPanel getMenu() {
+        return menu;
+    }
+
+    public GridBagConstraints getMenuC() {
+        return menuC;
+    }
+
+    public BotaoArredondado getPrincipal() {
+        return principal;
+    }
+
+    public GridBagConstraints getPrincipalC() {
+        return principalC;
+    }
+
+    public BotaoArredondado getPerfil() {
+        return perfil;
+    }
+
+    public GridBagConstraints getPerfilC() {
+        return perfilC;
+    }
+
+    public BotaoArredondado getSair() {
+        return sair;
+    }
+
+    public GridBagConstraints getSairC() {
+        return sairC;
+    }
 }

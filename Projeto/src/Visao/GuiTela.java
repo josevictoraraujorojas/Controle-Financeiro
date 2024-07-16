@@ -8,6 +8,10 @@ import java.awt.event.ActionListener;
 public class GuiTela extends JFrame {
     private JPanelComImagemDeFundo fundo;
     private GridBagConstraints fundoC;
+    JpanelLogin jpanelLogin;
+    JpanelMenu jpanelMenu;
+    JpanelPrincipal jpanelPrincipal;
+    JpanelPerfil jpanelPerfil;
 
 
     public  GuiTela(){
@@ -25,24 +29,8 @@ public class GuiTela extends JFrame {
         fundo.setLayout(new GridBagLayout());
         add(fundo, fundoC);
 
-        JpanelLogin jpanelLogin = new JpanelLogin();
+        jpanelLogin = new JpanelLogin();
         fundo.add(jpanelLogin, jpanelLoginC);
-
-        jpanelLogin.getBotaoLogin().addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                fundo.remove(jpanelLogin);
-                JpanelPrincipal jpanelPrincipal = new JpanelPrincipal();
-                JpanelMenu jpanelMenu = new JpanelMenu();
-                GridBagConstraints c = new GridBagConstraints();
-                fundo.add(jpanelMenu,c );
-                fundo.add(jpanelPrincipal,c );
-                revalidate();
-                repaint();
-            }
-
-        });
 
     }
 
