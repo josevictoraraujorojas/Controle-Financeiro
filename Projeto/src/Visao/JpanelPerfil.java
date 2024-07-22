@@ -4,7 +4,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 
-public class JpanelPerfil extends JFrame {
+public class JpanelPerfil extends JPanel {
 
     private JPanel perfil;
     private GridBagConstraints perfilC;
@@ -45,7 +45,6 @@ public class JpanelPerfil extends JFrame {
 
 
         public JpanelPerfil() {
-            super("grafico");
             setLayout(new GridBagLayout());
             Font fonte = new Font("Serif", Font.PLAIN, 20);
             Border borda = BorderFactory.createLineBorder(Color.black, 2);
@@ -237,6 +236,294 @@ public class JpanelPerfil extends JFrame {
             perfil.add(salvar,salvarC);
 
         }
+
+    public JPanel getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(JPanel perfil) {
+        this.perfil = perfil;
+    }
+
+    public GridBagConstraints getPerfilC() {
+        return perfilC;
+    }
+
+    public void setPerfilC(GridBagConstraints perfilC) {
+        this.perfilC = perfilC;
+    }
+
+    public JLabel getTextoPerfil() {
+        return textoPerfil;
+    }
+
+    public void setTextoPerfil(JLabel textoPerfil) {
+        this.textoPerfil = textoPerfil;
+    }
+
+    public GridBagConstraints getTextoPerfilC() {
+        return textoPerfilC;
+    }
+
+    public void setTextoPerfilC(GridBagConstraints textoPerfilC) {
+        this.textoPerfilC = textoPerfilC;
+    }
+
+    public JPanel getDetalheCarteira() {
+        return detalheCarteira;
+    }
+
+    public void setDetalheCarteira(JPanel detalheCarteira) {
+        this.detalheCarteira = detalheCarteira;
+    }
+
+    public GridBagConstraints getDetalheCarteiraC() {
+        return detalheCarteiraC;
+    }
+
+    public void setDetalheCarteiraC(GridBagConstraints detalheCarteiraC) {
+        this.detalheCarteiraC = detalheCarteiraC;
+    }
+
+    public JLabel getTextoLimiteDespesasFixas() {
+        return textoLimiteDespesasFixas;
+    }
+
+    public void setTextoLimiteDespesasFixas(JLabel textoLimiteDespesasFixas) {
+        this.textoLimiteDespesasFixas = textoLimiteDespesasFixas;
+    }
+
+    public GridBagConstraints getTextoLimiteDespesasFixasC() {
+        return textoLimiteDespesasFixasC;
+    }
+
+    public void setTextoLimiteDespesasFixasC(GridBagConstraints textoLimiteDespesasFixasC) {
+        this.textoLimiteDespesasFixasC = textoLimiteDespesasFixasC;
+    }
+
+    public JTextFieldArredondado getLimiteDespesasFixas() {
+        return limiteDespesasFixas;
+    }
+
+    public void setLimiteDespesasFixas(JTextFieldArredondado limiteDespesasFixas) {
+        this.limiteDespesasFixas = limiteDespesasFixas;
+    }
+
+    public GridBagConstraints getLimiteDespesasFixasC() {
+        return limiteDespesasFixasC;
+    }
+
+    public void setLimiteDespesasFixasC(GridBagConstraints limiteDespesasFixasC) {
+        this.limiteDespesasFixasC = limiteDespesasFixasC;
+    }
+
+    public JLabel getTextoLimiteDespesasVariaveis() {
+        return textoLimiteDespesasVariaveis;
+    }
+
+    public void setTextoLimiteDespesasVariaveis(JLabel textoLimiteDespesasVariaveis) {
+        this.textoLimiteDespesasVariaveis = textoLimiteDespesasVariaveis;
+    }
+
+    public GridBagConstraints getTextoLimiteDespesasVariaveisC() {
+        return textoLimiteDespesasVariaveisC;
+    }
+
+    public void setTextoLimiteDespesasVariaveisC(GridBagConstraints textoLimiteDespesasVariaveisC) {
+        this.textoLimiteDespesasVariaveisC = textoLimiteDespesasVariaveisC;
+    }
+
+    public JTextFieldArredondado getLimiteDespesasVariaveis() {
+        return limiteDespesasVariaveis;
+    }
+
+    public void setLimiteDespesasVariaveis(JTextFieldArredondado limiteDespesasVariaveis) {
+        this.limiteDespesasVariaveis = limiteDespesasVariaveis;
+    }
+
+    public GridBagConstraints getLimiteDespesasVariaveisC() {
+        return limiteDespesasVariaveisC;
+    }
+
+    public void setLimiteDespesasVariaveisC(GridBagConstraints limiteDespesasVariaveisC) {
+        this.limiteDespesasVariaveisC = limiteDespesasVariaveisC;
+    }
+
+    public JLabel getTextoLimiteMetas() {
+        return textoLimiteMetas;
+    }
+
+    public void setTextoLimiteMetas(JLabel textoLimiteMetas) {
+        this.textoLimiteMetas = textoLimiteMetas;
+    }
+
+    public GridBagConstraints getTextoLimiteMetasC() {
+        return textoLimiteMetasC;
+    }
+
+    public void setTextoLimiteMetasC(GridBagConstraints textoLimiteMetasC) {
+        this.textoLimiteMetasC = textoLimiteMetasC;
+    }
+
+    public JTextFieldArredondado getLimiteMetas() {
+        return limiteMetas;
+    }
+
+    public void setLimiteMetas(JTextFieldArredondado limiteMetas) {
+        this.limiteMetas = limiteMetas;
+    }
+
+    public GridBagConstraints getLimiteMetasC() {
+        return limiteMetasC;
+    }
+
+    public void setLimiteMetasC(GridBagConstraints limiteMetasC) {
+        this.limiteMetasC = limiteMetasC;
+    }
+
+    public JPanel getDetalhePessoal() {
+        return detalhePessoal;
+    }
+
+    public void setDetalhePessoal(JPanel detalhePessoal) {
+        this.detalhePessoal = detalhePessoal;
+    }
+
+    public GridBagConstraints getDetalhePessoalC() {
+        return detalhePessoalC;
+    }
+
+    public void setDetalhePessoalC(GridBagConstraints detalhePessoalC) {
+        this.detalhePessoalC = detalhePessoalC;
+    }
+
+    public JLabel getTextoLogin() {
+        return textoLogin;
+    }
+
+    public void setTextoLogin(JLabel textoLogin) {
+        this.textoLogin = textoLogin;
+    }
+
+    public GridBagConstraints getTextoLoginC() {
+        return textoLoginC;
+    }
+
+    public void setTextoLoginC(GridBagConstraints textoLoginC) {
+        this.textoLoginC = textoLoginC;
+    }
+
+    public JTextFieldArredondado getLogin() {
+        return login;
+    }
+
+    public void setLogin(JTextFieldArredondado login) {
+        this.login = login;
+    }
+
+    public GridBagConstraints getLoginC() {
+        return loginC;
+    }
+
+    public void setLoginC(GridBagConstraints loginC) {
+        this.loginC = loginC;
+    }
+
+    public JLabel getTextoSenha() {
+        return textoSenha;
+    }
+
+    public void setTextoSenha(JLabel textoSenha) {
+        this.textoSenha = textoSenha;
+    }
+
+    public GridBagConstraints getTextoSenhaC() {
+        return textoSenhaC;
+    }
+
+    public void setTextoSenhaC(GridBagConstraints textoSenhaC) {
+        this.textoSenhaC = textoSenhaC;
+    }
+
+    public JPasswordArredondado getSenha() {
+        return senha;
+    }
+
+    public void setSenha(JPasswordArredondado senha) {
+        this.senha = senha;
+    }
+
+    public GridBagConstraints getSenhaC() {
+        return senhaC;
+    }
+
+    public void setSenhaC(GridBagConstraints senhaC) {
+        this.senhaC = senhaC;
+    }
+
+    public JLabel getTextoSaldo() {
+        return textoSaldo;
+    }
+
+    public void setTextoSaldo(JLabel textoSaldo) {
+        this.textoSaldo = textoSaldo;
+    }
+
+    public GridBagConstraints getTextoSaldoC() {
+        return textoSaldoC;
+    }
+
+    public void setTextoSaldoC(GridBagConstraints textoSaldoC) {
+        this.textoSaldoC = textoSaldoC;
+    }
+
+    public JTextFieldArredondado getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(JTextFieldArredondado saldo) {
+        this.saldo = saldo;
+    }
+
+    public GridBagConstraints getSaldoC() {
+        return saldoC;
+    }
+
+    public void setSaldoC(GridBagConstraints saldoC) {
+        this.saldoC = saldoC;
+    }
+
+    public BotaoArredondado getEditar() {
+        return editar;
+    }
+
+    public void setEditar(BotaoArredondado editar) {
+        this.editar = editar;
+    }
+
+    public GridBagConstraints getEditarC() {
+        return editarC;
+    }
+
+    public void setEditarC(GridBagConstraints editarC) {
+        this.editarC = editarC;
+    }
+
+    public BotaoArredondado getSalvar() {
+        return salvar;
+    }
+
+    public void setSalvar(BotaoArredondado salvar) {
+        this.salvar = salvar;
+    }
+
+    public GridBagConstraints getSalvarC() {
+        return salvarC;
+    }
+
+    public void setSalvarC(GridBagConstraints salvarC) {
+        this.salvarC = salvarC;
+    }
 }
 
 

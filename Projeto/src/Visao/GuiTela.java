@@ -6,11 +6,6 @@ import java.awt.*;
 public class GuiTela extends JFrame {
     private JPanelComImagemDeFundo fundo;
     private GridBagConstraints fundoC;
-    JpanelLogin jpanelLogin;
-    JpanelMenu jpanelMenu;
-    JpanelPrincipal jpanelPrincipal;
-    JpanelPerfil jpanelPerfil;
-
 
     public  GuiTela(){
         setLayout(new GridBagLayout());
@@ -26,10 +21,6 @@ public class GuiTela extends JFrame {
         fundo = new JPanelComImagemDeFundo(getClass().getResource("Imagem\\fundo.jpg"));
         fundo.setLayout(new GridBagLayout());
         add(fundo, fundoC);
-
-        jpanelLogin = new JpanelLogin();
-        fundo.add(jpanelLogin, jpanelLoginC);
-
     }
 
     public JPanelComImagemDeFundo getFundo() {

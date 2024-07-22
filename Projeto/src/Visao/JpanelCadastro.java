@@ -6,7 +6,7 @@ import java.util.Objects;
 import javax.swing.*;
 import javax.swing.border.Border;
 
-public class JpanelCadastro extends JFrame {
+public class JpanelCadastro extends JPanel {
 
 
 	private JPanelComImagemDeFundo imagem;
@@ -140,4 +140,181 @@ public class JpanelCadastro extends JFrame {
 
 
 	}
+
+	public JPanelComImagemDeFundo getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(JPanelComImagemDeFundo imagem) {
+		this.imagem = imagem;
+	}
+
+	public GridBagConstraints getImagemC() {
+		return imagemC;
+	}
+
+	public void setImagemC(GridBagConstraints imagemC) {
+		this.imagemC = imagemC;
+	}
+
+	public JPanelComImagemDeFundo getMenuCadastro() {
+		return menuCadastro;
+	}
+
+	public void setMenuCadastro(JPanelComImagemDeFundo menuCadastro) {
+		this.menuCadastro = menuCadastro;
+	}
+
+	public GridBagConstraints getMenuCadastroC() {
+		return menuCadastroC;
+	}
+
+	public void setMenuCadastroC(GridBagConstraints menuCadastroC) {
+		this.menuCadastroC = menuCadastroC;
+	}
+
+	public JLabel getTextoCadastro() {
+		return textoCadastro;
+	}
+
+	public void setTextoCadastro(JLabel textoCadastro) {
+		this.textoCadastro = textoCadastro;
+	}
+
+	public GridBagConstraints getTextoCadastroC() {
+		return textoCadastroC;
+	}
+
+	public void setTextoCadastroC(GridBagConstraints textoCadastroC) {
+		this.textoCadastroC = textoCadastroC;
+	}
+
+	public JLabel getTextoLogin() {
+		return textoLogin;
+	}
+
+	public void setTextoLogin(JLabel textoLogin) {
+		this.textoLogin = textoLogin;
+	}
+
+	public GridBagConstraints getTextoLoginC() {
+		return textoLoginC;
+	}
+
+	public void setTextoLoginC(GridBagConstraints textoLoginC) {
+		this.textoLoginC = textoLoginC;
+	}
+
+	public JTextFieldArredondado getLogin() {
+		return login;
+	}
+
+	public void setLogin(JTextFieldArredondado login) {
+		this.login = login;
+	}
+
+	public GridBagConstraints getLoginC() {
+		return loginC;
+	}
+
+	public void setLoginC(GridBagConstraints loginC) {
+		this.loginC = loginC;
+	}
+
+	public JLabel getTextoSenha() {
+		return textoSenha;
+	}
+
+	public void setTextoSenha(JLabel textoSenha) {
+		this.textoSenha = textoSenha;
+	}
+
+	public GridBagConstraints getTextoSenhaC() {
+		return textoSenhaC;
+	}
+
+	public void setTextoSenhaC(GridBagConstraints textoSenhaC) {
+		this.textoSenhaC = textoSenhaC;
+	}
+
+	public JPasswordArredondado getSenha() {
+		return senha;
+	}
+
+	public void setSenha(JPasswordArredondado senha) {
+		this.senha = senha;
+	}
+
+	public GridBagConstraints getSenhaC() {
+		return senhaC;
+	}
+
+	public void setSenhaC(GridBagConstraints senhaC) {
+		this.senhaC = senhaC;
+	}
+
+	public JLabel getTextoSaldo() {
+		return textoSaldo;
+	}
+
+	public void setTextoSaldo(JLabel textoSaldo) {
+		this.textoSaldo = textoSaldo;
+	}
+
+	public GridBagConstraints getTextoSaldoC() {
+		return textoSaldoC;
+	}
+
+	public void setTextoSaldoC(GridBagConstraints textoSaldoC) {
+		this.textoSaldoC = textoSaldoC;
+	}
+
+	public JTextFieldArredondado getSaldo() {
+		return saldo;
+	}
+
+	public void setSaldo(JTextFieldArredondado saldo) {
+		this.saldo = saldo;
+	}
+
+	public GridBagConstraints getSaldoC() {
+		return saldoC;
+	}
+
+	public void setSaldoC(GridBagConstraints saldoC) {
+		this.saldoC = saldoC;
+	}
+
+	public BotaoArredondado getCadastrar() {
+		return cadastrar;
+	}
+
+	public void setCadastrar(BotaoArredondado cadastrar) {
+		this.cadastrar = cadastrar;
+	}
+
+	public GridBagConstraints getCadastrarC() {
+		return cadastrarC;
+	}
+
+	public void setCadastrarC(GridBagConstraints cadastrarC) {
+		this.cadastrarC = cadastrarC;
+	}
+
+	public BotaoArredondado getCancelar() {
+		return cancelar;
+	}
+
+	public void setCancelar(BotaoArredondado cancelar) {
+		this.cancelar = cancelar;
+	}
+
+	public GridBagConstraints getCancelarC() {
+		return cancelarC;
+	}
+
+	public void setCancelarC(GridBagConstraints cancelarC) {
+		this.cancelarC = cancelarC;
+	}
+
 }

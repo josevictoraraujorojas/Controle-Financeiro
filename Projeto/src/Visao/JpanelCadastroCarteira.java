@@ -137,4 +137,180 @@ public class JpanelCadastroCarteira extends JPanel {
 
 
     }
+
+    public JPanelComImagemDeFundo getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(JPanelComImagemDeFundo imagem) {
+        this.imagem = imagem;
+    }
+
+    public GridBagConstraints getImagemC() {
+        return imagemC;
+    }
+
+    public void setImagemC(GridBagConstraints imagemC) {
+        this.imagemC = imagemC;
+    }
+
+    public JPanelComImagemDeFundo getMenuCadastro() {
+        return menuCadastro;
+    }
+
+    public void setMenuCadastro(JPanelComImagemDeFundo menuCadastro) {
+        this.menuCadastro = menuCadastro;
+    }
+
+    public GridBagConstraints getMenuCadastroC() {
+        return menuCadastroC;
+    }
+
+    public void setMenuCadastroC(GridBagConstraints menuCadastroC) {
+        this.menuCadastroC = menuCadastroC;
+    }
+
+    public JLabel getTextoCarteira() {
+        return textoCarteira;
+    }
+
+    public void setTextoCarteira(JLabel textoCarteira) {
+        this.textoCarteira = textoCarteira;
+    }
+
+    public GridBagConstraints getTextoCarteiraC() {
+        return textoCarteiraC;
+    }
+
+    public void setTextoCarteiraC(GridBagConstraints textoCarteiraC) {
+        this.textoCarteiraC = textoCarteiraC;
+    }
+
+    public JLabel getTextoLimiteDespesasFixas() {
+        return textoLimiteDespesasFixas;
+    }
+
+    public void setTextoLimiteDespesasFixas(JLabel textoLimiteDespesasFixas) {
+        this.textoLimiteDespesasFixas = textoLimiteDespesasFixas;
+    }
+
+    public GridBagConstraints getTextoLimiteDespesasFixasC() {
+        return textoLimiteDespesasFixasC;
+    }
+
+    public void setTextoLimiteDespesasFixasC(GridBagConstraints textoLimiteDespesasFixasC) {
+        this.textoLimiteDespesasFixasC = textoLimiteDespesasFixasC;
+    }
+
+    public JTextFieldArredondado getLimiteDespesasFixas() {
+        return limiteDespesasFixas;
+    }
+
+    public void setLimiteDespesasFixas(JTextFieldArredondado limiteDespesasFixas) {
+        this.limiteDespesasFixas = limiteDespesasFixas;
+    }
+
+    public GridBagConstraints getLimiteDespesasFixasC() {
+        return limiteDespesasFixasC;
+    }
+
+    public void setLimiteDespesasFixasC(GridBagConstraints limiteDespesasFixasC) {
+        this.limiteDespesasFixasC = limiteDespesasFixasC;
+    }
+
+    public JLabel getTextoLimiteDespesasVariaveis() {
+        return textoLimiteDespesasVariaveis;
+    }
+
+    public void setTextoLimiteDespesasVariaveis(JLabel textoLimiteDespesasVariaveis) {
+        this.textoLimiteDespesasVariaveis = textoLimiteDespesasVariaveis;
+    }
+
+    public GridBagConstraints getTextoLimiteDespesasVariaveisC() {
+        return textoLimiteDespesasVariaveisC;
+    }
+
+    public void setTextoLimiteDespesasVariaveisC(GridBagConstraints textoLimiteDespesasVariaveisC) {
+        this.textoLimiteDespesasVariaveisC = textoLimiteDespesasVariaveisC;
+    }
+
+    public JTextFieldArredondado getLimiteDespesasVariaveis() {
+        return LimiteDespesasVariaveis;
+    }
+
+    public void setLimiteDespesasVariaveis(JTextFieldArredondado limiteDespesasVariaveis) {
+        LimiteDespesasVariaveis = limiteDespesasVariaveis;
+    }
+
+    public GridBagConstraints getLimiteDespesasVariaveisC() {
+        return LimiteDespesasVariaveisC;
+    }
+
+    public void setLimiteDespesasVariaveisC(GridBagConstraints limiteDespesasVariaveisC) {
+        LimiteDespesasVariaveisC = limiteDespesasVariaveisC;
+    }
+
+    public JLabel getTextoLimiteMetas() {
+        return textoLimiteMetas;
+    }
+
+    public void setTextoLimiteMetas(JLabel textoLimiteMetas) {
+        this.textoLimiteMetas = textoLimiteMetas;
+    }
+
+    public GridBagConstraints getTextoLimiteMetasC() {
+        return textoLimiteMetasC;
+    }
+
+    public void setTextoLimiteMetasC(GridBagConstraints textoLimiteMetasC) {
+        this.textoLimiteMetasC = textoLimiteMetasC;
+    }
+
+    public JTextFieldArredondado getLimiteMetas() {
+        return limiteMetas;
+    }
+
+    public void setLimiteMetas(JTextFieldArredondado limiteMetas) {
+        this.limiteMetas = limiteMetas;
+    }
+
+    public GridBagConstraints getLimiteMetasC() {
+        return limiteMetasC;
+    }
+
+    public void setLimiteMetasC(GridBagConstraints limiteMetasC) {
+        this.limiteMetasC = limiteMetasC;
+    }
+
+    public BotaoArredondado getCadastrar() {
+        return cadastrar;
+    }
+
+    public void setCadastrar(BotaoArredondado cadastrar) {
+        this.cadastrar = cadastrar;
+    }
+
+    public GridBagConstraints getCadastrarC() {
+        return cadastrarC;
+    }
+
+    public void setCadastrarC(GridBagConstraints cadastrarC) {
+        this.cadastrarC = cadastrarC;
+    }
+
+    public BotaoArredondado getCancelar() {
+        return cancelar;
+    }
+
+    public void setCancelar(BotaoArredondado cancelar) {
+        this.cancelar = cancelar;
+    }
+
+    public GridBagConstraints getCancelarC() {
+        return cancelarC;
+    }
+
+    public void setCancelarC(GridBagConstraints cancelarC) {
+        this.cancelarC = cancelarC;
+    }
 }

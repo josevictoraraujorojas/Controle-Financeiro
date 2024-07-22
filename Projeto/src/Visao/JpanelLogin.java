@@ -159,4 +159,60 @@ public class JpanelLogin extends JPanel {
     public GridBagConstraints getMenuLoginC() {
         return menuLoginC;
     }
+
+    public void setLogin(JTextFieldArredondado login) {
+        this.login = login;
+    }
+
+    public void setLoginC(GridBagConstraints loginC) {
+        this.loginC = loginC;
+    }
+
+    public void setSenha(JPasswordArredondado senha) {
+        this.senha = senha;
+    }
+
+    public void setSenhaC(GridBagConstraints senhaC) {
+        this.senhaC = senhaC;
+    }
+
+    public void setBotaoLogin(BotaoArredondado botaoLogin) {
+        this.botaoLogin = botaoLogin;
+    }
+
+    public void setBotaoLoginC(GridBagConstraints botaoLoginC) {
+        this.botaoLoginC = botaoLoginC;
+    }
+
+    public void setRegistrar(BotaoArredondado registrar) {
+        this.registrar = registrar;
+    }
+
+    public void setRegistreC(GridBagConstraints registreC) {
+        this.registreC = registreC;
+    }
+
+    public void setTextoLogin(JLabel textoLogin) {
+        this.textoLogin = textoLogin;
+    }
+
+    public void setTextoLoginC(GridBagConstraints textoLoginC) {
+        this.textoLoginC = textoLoginC;
+    }
+
+    public void setTextoSenha(JLabel textoSenha) {
+        this.textoSenha = textoSenha;
+    }
+
+    public void setSenhaTextoC(GridBagConstraints senhaTextoC) {
+        this.senhaTextoC = senhaTextoC;
+    }
+
+    public void setMenuLogin(JPanelComImagemDeFundo menuLogin) {
+        this.menuLogin = menuLogin;
+    }
+
+    public void setMenuLoginC(GridBagConstraints menuLoginC) {
+        this.menuLoginC = menuLoginC;
+    }
 }

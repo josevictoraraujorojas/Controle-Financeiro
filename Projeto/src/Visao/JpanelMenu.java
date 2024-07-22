@@ -88,4 +88,36 @@ public class JpanelMenu extends JPanel{
     public GridBagConstraints getSairC() {
         return sairC;
     }
+
+    public void setMenu(JPanel menu) {
+        this.menu = menu;
+    }
+
+    public void setMenuC(GridBagConstraints menuC) {
+        this.menuC = menuC;
+    }
+
+    public void setPrincipal(BotaoArredondado principal) {
+        this.principal = principal;
+    }
+
+    public void setPrincipalC(GridBagConstraints principalC) {
+        this.principalC = principalC;
+    }
+
+    public void setPerfil(BotaoArredondado perfil) {
+        this.perfil = perfil;
+    }
+
+    public void setPerfilC(GridBagConstraints perfilC) {
+        this.perfilC = perfilC;
+    }
+
+    public void setSair(BotaoArredondado sair) {
+        this.sair = sair;
+    }
+
+    public void setSairC(GridBagConstraints sairC) {
+        this.sairC = sairC;
+    }
 }
