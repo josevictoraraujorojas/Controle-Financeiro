@@ -7,7 +7,7 @@ import java.text.ParseException;
 
 public class GuiAdicionarDespesasVariaveis extends JFrame {
     private JPanelComImagemDeFundo menuAdicionar;
-    GridBagConstraints menuAdicionarC;
+    private GridBagConstraints menuAdicionarC;
     private JLabel textoCategoria;
     private GridBagConstraints textoCategoriaC;
     private JTextFieldArredondado categoria;
@@ -190,5 +190,277 @@ public class GuiAdicionarDespesasVariaveis extends JFrame {
         cancelar.setBackground(Color.RED);
         menuAdicionar.add(cancelar,cancelarC);
 
+    }
+
+    public JPanelComImagemDeFundo getMenuAdicionar() {
+        return menuAdicionar;
+    }
+
+    public void setMenuAdicionar(JPanelComImagemDeFundo menuAdicionar) {
+        this.menuAdicionar = menuAdicionar;
+    }
+
+    public GridBagConstraints getMenuAdicionarC() {
+        return menuAdicionarC;
+    }
+
+    public void setMenuAdicionarC(GridBagConstraints menuAdicionarC) {
+        this.menuAdicionarC = menuAdicionarC;
+    }
+
+    public JLabel getTextoCategoria() {
+        return textoCategoria;
+    }
+
+    public void setTextoCategoria(JLabel textoCategoria) {
+        this.textoCategoria = textoCategoria;
+    }
+
+    public GridBagConstraints getTextoCategoriaC() {
+        return textoCategoriaC;
+    }
+
+    public void setTextoCategoriaC(GridBagConstraints textoCategoriaC) {
+        this.textoCategoriaC = textoCategoriaC;
+    }
+
+    public JTextFieldArredondado getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(JTextFieldArredondado categoria) {
+        this.categoria = categoria;
+    }
+
+    public GridBagConstraints getCategoriaC() {
+        return categoriaC;
+    }
+
+    public void setCategoriaC(GridBagConstraints categoriaC) {
+        this.categoriaC = categoriaC;
+    }
+
+    public JLabel getTextoDataEmicao() {
+        return textoDataEmicao;
+    }
+
+    public void setTextoDataEmicao(JLabel textoDataEmicao) {
+        this.textoDataEmicao = textoDataEmicao;
+    }
+
+    public GridBagConstraints getTextoDataEmicaoC() {
+        return textoDataEmicaoC;
+    }
+
+    public void setTextoDataEmicaoC(GridBagConstraints textoDataEmicaoC) {
+        this.textoDataEmicaoC = textoDataEmicaoC;
+    }
+
+    public JFormattedTextFieldArredondado getDataEmicao() {
+        return dataEmicao;
+    }
+
+    public void setDataEmicao(JFormattedTextFieldArredondado dataEmicao) {
+        this.dataEmicao = dataEmicao;
+    }
+
+    public GridBagConstraints getDataEmicaoC() {
+        return dataEmicaoC;
+    }
+
+    public void setDataEmicaoC(GridBagConstraints dataEmicaoC) {
+        this.dataEmicaoC = dataEmicaoC;
+    }
+
+    public JLabel getTextoDataVencimento() {
+        return textoDataVencimento;
+    }
+
+    public void setTextoDataVencimento(JLabel textoDataVencimento) {
+        this.textoDataVencimento = textoDataVencimento;
+    }
+
+    public GridBagConstraints getTextoDataVencimentoC() {
+        return textoDataVencimentoC;
+    }
+
+    public void setTextoDataVencimentoC(GridBagConstraints textoDataVencimentoC) {
+        this.textoDataVencimentoC = textoDataVencimentoC;
+    }
+
+    public JFormattedTextFieldArredondado getDataVencimento() {
+        return dataVencimento;
+    }
+
+    public void setDataVencimento(JFormattedTextFieldArredondado dataVencimento) {
+        this.dataVencimento = dataVencimento;
+    }
+
+    public GridBagConstraints getDataVencimentoC() {
+        return dataVencimentoC;
+    }
+
+    public void setDataVencimentoC(GridBagConstraints dataVencimentoC) {
+        this.dataVencimentoC = dataVencimentoC;
+    }
+
+    public JLabel getTextoDescricao() {
+        return textoDescricao;
+    }
+
+    public void setTextoDescricao(JLabel textoDescricao) {
+        this.textoDescricao = textoDescricao;
+    }
+
+    public GridBagConstraints getTextoDescricaoC() {
+        return textoDescricaoC;
+    }
+
+    public void setTextoDescricaoC(GridBagConstraints textoDescricaoC) {
+        this.textoDescricaoC = textoDescricaoC;
+    }
+
+    public JTextAreaArredondado getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(JTextAreaArredondado descricao) {
+        this.descricao = descricao;
+    }
+
+    public GridBagConstraints getDescricaoC() {
+        return descricaoC;
+    }
+
+    public void setDescricaoC(GridBagConstraints descricaoC) {
+        this.descricaoC = descricaoC;
+    }
+
+    public JLabel getTextoValor() {
+        return textoValor;
+    }
+
+    public void setTextoValor(JLabel textoValor) {
+        this.textoValor = textoValor;
+    }
+
+    public GridBagConstraints getTextoValorC() {
+        return textoValorC;
+    }
+
+    public void setTextoValorC(GridBagConstraints textoValorC) {
+        this.textoValorC = textoValorC;
+    }
+
+    public JTextFieldArredondado getValor() {
+        return valor;
+    }
+
+    public void setValor(JTextFieldArredondado valor) {
+        this.valor = valor;
+    }
+
+    public GridBagConstraints getValorC() {
+        return valorC;
+    }
+
+    public void setValorC(GridBagConstraints valorC) {
+        this.valorC = valorC;
+    }
+
+    public JLabel getTextoQuantidadeParcelas() {
+        return textoQuantidadeParcelas;
+    }
+
+    public void setTextoQuantidadeParcelas(JLabel textoQuantidadeParcelas) {
+        this.textoQuantidadeParcelas = textoQuantidadeParcelas;
+    }
+
+    public GridBagConstraints getTextoQuantidadeParcelasC() {
+        return textoQuantidadeParcelasC;
+    }
+
+    public void setTextoQuantidadeParcelasC(GridBagConstraints textoQuantidadeParcelasC) {
+        this.textoQuantidadeParcelasC = textoQuantidadeParcelasC;
+    }
+
+    public JTextFieldArredondado getQuantidadeParcelas() {
+        return quantidadeParcelas;
+    }
+
+    public void setQuantidadeParcelas(JTextFieldArredondado quantidadeParcelas) {
+        this.quantidadeParcelas = quantidadeParcelas;
+    }
+
+    public GridBagConstraints getQuantidadeParcelasC() {
+        return quantidadeParcelasC;
+    }
+
+    public void setQuantidadeParcelasC(GridBagConstraints quantidadeParcelasC) {
+        this.quantidadeParcelasC = quantidadeParcelasC;
+    }
+
+    public JLabel getTextoRecorrencia() {
+        return textoRecorrencia;
+    }
+
+    public void setTextoRecorrencia(JLabel textoRecorrencia) {
+        this.textoRecorrencia = textoRecorrencia;
+    }
+
+    public GridBagConstraints getTextoRecorrenciaC() {
+        return textoRecorrenciaC;
+    }
+
+    public void setTextoRecorrenciaC(GridBagConstraints textoRecorrenciaC) {
+        this.textoRecorrenciaC = textoRecorrenciaC;
+    }
+
+    public JTextFieldArredondado getRecorrencia() {
+        return recorrencia;
+    }
+
+    public void setRecorrencia(JTextFieldArredondado recorrencia) {
+        this.recorrencia = recorrencia;
+    }
+
+    public GridBagConstraints getRecorrenciaC() {
+        return recorrenciaC;
+    }
+
+    public void setRecorrenciaC(GridBagConstraints recorrenciaC) {
+        this.recorrenciaC = recorrenciaC;
+    }
+
+    public BotaoArredondado getAdicionar() {
+        return adicionar;
+    }
+
+    public void setAdicionar(BotaoArredondado adicionar) {
+        this.adicionar = adicionar;
+    }
+
+    public GridBagConstraints getAdicionarC() {
+        return adicionarC;
+    }
+
+    public void setAdicionarC(GridBagConstraints adicionarC) {
+        this.adicionarC = adicionarC;
+    }
+
+    public BotaoArredondado getCancelar() {
+        return cancelar;
+    }
+
+    public void setCancelar(BotaoArredondado cancelar) {
+        this.cancelar = cancelar;
+    }
+
+    public GridBagConstraints getCancelarC() {
+        return cancelarC;
+    }
+
+    public void setCancelarC(GridBagConstraints cancelarC) {
+        this.cancelarC = cancelarC;
     }
 }

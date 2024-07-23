@@ -170,4 +170,244 @@ public class GuiAdicionarMetas extends JFrame{
         menuAdicionar.add(cancelar,cancelarC);
 
     }
+
+    public JPanelComImagemDeFundo getMenuAdicionar() {
+        return menuAdicionar;
+    }
+
+    public void setMenuAdicionar(JPanelComImagemDeFundo menuAdicionar) {
+        this.menuAdicionar = menuAdicionar;
+    }
+
+    public GridBagConstraints getMenuAdicionarC() {
+        return menuAdicionarC;
+    }
+
+    public void setMenuAdicionarC(GridBagConstraints menuAdicionarC) {
+        this.menuAdicionarC = menuAdicionarC;
+    }
+
+    public JLabel getTextoCategoria() {
+        return textoCategoria;
+    }
+
+    public void setTextoCategoria(JLabel textoCategoria) {
+        this.textoCategoria = textoCategoria;
+    }
+
+    public GridBagConstraints getTextoCategoriaC() {
+        return textoCategoriaC;
+    }
+
+    public void setTextoCategoriaC(GridBagConstraints textoCategoriaC) {
+        this.textoCategoriaC = textoCategoriaC;
+    }
+
+    public JTextFieldArredondado getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(JTextFieldArredondado categoria) {
+        this.categoria = categoria;
+    }
+
+    public GridBagConstraints getCategoriaC() {
+        return categoriaC;
+    }
+
+    public void setCategoriaC(GridBagConstraints categoriaC) {
+        this.categoriaC = categoriaC;
+    }
+
+    public JLabel getTextoDataInicial() {
+        return textoDataInicial;
+    }
+
+    public void setTextoDataInicial(JLabel textoDataInicial) {
+        this.textoDataInicial = textoDataInicial;
+    }
+
+    public GridBagConstraints getTextoDataInicialC() {
+        return textoDataInicialC;
+    }
+
+    public void setTextoDataInicialC(GridBagConstraints textoDataInicialC) {
+        this.textoDataInicialC = textoDataInicialC;
+    }
+
+    public JFormattedTextFieldArredondado getDataInicial() {
+        return dataInicial;
+    }
+
+    public void setDataInicial(JFormattedTextFieldArredondado dataInicial) {
+        this.dataInicial = dataInicial;
+    }
+
+    public GridBagConstraints getDataInicialC() {
+        return dataInicialC;
+    }
+
+    public void setDataInicialC(GridBagConstraints dataInicialC) {
+        this.dataInicialC = dataInicialC;
+    }
+
+    public JLabel getTextoDataFinal() {
+        return textoDataFinal;
+    }
+
+    public void setTextoDataFinal(JLabel textoDataFinal) {
+        this.textoDataFinal = textoDataFinal;
+    }
+
+    public GridBagConstraints getTextoDataFinalC() {
+        return textoDataFinalC;
+    }
+
+    public void setTextoDataFinalC(GridBagConstraints textoDataFinalC) {
+        this.textoDataFinalC = textoDataFinalC;
+    }
+
+    public JFormattedTextFieldArredondado getDataFinal() {
+        return dataFinal;
+    }
+
+    public void setDataFinal(JFormattedTextFieldArredondado dataFinal) {
+        this.dataFinal = dataFinal;
+    }
+
+    public GridBagConstraints getDataFinalC() {
+        return dataFinalC;
+    }
+
+    public void setDataFinalC(GridBagConstraints dataFinalC) {
+        this.dataFinalC = dataFinalC;
+    }
+
+    public JLabel getTextoDescricao() {
+        return textoDescricao;
+    }
+
+    public void setTextoDescricao(JLabel textoDescricao) {
+        this.textoDescricao = textoDescricao;
+    }
+
+    public GridBagConstraints getTextoDescricaoC() {
+        return textoDescricaoC;
+    }
+
+    public void setTextoDescricaoC(GridBagConstraints textoDescricaoC) {
+        this.textoDescricaoC = textoDescricaoC;
+    }
+
+    public JTextAreaArredondado getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(JTextAreaArredondado descricao) {
+        this.descricao = descricao;
+    }
+
+    public GridBagConstraints getDescricaoC() {
+        return descricaoC;
+    }
+
+    public void setDescricaoC(GridBagConstraints descricaoC) {
+        this.descricaoC = descricaoC;
+    }
+
+    public JLabel getTextoValorTotal() {
+        return textoValorTotal;
+    }
+
+    public void setTextoValorTotal(JLabel textoValorTotal) {
+        this.textoValorTotal = textoValorTotal;
+    }
+
+    public GridBagConstraints getTextoValorTotalC() {
+        return textoValorTotalC;
+    }
+
+    public void setTextoValorTotalC(GridBagConstraints textoValorTotalC) {
+        this.textoValorTotalC = textoValorTotalC;
+    }
+
+    public JTextFieldArredondado getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(JTextFieldArredondado valorTotal) {
+        this.valorTotal = valorTotal;
+    }
+
+    public GridBagConstraints getValorTotalC() {
+        return valorTotalC;
+    }
+
+    public void setValorTotalC(GridBagConstraints valorTotalC) {
+        this.valorTotalC = valorTotalC;
+    }
+
+    public JLabel getTextoRecorrencia() {
+        return textoRecorrencia;
+    }
+
+    public void setTextoRecorrencia(JLabel textoRecorrencia) {
+        this.textoRecorrencia = textoRecorrencia;
+    }
+
+    public GridBagConstraints getTextoRecorrenciaC() {
+        return textoRecorrenciaC;
+    }
+
+    public void setTextoRecorrenciaC(GridBagConstraints textoRecorrenciaC) {
+        this.textoRecorrenciaC = textoRecorrenciaC;
+    }
+
+    public JTextFieldArredondado getRecorrencia() {
+        return recorrencia;
+    }
+
+    public void setRecorrencia(JTextFieldArredondado recorrencia) {
+        this.recorrencia = recorrencia;
+    }
+
+    public GridBagConstraints getRecorrenciaC() {
+        return recorrenciaC;
+    }
+
+    public void setRecorrenciaC(GridBagConstraints recorrenciaC) {
+        this.recorrenciaC = recorrenciaC;
+    }
+
+    public BotaoArredondado getAdicionar() {
+        return adicionar;
+    }
+
+    public void setAdicionar(BotaoArredondado adicionar) {
+        this.adicionar = adicionar;
+    }
+
+    public GridBagConstraints getAdicionarC() {
+        return adicionarC;
+    }
+
+    public void setAdicionarC(GridBagConstraints adicionarC) {
+        this.adicionarC = adicionarC;
+    }
+
+    public BotaoArredondado getCancelar() {
+        return cancelar;
+    }
+
+    public void setCancelar(BotaoArredondado cancelar) {
+        this.cancelar = cancelar;
+    }
+
+    public GridBagConstraints getCancelarC() {
+        return cancelarC;
+    }
+
+    public void setCancelarC(GridBagConstraints cancelarC) {
+        this.cancelarC = cancelarC;
+    }
 }
