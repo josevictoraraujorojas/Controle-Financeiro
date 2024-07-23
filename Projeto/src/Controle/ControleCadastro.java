@@ -53,6 +53,7 @@ public class ControleCadastro {
 
     public void acessaCancelar(){
         limpar();
+        controleCadastroCarteira.limpar();
         login.mostrar();
     }
 }

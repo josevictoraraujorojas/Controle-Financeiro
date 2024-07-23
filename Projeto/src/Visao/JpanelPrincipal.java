@@ -219,4 +219,260 @@ public class JpanelPrincipal extends JPanel {
         painelLista.add(listaDespesasVariaveis,listaDespesasVariaveisC);
 
     }
+
+    public JPanel getTelaprincipal() {
+        return telaprincipal;
+    }
+
+    public void setTelaprincipal(JPanel telaprincipal) {
+        this.telaprincipal = telaprincipal;
+    }
+
+    public GridBagConstraints getTelaprincipalC() {
+        return telaprincipalC;
+    }
+
+    public void setTelaprincipalC(GridBagConstraints telaprincipalC) {
+        this.telaprincipalC = telaprincipalC;
+    }
+
+    public JPanel getPainelGraficos() {
+        return painelGraficos;
+    }
+
+    public void setPainelGraficos(JPanel painelGraficos) {
+        this.painelGraficos = painelGraficos;
+    }
+
+    public GridBagConstraints getPainelGraficosC() {
+        return painelGraficosC;
+    }
+
+    public void setPainelGraficosC(GridBagConstraints painelGraficosC) {
+        this.painelGraficosC = painelGraficosC;
+    }
+
+    public JFreeChart getGraficoPizza() {
+        return graficoPizza;
+    }
+
+    public void setGraficoPizza(JFreeChart graficoPizza) {
+        this.graficoPizza = graficoPizza;
+    }
+
+    public ChartPanel getPainelGraficoPizza() {
+        return painelGraficoPizza;
+    }
+
+    public void setPainelGraficoPizza(ChartPanel painelGraficoPizza) {
+        this.painelGraficoPizza = painelGraficoPizza;
+    }
+
+    public GridBagConstraints getPainelGraficoPizzaC() {
+        return painelGraficoPizzaC;
+    }
+
+    public void setPainelGraficoPizzaC(GridBagConstraints painelGraficoPizzaC) {
+        this.painelGraficoPizzaC = painelGraficoPizzaC;
+    }
+
+    public JFreeChart getGraficoBarra() {
+        return graficoBarra;
+    }
+
+    public void setGraficoBarra(JFreeChart graficoBarra) {
+        this.graficoBarra = graficoBarra;
+    }
+
+    public ChartPanel getPainelGraficoBarra() {
+        return painelGraficoBarra;
+    }
+
+    public void setPainelGraficoBarra(ChartPanel painelGraficoBarra) {
+        this.painelGraficoBarra = painelGraficoBarra;
+    }
+
+    public GridBagConstraints getPainelGraficoBarraC() {
+        return painelGraficoBarraC;
+    }
+
+    public void setPainelGraficoBarraC(GridBagConstraints painelGraficoBarraC) {
+        this.painelGraficoBarraC = painelGraficoBarraC;
+    }
+
+    public JPanel getPainelTexto() {
+        return painelTexto;
+    }
+
+    public void setPainelTexto(JPanel painelTexto) {
+        this.painelTexto = painelTexto;
+    }
+
+    public GridBagConstraints getPainelTextoC() {
+        return painelTextoC;
+    }
+
+    public void setPainelTextoC(GridBagConstraints painelTextoC) {
+        this.painelTextoC = painelTextoC;
+    }
+
+    public JLabel getTextoMetas() {
+        return textoMetas;
+    }
+
+    public void setTextoMetas(JLabel textoMetas) {
+        this.textoMetas = textoMetas;
+    }
+
+    public GridBagConstraints getTextoMetasC() {
+        return textoMetasC;
+    }
+
+    public void setTextoMetasC(GridBagConstraints textoMetasC) {
+        this.textoMetasC = textoMetasC;
+    }
+
+    public BotaoArredondado getAdicionarMetas() {
+        return adicionarMetas;
+    }
+
+    public void setAdicionarMetas(BotaoArredondado adicionarMetas) {
+        this.adicionarMetas = adicionarMetas;
+    }
+
+    public GridBagConstraints getAdicionarMetasC() {
+        return adicionarMetasC;
+    }
+
+    public void setAdicionarMetasC(GridBagConstraints adicionarMetasC) {
+        this.adicionarMetasC = adicionarMetasC;
+    }
+
+    public JLabel getTextoDespesasFixas() {
+        return textoDespesasFixas;
+    }
+
+    public void setTextoDespesasFixas(JLabel textoDespesasFixas) {
+        this.textoDespesasFixas = textoDespesasFixas;
+    }
+
+    public GridBagConstraints getTextoDespesasFixasC() {
+        return textoDespesasFixasC;
+    }
+
+    public void setTextoDespesasFixasC(GridBagConstraints textoDespesasFixasC) {
+        this.textoDespesasFixasC = textoDespesasFixasC;
+    }
+
+    public BotaoArredondado getAdicionarDespesasFixas() {
+        return adicionarDespesasFixas;
+    }
+
+    public void setAdicionarDespesasFixas(BotaoArredondado adicionarDespesasFixas) {
+        this.adicionarDespesasFixas = adicionarDespesasFixas;
+    }
+
+    public GridBagConstraints getAdicionarDespesasFixasC() {
+        return adicionarDespesasFixasC;
+    }
+
+    public void setAdicionarDespesasFixasC(GridBagConstraints adicionarDespesasFixasC) {
+        this.adicionarDespesasFixasC = adicionarDespesasFixasC;
+    }
+
+    public JLabel getTextoDespesasVariaveis() {
+        return textoDespesasVariaveis;
+    }
+
+    public void setTextoDespesasVariaveis(JLabel textoDespesasVariaveis) {
+        this.textoDespesasVariaveis = textoDespesasVariaveis;
+    }
+
+    public GridBagConstraints getTextoDespesasVariaveisC() {
+        return textoDespesasVariaveisC;
+    }
+
+    public void setTextoDespesasVariaveisC(GridBagConstraints textoDespesasVariaveisC) {
+        this.textoDespesasVariaveisC = textoDespesasVariaveisC;
+    }
+
+    public BotaoArredondado getAdicionarDespesasVariaveis() {
+        return adicionarDespesasVariaveis;
+    }
+
+    public void setAdicionarDespesasVariaveis(BotaoArredondado adicionarDespesasVariaveis) {
+        this.adicionarDespesasVariaveis = adicionarDespesasVariaveis;
+    }
+
+    public GridBagConstraints getAdicionarDespesasVariaveisC() {
+        return adicionarDespesasVariaveisC;
+    }
+
+    public void setAdicionarDespesasVariaveisC(GridBagConstraints adicionarDespesasVariaveisC) {
+        this.adicionarDespesasVariaveisC = adicionarDespesasVariaveisC;
+    }
+
+    public JPanel getPainelLista() {
+        return painelLista;
+    }
+
+    public void setPainelLista(JPanel painelLista) {
+        this.painelLista = painelLista;
+    }
+
+    public GridBagConstraints getPainelListaC() {
+        return painelListaC;
+    }
+
+    public void setPainelListaC(GridBagConstraints painelListaC) {
+        this.painelListaC = painelListaC;
+    }
+
+    public JList getListaMetas() {
+        return listaMetas;
+    }
+
+    public void setListaMetas(JList listaMetas) {
+        this.listaMetas = listaMetas;
+    }
+
+    public GridBagConstraints getListaMetasC() {
+        return listaMetasC;
+    }
+
+    public void setListaMetasC(GridBagConstraints listaMetasC) {
+        this.listaMetasC = listaMetasC;
+    }
+
+    public JList getListaDespesasFixas() {
+        return listaDespesasFixas;
+    }
+
+    public void setListaDespesasFixas(JList listaDespesasFixas) {
+        this.listaDespesasFixas = listaDespesasFixas;
+    }
+
+    public GridBagConstraints getListaDespesasFixasC() {
+        return listaDespesasFixasC;
+    }
+
+    public void setListaDespesasFixasC(GridBagConstraints listaDespesasFixasC) {
+        this.listaDespesasFixasC = listaDespesasFixasC;
+    }
+
+    public JList getListaDespesasVariaveis() {
+        return listaDespesasVariaveis;
+    }
+
+    public void setListaDespesasVariaveis(JList listaDespesasVariaveis) {
+        this.listaDespesasVariaveis = listaDespesasVariaveis;
+    }
+
+    public GridBagConstraints getListaDespesasVariaveisC() {
+        return listaDespesasVariaveisC;
+    }
+
+    public void setListaDespesasVariaveisC(GridBagConstraints listaDespesasVariaveisC) {
+        this.listaDespesasVariaveisC = listaDespesasVariaveisC;
+    }
 }

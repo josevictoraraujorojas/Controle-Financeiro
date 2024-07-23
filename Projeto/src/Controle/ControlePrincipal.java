@@ -1,9 +1,9 @@
 package Controle;
 
-import Visao.GuiTela;
-import Visao.JpanelPrincipal;
+import Visao.*;
 
 import java.awt.*;
+import java.text.ParseException;
 
 public class ControlePrincipal {
     JpanelPrincipal principal;
@@ -12,6 +12,7 @@ public class ControlePrincipal {
     public ControlePrincipal(JpanelPrincipal principal, GuiTela tela) {
         this.principal = principal;
         this.tela = tela;
+        iniciaControle();
     }
     public void mostrar(){
         tela.getFundo().add(principal,new GridBagConstraints());
@@ -22,5 +23,42 @@ public class ControlePrincipal {
         this.tela.getFundo().remove(principal);
         this.tela.revalidate();
         this.tela.repaint();
+    }
+
+    public void iniciaControle(){
+        principal.getAdicionarDespesasVariaveis().addActionListener(e -> {
+            try {
+                acessaDespesasVariaveis();
+            } catch (ParseException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+        principal.getAdicionarDespesasFixas().addActionListener(e -> {
+            try {
+                acessaDespesasFixas();
+            } catch (ParseException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+        principal.getAdicionarMetas().addActionListener(e -> {
+            try {
+                acessaAdicionarMetas();
+            } catch (ParseException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+    }
+
+    public void acessaDespesasVariaveis() throws ParseException {
+        ControleAdicionarDespesasVariaveis despesasVariaveis = new ControleAdicionarDespesasVariaveis(new GuiAdicionarDespesasVariaveis());
+
+    }
+    public void acessaDespesasFixas() throws ParseException {
+        ControleAdicionarDespesasFixas despesasFixas = new ControleAdicionarDespesasFixas(new GuiAdicionarDespesasFixas());
+    }
+    public void acessaAdicionarMetas() throws ParseException {
+        ControleAdicionarMetas metas = new ControleAdicionarMetas(new GuiAdicionarMetas());
+
+
     }
 }
