@@ -12,6 +12,7 @@
       <root url="jar://$PROJECT_DIR$/../../../../jfreechart-1.0.19/lib/orsonpdf-1.6-eval.jar!/" />
       <root url="jar://$PROJECT_DIR$/../../../../jfreechart-1.0.19/lib/servlet.jar!/" />
       <root url="jar://$PROJECT_DIR$/../../../../jfreechart-1.0.19/lib/swtgraphics2d.jar!/" />
+      <root url="jar://$PROJECT_DIR$/JFreeChart,/mysql-connector-java-5.1.30-bin.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

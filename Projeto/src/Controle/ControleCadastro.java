@@ -1,6 +1,6 @@
 package Controle;
 
-import DAO.loginDAO;
+import DAO.UsuarioDAO;
 import Modelo.Usuario;
 import Visao.GuiTela;
 import Visao.JpanelCadastro;
@@ -9,7 +9,6 @@ import Visao.JpanelLogin;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.logging.Logger;
 
 public class ControleCadastro {
     JpanelCadastro cadastro;
@@ -56,27 +55,23 @@ public class ControleCadastro {
         ocultar();
         controleCadastroCarteira = new ControleCadastroCarteira(new JpanelCadastroCarteira(),tela,this);
         controleCadastroCarteira.mostrar();
+        Usuario usuario = new Usuario();
+        usuario.setLogin(String.valueOf(cadastro.getLogin().getText()));
+        usuario.setSenha(String.valueOf(cadastro.getSenha().getText()));
+        String Saldo = String.valueOf(cadastro.getSaldo().getText());
+        usuario.setSaldo(Double.valueOf(Saldo));
+        UsuarioDAO dao = new UsuarioDAO();
+        try {
+            dao.save(usuario);
+        }
+        catch (Exception ex){
+
+        }
     }
 
     public void acessaCancelar(){
         limpar();
         controleCadastroCarteira.limpar();
         login.mostrar();
-    }
-
-
-    public void actionCadastrar(){
-        Usuario usuario = new Usuario();
-        usuario.setLogin(String.valueOf(cadastro.getLogin()));
-        usuario.setSenha(String.valueOf(cadastro.getSenha()));
-        String Saldo = String.valueOf(cadastro.getSaldo());
-        usuario.setSaldo(Double.valueOf(Saldo));
-        loginDAO dao = new loginDAO();
-        try{
-            dao.save(usuario);
-            JOptionPane.showConfirmDialog(null,"Cadastrado com sucesso");
-        }catch (Exception ex){
-
-        }
     }
 }
