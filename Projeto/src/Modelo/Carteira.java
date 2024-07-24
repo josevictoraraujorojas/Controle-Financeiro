@@ -1,6 +1,8 @@
 package Modelo;
 
 public class Carteira {
+    private int id;
+    private int usuarioID;
     private double limiteDespesaFixa;
     private double limiteDespesaVariavel;
     private double limiteMetas;
@@ -11,6 +13,22 @@ public class Carteira {
 
     public Carteira(){
 
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getUsuarioID() {
+        return usuarioID;
+    }
+
+    public void setUsuarioID(int usuarioID) {
+        this.usuarioID = usuarioID;
     }
 
     public double getLimiteDespesaFixa() {

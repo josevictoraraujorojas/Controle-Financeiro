@@ -55,7 +55,9 @@ public class ControleCadastro {
         ocultar();
         controleCadastroCarteira = new ControleCadastroCarteira(new JpanelCadastroCarteira(),tela,this);
         controleCadastroCarteira.mostrar();
+
         Usuario usuario = new Usuario();
+
         usuario.setLogin(String.valueOf(cadastro.getLogin().getText()));
         usuario.setSenha(String.valueOf(cadastro.getSenha().getText()));
         String Saldo = String.valueOf(cadastro.getSaldo().getText());
@@ -65,7 +67,6 @@ public class ControleCadastro {
             dao.save(usuario);
         }
         catch (Exception ex){
-
         }
     }
 
