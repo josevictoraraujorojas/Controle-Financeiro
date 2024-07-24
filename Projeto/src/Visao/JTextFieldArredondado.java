@@ -11,7 +11,6 @@ public class JTextFieldArredondado extends JTextField {
         setOpaque(false);
         setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10)); // Adiciona margem interna para evitar que o texto toque nas bordas
     }
-
     @Override
     protected void paintComponent(Graphics g) {
         Graphics2D g2 = (Graphics2D) g.create();

@@ -1,5 +1,7 @@
 package Visao;
 
+import Controle.ControleCadastro;
+
 import java.awt.*;
 import java.util.Objects;
 
@@ -131,6 +133,12 @@ public class JpanelCadastro extends JPanel {
 		cadastrar.setText("avancar");
 		cadastrar.setBackground(Color.green);
 		menuCadastro.add(cadastrar,cadastrarC);
+		cadastrar.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				ControleCadastro cadastro = new ControleCadastro();
+				cadastro.actionCadastrar();
+			}
+		});
 
 		cancelar = new BotaoArredondado();
 		cancelar.setText("cancelar");

@@ -1,11 +1,15 @@
 package Controle;
 
+import DAO.loginDAO;
+import Modelo.Usuario;
 import Visao.GuiTela;
 import Visao.JpanelCadastro;
 import Visao.JpanelCadastroCarteira;
 import Visao.JpanelLogin;
 
+import javax.swing.*;
 import java.awt.*;
+import java.util.logging.Logger;
 
 public class ControleCadastro {
     JpanelCadastro cadastro;
@@ -13,6 +17,9 @@ public class ControleCadastro {
     ControleLogin login;
     ControleCadastroCarteira controleCadastroCarteira;
 
+    public ControleCadastro(){
+
+    }
 
     public ControleCadastro(JpanelCadastro cadastro, GuiTela tela) {
         this.cadastro = cadastro;
@@ -55,5 +62,21 @@ public class ControleCadastro {
         limpar();
         controleCadastroCarteira.limpar();
         login.mostrar();
+    }
+
+
+    public void actionCadastrar(){
+        Usuario usuario = new Usuario();
+        usuario.setLogin(String.valueOf(cadastro.getLogin()));
+        usuario.setSenha(String.valueOf(cadastro.getSenha()));
+        String Saldo = String.valueOf(cadastro.getSaldo());
+        usuario.setSaldo(Double.valueOf(Saldo));
+        loginDAO dao = new loginDAO();
+        try{
+            dao.save(usuario);
+            JOptionPane.showConfirmDialog(null,"Cadastrado com sucesso");
+        }catch (Exception ex){
+
+        }
     }
 }
