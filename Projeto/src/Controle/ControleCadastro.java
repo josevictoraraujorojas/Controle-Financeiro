@@ -62,12 +62,7 @@ public class ControleCadastro {
         usuario.setSenha(String.valueOf(cadastro.getSenha().getText()));
         String Saldo = String.valueOf(cadastro.getSaldo().getText());
         usuario.setSaldo(Double.valueOf(Saldo));
-        UsuarioDAO dao = new UsuarioDAO();
-        try {
-            dao.save(usuario);
-        }
-        catch (Exception ex){
-        }
+        controleCadastroCarteira.receberDadosUsuario(usuario);
     }
 
     public void acessaCancelar(){

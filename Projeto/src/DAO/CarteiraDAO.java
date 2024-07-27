@@ -2,6 +2,8 @@ package DAO;
 
 import Controle.controllerBD;
 import Modelo.Carteira;
+import Modelo.Usuario;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,61 +14,45 @@ public class CarteiraDAO {
 
 
 
-    public void save(Carteira carteira){
-        String sql = "INSERT INTO carteira(usuario_id,limite_despesa_fixa,limite_despesa_variavel,limite_metas,status)" +
-                " VALUES(?,?,?,?,?,?)";
+    public void save(Carteira carteira, Usuario usuario){
+        String sql = "INSERT INTO `usuario` (login, senha, saldo, limite_despesa_fixa, limite_despesa_variavel, limite_metas, status)"+
+                "VALUES(?,?,?,?,?,?,?)";
 
         Connection conn = null;
         PreparedStatement pstm = null;
-        ResultSet rs = null;
-        int carteiraId = -1;
 
         try {
             conn = controllerBD.createConnectionToMySQL();
-            pstm = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            //Adiciona o valor do primeiro parâmetro da sql
-            pstm.setInt(1, carteira.getUsuarioID());
-            pstm.setDouble(2, carteira.getLimiteDespesaFixa());
-            pstm.setDouble(3, carteira.getLimiteDespesaFixa());
-            pstm.setDouble(4, carteira.getLimiteDespesaVariavel());
-            pstm.setDouble(5, carteira.getLimiteMetas());
-            pstm.setInt(6, carteira.getStatus());
-
+            pstm = conn.prepareStatement(sql);
+            pstm.setString(1, usuario.getLogin());
+            pstm.setString(2, usuario.getSenha());
+            pstm.setDouble(3, usuario.getSaldo());
+            pstm.setDouble(4, carteira.getLimiteDespesaFixa());
+            pstm.setDouble(5, carteira.getLimiteDespesaVariavel());
+            pstm.setDouble(6, carteira.getLimiteMetas());
+            pstm.setBoolean(7, carteira.isStatus());
             pstm.execute();
 
-            rs = pstm.getGeneratedKeys();
-            if (rs.next()) {
-                carteiraId = rs.getInt(1);
-            }
-
-            if (carteiraId > 0) {
-                JOptionPane.showMessageDialog(null, "Carteira salva com sucesso! ID: " + carteiraId);
-            } else {
-                JOptionPane.showMessageDialog(null, "Não foi possível inserir!");
-            }
+            if (pstm.getUpdateCount()>0)
+                JOptionPane.showMessageDialog(null,"Salvo com sucesso!");
+            else
+                JOptionPane.showMessageDialog(null,"N�o foi poss�vel inserir!!");
         } catch (Exception e) {
-
             e.printStackTrace();
-        }finally{
+        }
+        finally{
             try{
                 if(pstm != null){
 
                     pstm.close();
                 }
-
                 if(conn != null){
                     conn.close();
                 }
-
             }catch(Exception e){
-
                 e.printStackTrace();
             }
         }
     }
-
-
-
-
 }
 

@@ -6,7 +6,7 @@ public class Carteira {
     private double limiteDespesaFixa;
     private double limiteDespesaVariavel;
     private double limiteMetas;
-    private byte status;
+    private boolean status;
     private double quantidadeFixas;
     private  double quantidadeVariavel;
     private  double quantidadeMetas;
@@ -55,11 +55,11 @@ public class Carteira {
         this.limiteMetas = limiteMetas;
     }
 
-    public byte getStatus() {
+    public boolean isStatus() {
         return status;
     }
 
-    public void setStatus(byte status) {
+    public void setStatus(boolean status) {
         this.status = status;
     }
 

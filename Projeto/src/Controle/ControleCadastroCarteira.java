@@ -14,6 +14,7 @@ public class ControleCadastroCarteira {
     JpanelCadastroCarteira cadastroCarteira;
     GuiTela tela;
     ControleCadastro cadastro;
+    Usuario usuario = new Usuario();
 
     public ControleCadastroCarteira(JpanelCadastroCarteira cadastroCarteira, GuiTela tela, ControleCadastro cadastro) {
         this.cadastroCarteira = cadastroCarteira;
@@ -51,12 +52,26 @@ public class ControleCadastroCarteira {
         this.limpar();
         cadastro.limpar();
         ControleMenu menu = new ControleMenu(tela,new JpanelMenu());
-
+        Carteira carteira = new Carteira();
+        double saldo = this.usuario.getSaldo();
+        double limiteDespesaFixa = (Double.valueOf(cadastroCarteira.getLimiteDespesasFixas().getText()) * saldo)/100;
+        double limiteDespesaVariavel = (Double.valueOf(cadastroCarteira.getLimiteDespesasVariaveis().getText())*saldo)/100;
+        double limiteMetas = (Double.valueOf(cadastroCarteira.getLimiteMetas().getText())*saldo)/100;
+        carteira.setLimiteDespesaFixa(limiteDespesaFixa);
+        carteira.setLimiteDespesaVariavel(limiteDespesaVariavel);
+        carteira.setLimiteMetas(limiteMetas);
+        carteira.setStatus(true);
+        CarteiraDAO carteiraDAO = new CarteiraDAO();
+        carteiraDAO.save(carteira,usuario);
     }
 
     public void acessaCancelar(){
         this.ocultar();
         cadastro.revelar();
+    }
+
+    public void receberDadosUsuario(Usuario usuario){
+        this.usuario = usuario;
     }
  
 

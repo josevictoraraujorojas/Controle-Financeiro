@@ -1,60 +1,60 @@
-create database 'controle_financeiro';
+create database `controle_financeiro`;
 
-use database controle_financeiro;
+use controle_financeiro;
 
-create table 'usuario' (
-    'id' int not null auto_increment,
-    'login' varchar(100) not null,
-    'senha' varchar(100) not null,
-    'saldo' float(10) not null,
-    primary key ('id')
+CREATE TABLE `usuario` (
+                           `id` INT NOT NULL AUTO_INCREMENT,
+                           `login` VARCHAR(100) NOT NULL,
+                           `senha` VARCHAR(100) NOT NULL,
+                           `saldo` FLOAT(10) NOT NULL,
+                           `limite_despesa_fixa` FLOAT(10) NOT NULL,
+                           `limite_despesa_variavel` FLOAT(10) NOT NULL,
+                           `limite_metas` FLOAT(10) NOT NULL,
+                           `status` BOOLEAN NOT NULL,
+                           PRIMARY KEY (`id`),
 );
 
-create table 'carteira' (
-    'id_carteira' int not null auto_increment,
-    'limite_despesa_fixa' float(10) not null,
-    'limite_despesa_variavel' float(10) not null,
-    'limite_metas' float(10) not null,
-    'status' bit not null,
-    primary key ('id_carteira')
+CREATE TABLE `metas` (
+                         `id_metas` INT NOT NULL AUTO_INCREMENT,
+                         `id` INT NOT NULL,
+                         `categoria` VARCHAR(100) NOT NULL,
+                         `status` BOOLEAN NOT NULL,
+                         `data_inicial` VARCHAR(10) NOT NULL,
+                         `data_final` VARCHAR(10) NOT NULL,
+                         `descricao` VARCHAR(100) NOT NULL,
+                         `valor_total` FLOAT(10) NOT NULL,
+                         `valor_arrecadado` FLOAT(10) NOT NULL,
+                         `recorrencia` VARCHAR(100) NOT NULL,
+                         PRIMARY KEY (`id_metas`),
+                         FOREIGN KEY (`id`) REFERENCES `usuario`(`id`)
 );
 
-create table 'metas' (
-    'id_metas' int not null auto_increment,
-    'categoria' varchar(100) not null,
-    'status'float(10) not null,
-    'data_inicial' date not null,
-    'data_final' date not null,
-    'descricao' varchar(100) not null,
-    'valor_total' float(10) not null,
-    'valor_arrecadado' float(10) not null,
-    'recorrencia' varchar(100) not null,
-    primary key ('id_metas')
+CREATE TABLE `despesa_fixa` (
+                                `id_despesa_fixa` INT NOT NULL AUTO_INCREMENT,
+                                `id` INT NOT NULL,
+                                `valor_mensal` FLOAT(10) NOT NULL,
+                                `categoria` VARCHAR(100) NOT NULL,
+                                `status` BOOLEAN NOT NULL,
+                                `data_emissao` VARCHAR(10) NOT NULL,
+                                `data_vencimento` VARCHAR(10) NOT NULL,
+                                `descricao` VARCHAR(100) NOT NULL,
+                                `recorrencia` VARCHAR(100) NOT NULL,
+                                PRIMARY KEY (`id_despesa_fixa`),
+                                FOREIGN KEY (`id`) REFERENCES `usuario`(`id`)
 );
 
-create table 'despesa_fixa'(
-    'id_despesa_fixa' int not null auto_increment,
-    'id_despesa' int not null auto_increment,
-    'valor_mensal'float(10) not null,
-    'categoria' varchar(100) not null,
-    'status' bit not null,
-    'data_emissao' date not null,
-    'data_vencimento' date not null,
-    'descricao' varchar(100) not null,
-    'recorrencia' varchar(100) not null,
-    primary key ('id_despesa_fixa'),
-);
-create table 'despesa_variavel'(
-    'id_despesa_variavel' int not null auto_increment,
-    'id_despesa' int not null auto_increment,
-    'valor'float(10) not null,
-    'qtd_parcelas' int not null,
-    'parcelas_pagas' int not null,
-    'categoria' varchar(100) not null,
-    'status' bit not null,
-    'data_emissao' date not null,
-    'data_vencimento' date not null,
-    'descricao' varchar(100) not null,
-    'recorrencia' varchar(100) not null,
-    primary key ('id_despesa_variavel')
+CREATE TABLE `despesa_variavel` (
+     `id_despesa_variavel` INT NOT NULL AUTO_INCREMENT,
+     `id` INT NOT NULL,
+     `valor` FLOAT(10) NOT NULL,
+     `qtd_parcelas` INT NOT NULL,
+      `parcelas_pagas` INT NOT NULL,
+    `categoria` VARCHAR(100) NOT NULL,
+                                    `status` BOOLEAN NOT NULL,
+                                    `data_emissao` DATE NOT NULL,
+                                    `data_vencimento` DATE NOT NULL,
+                                    `descricao` VARCHAR(100) NOT NULL,
+                                    `recorrencia` VARCHAR(100) NOT NULL,
+                                    PRIMARY KEY (`id_despesa_variavel`),
+                                    FOREIGN KEY (`id`) REFERENCES `usuario`(`id`)
 );
