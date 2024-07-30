@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class LoginDAO {
-
+    Usuario usuario;
     public boolean autenticar(String login, String senha) {
             String sql = "SELECT * FROM usuario WHERE login = ? AND senha = ?";
 
@@ -45,6 +45,5 @@ public class LoginDAO {
             }
             return false; // Falha na autenticação
         }
-
 }
 

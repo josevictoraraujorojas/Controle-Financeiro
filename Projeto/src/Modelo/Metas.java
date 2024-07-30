@@ -1,27 +1,37 @@
 package Modelo;
 
 public class Metas {
-    private String numero;
+    private int id;
     private String categoria;
-    private byte status;
+    private boolean status;
     private String dataInicial;
     private String dataFinal;
     private String descricao;
-    private double valorTotal;
-    private double valorDeContribuicao;
-    private double valorArrecadado;
-    private byte recorrencia;
-
+    private float valorTotal;
+    private float valorArrecadado;
+    private String recorrencia;
 
     public Metas(){
 
     }
-    public String getNumero() {
-        return numero;
+
+    public Metas(String categoria, boolean status, String dataInicial, String dataFinal, String descricao, float valorTotal, float valorArrecadado, String recorrencia) {
+        this.categoria = categoria;
+        this.status = status;
+        this.dataInicial = dataInicial;
+        this.dataFinal = dataFinal;
+        this.descricao = descricao;
+        this.valorTotal = valorTotal;
+        this.valorArrecadado = valorArrecadado;
+        this.recorrencia = recorrencia;
     }
 
-    public void setNumero(String numero) {
-        this.numero = numero;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getCategoria() {
@@ -32,11 +42,11 @@ public class Metas {
         this.categoria = categoria;
     }
 
-    public byte getStatus() {
+    public boolean isStatus() {
         return status;
     }
 
-    public void setStatus(byte status) {
+    public void setStatus(boolean status) {
         this.status = status;
     }
 
@@ -64,35 +74,27 @@ public class Metas {
         this.descricao = descricao;
     }
 
-    public double getValorTotal() {
+    public float getValorTotal() {
         return valorTotal;
     }
 
-    public void setValorTotal(double valorTotal) {
+    public void setValorTotal(float valorTotal) {
         this.valorTotal = valorTotal;
     }
 
-    public double getValorDeContribuicao() {
-        return valorDeContribuicao;
-    }
-
-    public void setValorDeContribuicao(double valorDeContribuicao) {
-        this.valorDeContribuicao = valorDeContribuicao;
-    }
-
-    public double getValorArrecadado() {
+    public float getValorArrecadado() {
         return valorArrecadado;
     }
 
-    public void setValorArrecadado(double valorArrecadado) {
+    public void setValorArrecadado(float valorArrecadado) {
         this.valorArrecadado = valorArrecadado;
     }
 
-    public byte getRecorrencia() {
+    public String getRecorrencia() {
         return recorrencia;
     }
 
-    public void setRecorrencia(byte recorrencia) {
+    public void setRecorrencia(String recorrencia) {
         this.recorrencia = recorrencia;
     }
 }
