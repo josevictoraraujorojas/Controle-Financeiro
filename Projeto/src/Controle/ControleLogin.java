@@ -1,6 +1,7 @@
 package Controle;
 
 
+import DAO.LoginDAO;
 import Visao.GuiTela;
 import Visao.JpanelCadastro;
 import Visao.JpanelLogin;
@@ -11,6 +12,7 @@ import java.awt.*;
 public class ControleLogin{
     JpanelLogin login;
     GuiTela tela;
+    LoginDAO loginDAO;
 
     public ControleLogin(JpanelLogin login, GuiTela tela) {
         this.login = login;
@@ -36,10 +38,16 @@ public class ControleLogin{
         this.login.getRegistrar().addActionListener(e -> realizarCadastro());
     }
     public void realizarLogin(){
-        System.out.println("login:"+this.login.getLogin().getText());
-        System.out.println("senha:"+this.login.getSenha().getText());
-        this.tela.getFundo().remove(this.login);
-        ControleMenu menu = new ControleMenu(this.tela,new JpanelMenu());
+        String login = this.login.getLogin().getText();
+        String senha = this.login.getSenha().getText();
+        loginDAO = new LoginDAO();
+        if(loginDAO.autenticar(login,senha)){
+            this.tela.getFundo().remove(this.login);
+            ControleMenu menu = new ControleMenu(this.tela,new JpanelMenu());
+        }else{
+            JOptionPane.showMessageDialog(null,"Senha ou Usuario Incorreto");
+        }
+
     }
     public void realizarCadastro(){
         this.tela.getFundo().remove(this.login);

@@ -11,7 +11,7 @@ CREATE TABLE `usuario` (
                            `limite_despesa_variavel` FLOAT(10) NOT NULL,
                            `limite_metas` FLOAT(10) NOT NULL,
                            `status` BOOLEAN NOT NULL,
-                           PRIMARY KEY (`id`),
+                           PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `metas` (
