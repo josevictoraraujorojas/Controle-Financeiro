@@ -1,15 +1,18 @@
 package Controle;
 
+import Modelo.Usuario;
 import Visao.*;
 
 import java.awt.*;
 import java.text.ParseException;
 
 public class ControlePrincipal {
+    Usuario usuario;
     JpanelPrincipal principal;
     GuiTela tela;
 
-    public ControlePrincipal(JpanelPrincipal principal, GuiTela tela) {
+    public ControlePrincipal(JpanelPrincipal principal, GuiTela tela, Usuario usuario) {
+        this.usuario = usuario;
         this.principal = principal;
         this.tela = tela;
         iniciaControle();
@@ -57,7 +60,7 @@ public class ControlePrincipal {
         ControleAdicionarDespesasFixas despesasFixas = new ControleAdicionarDespesasFixas(new GuiAdicionarDespesasFixas());
     }
     public void acessaAdicionarMetas() throws ParseException {
-        ControleAdicionarMetas metas = new ControleAdicionarMetas(new GuiAdicionarMetas());
+        ControleAdicionarMetas metas = new ControleAdicionarMetas(new GuiAdicionarMetas(),usuario);
 
 
     }

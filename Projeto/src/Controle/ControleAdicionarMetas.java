@@ -13,13 +13,14 @@ public class ControleAdicionarMetas {
     Usuario usuario;
 
 
-    public ControleAdicionarMetas(GuiAdicionarMetas tela) {
+    public ControleAdicionarMetas(GuiAdicionarMetas tela,Usuario usuario) {
+        this.usuario = usuario;
         this.tela = tela;
         iniciaTela();
     }
     public void iniciaTela(){
         this.tela.setVisible(true);
-        this.tela.setSize(500,500);
+        this.tela.setSize(700,700);
         this.tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         iniciaControler();
 
@@ -39,6 +40,7 @@ public class ControleAdicionarMetas {
         metas.setValorArrecadado(100);
         metas.setRecorrencia(tela.getRecorrencia().getText());
 
+        metasDAO.passando(usuario);
         metasDAO.save(metas);
 
         tela.setVisible(false);

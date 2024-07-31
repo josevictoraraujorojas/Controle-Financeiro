@@ -51,7 +51,7 @@ public class ControleCadastroCarteira {
     public void acessaCadastrar(){
         this.limpar();
         cadastro.limpar();
-        ControleMenu menu = new ControleMenu(tela,new JpanelMenu());
+        ControleMenu menu = new ControleMenu(tela,new JpanelMenu(),usuario);
         Carteira carteira = new Carteira();
         double saldo = this.usuario.getSaldo();
         double limiteDespesaFixa = (Double.valueOf(cadastroCarteira.getLimiteDespesasFixas().getText()) * saldo)/100;
@@ -60,7 +60,7 @@ public class ControleCadastroCarteira {
         carteira.setLimiteDespesaFixa(limiteDespesaFixa);
         carteira.setLimiteDespesaVariavel(limiteDespesaVariavel);
         carteira.setLimiteMetas(limiteMetas);
-        carteira.setStatus(true);
+        carteira.setStatus(false);
         CarteiraDAO carteiraDAO = new CarteiraDAO();
         carteiraDAO.save(carteira,usuario);
     }

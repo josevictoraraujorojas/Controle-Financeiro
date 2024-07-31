@@ -36,7 +36,7 @@ public class CarteiraDAO {
             if (pstm.getUpdateCount()>0)
                 JOptionPane.showMessageDialog(null,"Salvo com sucesso!");
             else
-                JOptionPane.showMessageDialog(null,"N�o foi poss�vel inserir!!");
+                JOptionPane.showMessageDialog(null,"Nao foi possivel inserir!!");
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -1,5 +1,6 @@
 package Controle;
 
+import Modelo.Usuario;
 import Visao.*;
 
 import java.awt.*;
@@ -10,16 +11,18 @@ public class ControleMenu {
     ControlePrincipal principal;
     ControlePerfil perfil;
     ControleLogin login;
+    Usuario usuario;
 
-    public ControleMenu(GuiTela tela, JpanelMenu menu) {
+    public ControleMenu(GuiTela tela, JpanelMenu menu, Usuario usuario) {
         this.tela = tela;
         this.menu = menu;
+        this.usuario = usuario;
         this.tela.getFundo().add(this.menu,new GridBagConstraints());
         this.tela.revalidate();
         this.tela.repaint();
-        principal = new ControlePrincipal(new JpanelPrincipal(),this.tela);
+        principal = new ControlePrincipal(new JpanelPrincipal(),this.tela,usuario);
         principal.mostrar();
-        perfil = new ControlePerfil(new JpanelPerfil(),this.tela);
+        perfil = new ControlePerfil(new JpanelPerfil(),this.tela,usuario);
         login= new ControleLogin(new JpanelLogin(),this.tela);
         this.iniciaControle();
     }

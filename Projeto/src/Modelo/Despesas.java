@@ -1,6 +1,6 @@
 package Modelo;
 
-public class Despesas {
+public abstract class Despesas {
     private int id;
     private String dataDeVencimento;
     private String dataEmissao;

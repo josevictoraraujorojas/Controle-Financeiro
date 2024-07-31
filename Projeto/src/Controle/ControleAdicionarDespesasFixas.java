@@ -14,7 +14,7 @@ public class ControleAdicionarDespesasFixas {
 
     public void iniciaTela(){
         this.tela.setVisible(true);
-        this.tela.setSize(500,500);
+        this.tela.setSize(700,700);
         this.tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 }

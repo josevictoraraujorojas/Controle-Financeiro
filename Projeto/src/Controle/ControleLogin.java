@@ -30,7 +30,7 @@ public class ControleLogin{
     public void inciaTela(){
         GridBagConstraints c = new GridBagConstraints();
         this.tela.setVisible(true);
-        this.tela.setSize(1700,1000);
+        this.tela.setSize(1200,1000);
         this.tela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.tela.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.tela.getFundo().add(this.login,c);
@@ -47,9 +47,8 @@ public class ControleLogin{
 
         if (usuarioAutenticado != null) {
             this.tela.getFundo().remove(this.login);
-            ControleMenu menu = new ControleMenu(this.tela,new JpanelMenu());
-            MetasDAO metasDAO = new MetasDAO();
-            metasDAO.passando(usuarioAutenticado);
+            ControleMenu menu = new ControleMenu(this.tela,new JpanelMenu(),usuarioAutenticado);
+
 
         }else{
             JOptionPane.showMessageDialog(null,"Usuario ou senha incorreto","Erro",JOptionPane.ERROR_MESSAGE);
