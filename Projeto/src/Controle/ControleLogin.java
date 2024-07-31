@@ -2,6 +2,8 @@ package Controle;
 
 
 import DAO.LoginDAO;
+import DAO.MetasDAO;
+import Modelo.Usuario;
 import Visao.GuiTela;
 import Visao.JpanelCadastro;
 import Visao.JpanelLogin;
@@ -41,13 +43,17 @@ public class ControleLogin{
         String login = this.login.getLogin().getText();
         String senha = this.login.getSenha().getText();
         loginDAO = new LoginDAO();
-        if(loginDAO.autenticar(login,senha)){
+        Usuario usuarioAutenticado = loginDAO.autenticar(login, senha);
+
+        if (usuarioAutenticado != null) {
             this.tela.getFundo().remove(this.login);
             ControleMenu menu = new ControleMenu(this.tela,new JpanelMenu());
-        }else{
-            JOptionPane.showMessageDialog(null,"Senha ou Usuario Incorreto");
-        }
+            MetasDAO metasDAO = new MetasDAO();
+            metasDAO.passando(usuarioAutenticado);
 
+        }else{
+            JOptionPane.showMessageDialog(null,"Usuario ou senha incorreto","Erro",JOptionPane.ERROR_MESSAGE);
+        }
     }
     public void realizarCadastro(){
         this.tela.getFundo().remove(this.login);

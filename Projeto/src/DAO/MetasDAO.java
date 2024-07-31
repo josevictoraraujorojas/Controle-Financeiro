@@ -2,7 +2,9 @@ package DAO;
 
 import Controle.controllerBD;
 import Modelo.Metas;
+import Modelo.Usuario;
 
+import javax.swing.*;
 import java.sql.Connection;
 
 import java.sql.PreparedStatement;
@@ -12,10 +14,17 @@ import java.util.List;
 
 public class MetasDAO {
     Metas metas = new Metas();
+    Usuario usuario = new Usuario();
 
+    public void passando(Usuario usuario){
+        this.usuario = usuario;
+        System.out.println(usuario.getId());
+    }
     public void save(Metas metas) {
-        String sql = "INSERT INTO metas(categoria, status, data_inicial, data_final, descricao, valor_total, valor_arrecadado, recorrencia) " +
-                "VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+        System.out.println(usuario.getId());
+
+        String sql = "INSERT INTO metas(id,categoria, status, data_inicial, data_final, descricao, valor_total, valor_arrecadado, recorrencia) " +
+                "VALUES(?,?, ?, ?, ?, ?, ?, ?, ?)";
 
         Connection conn = null;
         PreparedStatement pstm = null;
@@ -23,7 +32,7 @@ public class MetasDAO {
         try {
             conn = controllerBD.createConnectionToMySQL();
             pstm = conn.prepareStatement(sql);
-            pstm.setInt(1, metas.getId());
+            pstm.setInt(1, this.usuario.getId());
             pstm.setString(2, metas.getCategoria());
             pstm.setBoolean(3, true);
             pstm.setString(4, metas.getDataInicial());
@@ -33,7 +42,9 @@ public class MetasDAO {
             pstm.setFloat(8, metas.getValorArrecadado());
             pstm.setString(9, metas.getRecorrencia());
 
-            System.out.println("Meta salva com sucesso!");
+            pstm.execute();
+
+            JOptionPane.showConfirmDialog(null,"Meta Cadastrada, Vamos Lá !!!!");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -51,6 +62,7 @@ public class MetasDAO {
     }
     public List<Metas> listAll() {
         String sql = "SELECT * FROM metas";
+
         Connection conn = null;
         PreparedStatement pstm = null;
         ResultSet rs = null;

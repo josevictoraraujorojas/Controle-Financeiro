@@ -25,8 +25,7 @@ CREATE TABLE `metas` (
                          `valor_total` FLOAT(10) NOT NULL,
                          `valor_arrecadado` FLOAT(10) NOT NULL,
                          `recorrencia` VARCHAR(100) NOT NULL,
-                         PRIMARY KEY (`id_metas`),
-                         FOREIGN KEY (`id`) REFERENCES `usuario`(`id`)
+                         PRIMARY KEY (`id_metas`)
 );
 
 CREATE TABLE `despesa_fixa` (

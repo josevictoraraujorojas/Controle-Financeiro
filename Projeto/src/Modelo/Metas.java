@@ -1,7 +1,8 @@
 package Modelo;
 
 public class Metas {
-    private int id;
+    private int idMetas;
+    private int idUsuario;
     private String categoria;
     private boolean status;
     private String dataInicial;
@@ -15,23 +16,12 @@ public class Metas {
 
     }
 
-    public Metas(String categoria, boolean status, String dataInicial, String dataFinal, String descricao, float valorTotal, float valorArrecadado, String recorrencia) {
-        this.categoria = categoria;
-        this.status = status;
-        this.dataInicial = dataInicial;
-        this.dataFinal = dataFinal;
-        this.descricao = descricao;
-        this.valorTotal = valorTotal;
-        this.valorArrecadado = valorArrecadado;
-        this.recorrencia = recorrencia;
-    }
-
     public int getId() {
-        return id;
+        return idMetas;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.idMetas = id;
     }
 
     public String getCategoria() {

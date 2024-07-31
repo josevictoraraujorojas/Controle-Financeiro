@@ -64,13 +64,15 @@ public class JpanelPrincipal extends JPanel {
         painelGraficosC.gridwidth=GridBagConstraints.REMAINDER;
 
         painelGraficoPizzaC = new GridBagConstraints();
-        painelGraficoPizzaC.ipadx=49;
-        painelGraficoPizzaC.ipady=10;
+        painelGraficoPizzaC.fill = GridBagConstraints.BOTH;
+        painelGraficoPizzaC.weightx = 1.0;
+        painelGraficoPizzaC.weighty = 1.0;
+
 
         painelGraficoBarraC = new GridBagConstraints();
-        painelGraficoBarraC.ipadx=49;
-        painelGraficoBarraC.ipady=10;
-
+        painelGraficoBarraC.fill = GridBagConstraints.BOTH;
+        painelGraficoBarraC.weightx = 1.0;
+        painelGraficoBarraC.weighty = 1.0;
 
         painelTextoC = new GridBagConstraints();
         painelTextoC.ipadx=830;
@@ -121,6 +123,10 @@ public class JpanelPrincipal extends JPanel {
         pizza.setValue("despesas variaveis",0.3*1400);
         graficoPizza = ChartFactory.createPieChart("Limite Da Carteira",pizza,true,true,false);
         painelGraficoPizza = new ChartPanel(graficoPizza);
+        painelGraficoPizza.setPreferredSize(new Dimension(730,430));
+        painelGraficoPizza.setPreferredSize(new Dimension(730, 430));
+        painelGraficoPizza.setMinimumSize(new Dimension(400, 300));
+        painelGraficoPizza.setMaximumSize(new Dimension(800, 600));
         painelGraficos.add(painelGraficoPizza,painelGraficoPizzaC);
 
         //grafico de barra orcamento em tempo real
@@ -156,6 +162,9 @@ public class JpanelPrincipal extends JPanel {
         plot.addRangeMarker(markerDespesasVariaveis);
 
         painelGraficoBarra = new ChartPanel(graficoBarra);
+        painelGraficoBarra.setPreferredSize(new Dimension(730, 430));
+        painelGraficoBarra.setMinimumSize(new Dimension(400, 300));
+        painelGraficoBarra.setMaximumSize(new Dimension(800, 600));
         painelGraficos.add(painelGraficoBarra,painelGraficoBarraC);
 
         painelTexto = new JPanel();
