@@ -1,6 +1,7 @@
 package Controle;
 
 import DAO.CarteiraDAO;
+import DAO.LoginDAO;
 import DAO.UsuarioDAO;
 import Modelo.Carteira;
 import Modelo.Usuario;
@@ -14,12 +15,13 @@ public class ControleCadastroCarteira {
     JpanelCadastroCarteira cadastroCarteira;
     GuiTela tela;
     ControleCadastro cadastro;
-    Usuario usuario = new Usuario();
+    Usuario usuario;
 
-    public ControleCadastroCarteira(JpanelCadastroCarteira cadastroCarteira, GuiTela tela, ControleCadastro cadastro) {
+    public ControleCadastroCarteira(JpanelCadastroCarteira cadastroCarteira, GuiTela tela, ControleCadastro cadastro, Usuario usuario) {
         this.cadastroCarteira = cadastroCarteira;
         this.tela = tela;
         this.cadastro = cadastro;
+        this.usuario = usuario;
     }
 
     public void mostrar(){
@@ -51,18 +53,27 @@ public class ControleCadastroCarteira {
     public void acessaCadastrar(){
         this.limpar();
         cadastro.limpar();
-        ControleMenu menu = new ControleMenu(tela,new JpanelMenu(),usuario);
         Carteira carteira = new Carteira();
+
         double saldo = this.usuario.getSaldo();
         double limiteDespesaFixa = (Double.valueOf(cadastroCarteira.getLimiteDespesasFixas().getText()) * saldo)/100;
         double limiteDespesaVariavel = (Double.valueOf(cadastroCarteira.getLimiteDespesasVariaveis().getText())*saldo)/100;
         double limiteMetas = (Double.valueOf(cadastroCarteira.getLimiteMetas().getText())*saldo)/100;
+
         carteira.setLimiteDespesaFixa(limiteDespesaFixa);
         carteira.setLimiteDespesaVariavel(limiteDespesaVariavel);
         carteira.setLimiteMetas(limiteMetas);
         carteira.setStatus(false);
         CarteiraDAO carteiraDAO = new CarteiraDAO();
         carteiraDAO.save(carteira,usuario);
+
+        LoginDAO loginDAO = new LoginDAO();
+
+        Usuario usuarioautenticado = loginDAO.autenticar(usuario.getLogin(),usuario.getSenha());
+
+
+        ControleMenu menu = new ControleMenu(tela,new JpanelMenu(),usuarioautenticado);
+
     }
 
     public void acessaCancelar(){
@@ -70,9 +81,6 @@ public class ControleCadastroCarteira {
         cadastro.revelar();
     }
 
-    public void receberDadosUsuario(Usuario usuario){
-        this.usuario = usuario;
-    }
  
 
 }

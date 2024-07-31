@@ -52,9 +52,6 @@ public class ControleCadastro {
     }
 
     public void acessaCadastrar(){
-        ocultar();
-        controleCadastroCarteira = new ControleCadastroCarteira(new JpanelCadastroCarteira(),tela,this);
-        controleCadastroCarteira.mostrar();
 
         Usuario usuario = new Usuario();
 
@@ -62,7 +59,9 @@ public class ControleCadastro {
         usuario.setSenha(String.valueOf(cadastro.getSenha().getText()));
         String Saldo = String.valueOf(cadastro.getSaldo().getText());
         usuario.setSaldo(Double.valueOf(Saldo));
-        controleCadastroCarteira.receberDadosUsuario(usuario);
+        ocultar();
+        controleCadastroCarteira = new ControleCadastroCarteira(new JpanelCadastroCarteira(),tela,this,usuario);
+        controleCadastroCarteira.mostrar();
     }
 
     public void acessaCancelar(){
