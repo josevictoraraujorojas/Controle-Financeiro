@@ -8,9 +8,9 @@ import Visao.GuiAdicionarMetas;
 import javax.swing.*;
 
 public class ControleAdicionarMetas {
-    GuiAdicionarMetas tela;
-    MetasDAO metasDAO = new MetasDAO();
-    Usuario usuario;
+    private GuiAdicionarMetas tela;
+    private MetasDAO metasDAO = new MetasDAO();
+    private Usuario usuario;
 
 
     public ControleAdicionarMetas(GuiAdicionarMetas tela,Usuario usuario) {

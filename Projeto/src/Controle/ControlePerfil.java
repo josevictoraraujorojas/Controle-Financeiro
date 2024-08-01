@@ -1,5 +1,6 @@
 package Controle;
 
+import Modelo.Carteira;
 import Modelo.Usuario;
 import Visao.GuiTela;
 import Visao.JpanelPerfil;
@@ -7,12 +8,14 @@ import Visao.JpanelPerfil;
 import java.awt.*;
 
 public class ControlePerfil {
-    Usuario usuario;
-    JpanelPerfil perfil;
-    GuiTela tela;
+    private Usuario usuario;
+    private Carteira carteira;
+    private JpanelPerfil perfil;
+    private GuiTela tela;
 
-    public ControlePerfil(JpanelPerfil perfil, GuiTela tela, Usuario usuario) {
+    public ControlePerfil(JpanelPerfil perfil, GuiTela tela, Usuario usuario, Carteira carteira) {
         this.usuario = usuario;
+        this.carteira = carteira;
         this.perfil = perfil;
         this.tela = tela;
     }

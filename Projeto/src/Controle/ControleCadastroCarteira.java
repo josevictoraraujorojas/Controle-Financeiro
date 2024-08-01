@@ -12,10 +12,10 @@ import Visao.JpanelMenu;
 import java.awt.*;
 
 public class ControleCadastroCarteira {
-    JpanelCadastroCarteira cadastroCarteira;
-    GuiTela tela;
-    ControleCadastro cadastro;
-    Usuario usuario;
+    private JpanelCadastroCarteira cadastroCarteira;
+    private GuiTela tela;
+    private ControleCadastro cadastro;
+    private Usuario usuario;
 
     public ControleCadastroCarteira(JpanelCadastroCarteira cadastroCarteira, GuiTela tela, ControleCadastro cadastro, Usuario usuario) {
         this.cadastroCarteira = cadastroCarteira;

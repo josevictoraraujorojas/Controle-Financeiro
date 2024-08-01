@@ -5,7 +5,7 @@ import Visao.GuiAdicionarDespesasFixas;
 import javax.swing.*;
 
 public class ControleAdicionarDespesasFixas {
-    GuiAdicionarDespesasFixas tela;
+    private GuiAdicionarDespesasFixas tela;
 
     public ControleAdicionarDespesasFixas(GuiAdicionarDespesasFixas tela) {
         this.tela = tela;

@@ -12,9 +12,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class ControleLogin{
-    JpanelLogin login;
-    GuiTela tela;
-    LoginDAO loginDAO;
+    private JpanelLogin login;
+    private GuiTela tela;
+    private LoginDAO loginDAO;
 
     public ControleLogin(JpanelLogin login, GuiTela tela) {
         this.login = login;

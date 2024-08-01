@@ -1,5 +1,6 @@
 package Controle;
 
+import Modelo.Carteira;
 import Modelo.Usuario;
 import Visao.*;
 
@@ -7,11 +8,13 @@ import java.awt.*;
 import java.text.ParseException;
 
 public class ControlePrincipal {
-    Usuario usuario;
-    JpanelPrincipal principal;
-    GuiTela tela;
+    private Usuario usuario;
+    private Carteira carteira;
+    private JpanelPrincipal principal;
+    private GuiTela tela;
 
-    public ControlePrincipal(JpanelPrincipal principal, GuiTela tela, Usuario usuario) {
+    public ControlePrincipal(JpanelPrincipal principal, GuiTela tela, Usuario usuario, Carteira carteira) {
+        this.carteira = carteira;
         this.usuario = usuario;
         this.principal = principal;
         this.tela = tela;

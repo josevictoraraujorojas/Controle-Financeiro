@@ -11,10 +11,10 @@ import javax.swing.*;
 import java.awt.*;
 
 public class ControleCadastro {
-    JpanelCadastro cadastro;
-    GuiTela tela;
-    ControleLogin login;
-    ControleCadastroCarteira controleCadastroCarteira;
+    private JpanelCadastro cadastro;
+    private GuiTela tela;
+    private ControleLogin login;
+    private ControleCadastroCarteira controleCadastroCarteira;
 
     public ControleCadastro(){
 

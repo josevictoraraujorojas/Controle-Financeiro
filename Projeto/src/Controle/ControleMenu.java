@@ -1,22 +1,25 @@
 package Controle;
 
+import Modelo.Carteira;
 import Modelo.Usuario;
 import Visao.*;
 
 import java.awt.*;
 
 public class ControleMenu {
-    GuiTela tela;
-    JpanelMenu menu;
-    ControlePrincipal principal;
-    ControlePerfil perfil;
-    ControleLogin login;
-    Usuario usuario;
+    private GuiTela tela;
+    private JpanelMenu menu;
+    private ControlePrincipal principal;
+    private ControlePerfil perfil;
+    private ControleLogin login;
+    private Usuario usuario;
+    private Carteira carteira;
 
-    public ControleMenu(GuiTela tela, JpanelMenu menu, Usuario usuario) {
+    public ControleMenu(GuiTela tela, JpanelMenu menu, Usuario usuario, Carteira carteira) {
         this.tela = tela;
         this.menu = menu;
         this.usuario = usuario;
+        this.carteira = carteira;
         this.tela.getFundo().add(this.menu,new GridBagConstraints());
         this.tela.revalidate();
         this.tela.repaint();

@@ -5,7 +5,7 @@ import Visao.GuiDetalheMetas;
 import javax.swing.*;
 
 public class ControleDetalheMetas {
-    GuiDetalheMetas tela;
+    private GuiDetalheMetas tela;
 
     public ControleDetalheMetas(GuiDetalheMetas tela) {
         this.tela = tela;
