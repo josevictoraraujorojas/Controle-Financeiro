@@ -15,7 +15,7 @@ public class ControleMenu {
     private Usuario usuario;
     private Carteira carteira;
 
-    public ControleMenu(GuiTela tela, JpanelMenu menu, Usuario usuario, Carteira carteira) {
+    public ControleMenu(GuiTela tela, JpanelMenu menu, Usuario usuario) {
         this.tela = tela;
         this.menu = menu;
         this.usuario = usuario;

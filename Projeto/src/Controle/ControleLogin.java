@@ -1,8 +1,7 @@
 package Controle;
 
 
-import DAO.LoginDAO;
-import DAO.MetasDAO;
+import DAO.UsuarioDAO;
 import Modelo.Usuario;
 import Visao.GuiTela;
 import Visao.JpanelCadastro;
@@ -14,7 +13,7 @@ import java.awt.*;
 public class ControleLogin{
     private JpanelLogin login;
     private GuiTela tela;
-    private LoginDAO loginDAO;
+
 
     public ControleLogin(JpanelLogin login, GuiTela tela) {
         this.login = login;
@@ -42,7 +41,7 @@ public class ControleLogin{
     public void realizarLogin(){
         String login = this.login.getLogin().getText();
         String senha = this.login.getSenha().getText();
-        loginDAO = new LoginDAO();
+        UsuarioDAO loginDAO = new UsuarioDAO();
         Usuario usuarioAutenticado = loginDAO.autenticar(login, senha);
 
         if (usuarioAutenticado != null) {

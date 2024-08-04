@@ -13,7 +13,6 @@ import javax.swing.JOptionPane;
 public class CarteiraDAO {
 
 
-
     public void save(Carteira carteira, Usuario usuario){
         String sql = "INSERT INTO `usuario` (login, senha, saldo, limite_despesa_fixa, limite_despesa_variavel, limite_metas, status)"+
                 "VALUES(?,?,?,?,?,?,?)";

@@ -1,7 +1,6 @@
 package Controle;
 
 import DAO.CarteiraDAO;
-import DAO.LoginDAO;
 import DAO.UsuarioDAO;
 import Modelo.Carteira;
 import Modelo.Usuario;
@@ -67,7 +66,7 @@ public class ControleCadastroCarteira {
         CarteiraDAO carteiraDAO = new CarteiraDAO();
         carteiraDAO.save(carteira,usuario);
 
-        LoginDAO loginDAO = new LoginDAO();
+        UsuarioDAO loginDAO = new UsuarioDAO();
 
         Usuario usuarioautenticado = loginDAO.autenticar(usuario.getLogin(),usuario.getSenha());
 

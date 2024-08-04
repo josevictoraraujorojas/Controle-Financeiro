@@ -13,7 +13,7 @@ public class ControlePrincipal {
     private JpanelPrincipal principal;
     private GuiTela tela;
 
-    public ControlePrincipal(JpanelPrincipal principal, GuiTela tela, Usuario usuario, Carteira carteira) {
+    public ControlePrincipal(JpanelPrincipal principal, GuiTela tela, Usuario usuario) {
         this.carteira = carteira;
         this.usuario = usuario;
         this.principal = principal;

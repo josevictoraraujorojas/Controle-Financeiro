@@ -13,7 +13,7 @@ public class ControlePerfil {
     private JpanelPerfil perfil;
     private GuiTela tela;
 
-    public ControlePerfil(JpanelPerfil perfil, GuiTela tela, Usuario usuario, Carteira carteira) {
+    public ControlePerfil(JpanelPerfil perfil, GuiTela tela, Usuario usuario) {
         this.usuario = usuario;
         this.carteira = carteira;
         this.perfil = perfil;
