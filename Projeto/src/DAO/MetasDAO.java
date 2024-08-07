@@ -60,50 +60,45 @@ public class MetasDAO {
             }
         }
     }
-    public List<Metas> listAll() {
-        String sql = "SELECT * FROM metas";
+    public List<Metas> listarMPeloID(int id) {
+        String sql = "SELECT * FROM meta WHERE id = ?";
+        List<Metas> metas = new ArrayList<>();
 
         Connection conn = null;
         PreparedStatement pstm = null;
         ResultSet rs = null;
-        List<Metas> metasList = new ArrayList<>();
-
         try {
             conn = controllerBD.createConnectionToMySQL();
             pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, id);
             rs = pstm.executeQuery();
 
             while (rs.next()) {
-
-                metas.setId(rs.getInt("id"));
-                metas.setCategoria(rs.getString("categoria"));
-                metas.setStatus(rs.getBoolean("status"));
-                metas.setDataInicial(rs.getString("data_inicial"));
-                metas.setDataFinal(rs.getString("data_final"));
-                metas.setDescricao(rs.getString("descricao"));
-                metas.setValorTotal(rs.getFloat("valor_total"));
-                metas.setValorArrecadado(rs.getFloat("valor_arrecadado"));
-                metas.setRecorrencia(rs.getString("recorrencia"));
-                metasList.add(metas);
+                Metas meta = new Metas();
+                meta.setId(rs.getInt("id"));
+                meta.setCategoria(rs.getString("categoria"));
+                meta.setStatus(rs.getBoolean("status"));
+                meta.setDataInicial(rs.getString("data_inicial"));
+                meta.setDataFinal(rs.getString("data_final"));
+                meta.setDescricao(rs.getString("descricao"));
+                meta.setValorTotal(rs.getFloat("valor_total"));
+                meta.setValorArrecadado(rs.getFloat("valor_arrecadado"));
+                meta.setRecorrencia(rs.getString("recorrencia"));
+                metas.add(meta);
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
+            // Close the resources properly
             try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (pstm != null) {
-                    pstm.close();
-                }
-                if (conn != null) {
-                    conn.close();
-                }
+                if (rs != null) rs.close();
+                if (pstm != null) pstm.close();
+                if (conn != null) conn.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        return metasList;
+        return metas;
     }
 
     public void update(Metas metas) {
@@ -246,12 +241,6 @@ public class MetasDAO {
             pstm.setInt(1, userId);
             rs = pstm.executeQuery();
 
-            if (rs.next()) {
-                total = rs.getDouble("total");
-                JOptionPane.showMessageDialog(null, "Soma total das metas do usuário " + userId + ": " + total);
-            } else {
-                JOptionPane.showMessageDialog(null, "Nenhuma meta encontrada para o usuário com o ID fornecido.");
-            }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

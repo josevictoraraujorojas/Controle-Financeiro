@@ -92,5 +92,44 @@ public class CarteiraDAO {
             }
         }
     }
+
+    public Carteira getCarteira(int id) {
+        String sql = "SELECT u.saldo, u.limite_despesa_fixa, u.limite_despesa_variavel, u.limite_metas, u.status " +
+                "FROM usuario u" +
+                "WHERE u.id = ?";
+        Connection conn = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        Carteira carteira = null;
+
+        try {
+            conn = controllerBD.createConnectionToMySQL();
+            pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, id);
+            rs = pstm.executeQuery();
+
+            if (rs.next()) {
+                carteira = new Carteira();
+                Usuario usuario = new Usuario();
+                usuario.setSaldo(rs.getDouble("saldo"));
+                carteira.setLimiteDespesaFixa(rs.getDouble("limite_despesa_fixa"));
+                carteira.setLimiteDespesaVariavel(rs.getDouble("limite_despesa_variavel"));
+                carteira.setLimiteMetas(rs.getDouble("limite_metas"));
+                carteira.setStatus(rs.getBoolean("status"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (pstm != null) pstm.close();
+                if (conn != null) conn.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        return carteira;
+    }
 }
 

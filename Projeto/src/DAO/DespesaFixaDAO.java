@@ -29,7 +29,7 @@ public class DespesaFixaDAO {
             pstm.setString(5, despesaFixa.getDataEmissao());
             pstm.setString(6, despesaFixa.getDataDeVencimento());
             pstm.setString(7, despesaFixa.getDescricao());
-            pstm.setByte(8, despesaFixa.getRecorrencia());
+            pstm.setString(8, despesaFixa.getRecorrencia());
 
             pstm.executeUpdate();
             JOptionPane.showMessageDialog( null,"Despesa fixa salva com sucesso!");
@@ -66,7 +66,7 @@ public class DespesaFixaDAO {
             pstm.setString(4, despesaFixa.getDataEmissao());
             pstm.setString(5, despesaFixa.getDataDeVencimento());
             pstm.setString(6, despesaFixa.getDescricao());
-            pstm.setByte(7, despesaFixa.getRecorrencia());
+            pstm.setString(7, despesaFixa.getRecorrencia());
             pstm.setInt(8, despesaFixa.getId());
 
             int rowsAffected = pstm.executeUpdate();
@@ -114,7 +114,7 @@ public class DespesaFixaDAO {
                 despesaFixa.setDataEmissao(rs.getString("data_emissao"));
                 despesaFixa.setDataDeVencimento(rs.getString("data_vencimento"));
                 despesaFixa.setDescricao(rs.getString("descricao"));
-                despesaFixa.setRecorrencia(rs.getByte("recorrencia"));
+                despesaFixa.setRecorrencia(rs.getString("recorrencia"));
                 despesasFixas.add(despesaFixa);
             }
         } catch (Exception e) {
@@ -137,38 +137,44 @@ public class DespesaFixaDAO {
         return despesasFixas;
     }
 
-    public void deleteById(int idDespesaFixa) {
-        String sql = "DELETE FROM despesa_fixa WHERE id_despesa_fixa = ?";
+    public List<DespesaFixa> listarDFPeloID(int id) {
+        String sql = "SELECT * FROM despesa_fixa WHERE id = ?";
+        List<DespesaFixa> despesasFixas = new ArrayList<>();
 
         Connection conn = null;
         PreparedStatement pstm = null;
-
+        ResultSet rs = null;
         try {
             conn = controllerBD.createConnectionToMySQL();
             pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, id);
+            rs = pstm.executeQuery();
 
-            pstm.setInt(1, idDespesaFixa);
-            int rowsAffected = pstm.executeUpdate();
-
-            if (rowsAffected > 0) {
-                JOptionPane.showMessageDialog(null,"Despesa fixa deletada com sucesso!");
-            } else {
-                JOptionPane.showMessageDialog(null,"Nenhuma despesa fixa encontrada com o ID fornecido.");
+            while (rs.next()) {
+                DespesaFixa despesaFixa = new DespesaFixa();
+                despesaFixa.setId(rs.getInt("id"));
+                despesaFixa.setValorMensal(rs.getFloat("valor_mensal"));
+                despesaFixa.setCategoria(rs.getString("categoria"));
+                despesaFixa.setStatus(rs.getByte("status"));
+                despesaFixa.setDataEmissao(rs.getString("data_emissao"));
+                despesaFixa.setDataDeVencimento(rs.getString("data_vencimento"));
+                despesaFixa.setDescricao(rs.getString("descricao"));
+                despesaFixa.setRecorrencia(rs.getString("recorrencia"));
+                despesasFixas.add(despesaFixa);
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
+            // Close the resources properly
             try {
-                if (pstm != null) {
-                    pstm.close();
-                }
-                if (conn != null) {
-                    conn.close();
-                }
+                if (rs != null) rs.close();
+                if (pstm != null) pstm.close();
+                if (conn != null) conn.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
+        return despesasFixas;
     }
 
     public DespesaFixa findById(int idDespesaFixa) {
@@ -194,7 +200,7 @@ public class DespesaFixaDAO {
                 despesaFixa.setDataEmissao(rs.getString("data_emissao"));
                 despesaFixa.setDataDeVencimento(rs.getString("data_vencimento"));
                 despesaFixa.setDescricao(rs.getString("descricao"));
-                despesaFixa.setRecorrencia(rs.getByte("recorrencia"));
+                despesaFixa.setRecorrencia(rs.getString("recorrencia"));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -216,8 +222,8 @@ public class DespesaFixaDAO {
         return despesaFixa;
     }
 
-    public double sumDespesasByUserId(int userId) {
-        String sql = "SELECT SUM(valor_mensal) AS total FROM despesa_fixa WHERE usuario_id = ?";
+    public double somaDespesaFixa(int userId) {
+        String sql = "SELECT SUM(valor_mensal) AS total FROM despesa_fixa WHERE id = ?";
         double total = 0.0;
 
         Connection conn = null;
@@ -229,13 +235,6 @@ public class DespesaFixaDAO {
             pstm = conn.prepareStatement(sql);
             pstm.setInt(1, userId);
             rs = pstm.executeQuery();
-
-            if (rs.next()) {
-                total = rs.getDouble("total");
-                JOptionPane.showMessageDialog(null, "Soma total das despesas fixas do usuário " + userId + ": " + total);
-            } else {
-                JOptionPane.showMessageDialog(null, "Nenhuma despesa fixa encontrada para o usuário com o ID fornecido.");
-            }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

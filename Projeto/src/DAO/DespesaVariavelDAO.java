@@ -31,7 +31,7 @@ public class DespesaVariavelDAO {
             pstm.setString(7, despesaVariavel.getDataEmissao());
             pstm.setString(8, despesaVariavel.getDataDeVencimento());
             pstm.setString(9, despesaVariavel.getDescricao());
-            pstm.setByte(10, despesaVariavel.getRecorrencia());
+            pstm.setString(10, despesaVariavel.getRecorrencia());
 
             pstm.executeUpdate();
             JOptionPane.showMessageDialog(null,"Despesa Salva!!");
@@ -41,8 +41,8 @@ public class DespesaVariavelDAO {
         }
     }
 
-    public List<DespesaVariavel> listAll() {
-        String sql = "SELECT * FROM despesa_variavel";
+    public List<DespesaVariavel> listarDVPeloID(int id) {
+        String sql = "SELECT * FROM despesa_variavel WHERE id = ?";
         List<DespesaVariavel> despesasVariaveis = new ArrayList<>();
 
         Connection conn = null;
@@ -50,6 +50,10 @@ public class DespesaVariavelDAO {
         ResultSet rs = null;
         try {
             conn = controllerBD.createConnectionToMySQL();
+            pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, id);
+            rs = pstm.executeQuery();
+
             while (rs.next()) {
                 DespesaVariavel despesaVariavel = new DespesaVariavel();
                 despesaVariavel.setId(rs.getInt("id"));
@@ -61,11 +65,19 @@ public class DespesaVariavelDAO {
                 despesaVariavel.setDataEmissao(rs.getString("data_emissao"));
                 despesaVariavel.setDataDeVencimento(rs.getString("data_vencimento"));
                 despesaVariavel.setDescricao(rs.getString("descricao"));
-                despesaVariavel.setRecorrencia(rs.getByte("recorrencia"));
+                despesaVariavel.setRecorrencia(rs.getString("recorrencia"));
                 despesasVariaveis.add(despesaVariavel);
             }
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (pstm != null) pstm.close();
+                if (conn != null) conn.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         return despesasVariaveis;
     }
@@ -106,7 +118,7 @@ public class DespesaVariavelDAO {
             pstm.setString(6, despesaVariavel.getDataEmissao());
             pstm.setString(7, despesaVariavel.getDataDeVencimento());
             pstm.setString(8, despesaVariavel.getDescricao());
-            pstm.setByte(9, despesaVariavel.getRecorrencia());
+            pstm.setString(9, despesaVariavel.getRecorrencia());
             pstm.setInt(10, despesaVariavel.getId());
 
             int rowsAffected = pstm.executeUpdate();
@@ -122,7 +134,7 @@ public class DespesaVariavelDAO {
 
     }
     public DespesaVariavel findById(int id) {
-        String sql = "SELECT * FROM despesa_variavel WHERE id_despesa_variavel = ?";
+        String sql = "SELECT * FROM despesa_variavel WHERE id = ?";
         DespesaVariavel despesaVariavel = null;
 
         Connection conn = null;
@@ -143,7 +155,7 @@ public class DespesaVariavelDAO {
                 despesaVariavel.setDataEmissao(rs.getString("data_emissao"));
                 despesaVariavel.setDataDeVencimento(rs.getString("data_vencimento"));
                 despesaVariavel.setDescricao(rs.getString("descricao"));
-                despesaVariavel.setRecorrencia(rs.getByte("recorrencia"));
+                despesaVariavel.setRecorrencia(rs.getString("recorrencia"));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -152,7 +164,7 @@ public class DespesaVariavelDAO {
     }
 
     public double somaDespesaVariavel(int userId) {
-        String sql = "SELECT SUM(valor) AS total FROM despesa_variavel WHERE usuario_id = ?";
+        String sql = "SELECT SUM(valor) AS total FROM despesa_variavel WHERE id = ?";
         double total = 0.0;
 
         Connection conn = null;
@@ -165,12 +177,6 @@ public class DespesaVariavelDAO {
             pstm.setInt(1, userId);
             rs = pstm.executeQuery();
 
-            if (rs.next()) {
-                total = rs.getDouble("total");
-                JOptionPane.showMessageDialog(null, "Soma total das despesas variáveis do usuário " + userId + ": " + total);
-            } else {
-                JOptionPane.showMessageDialog(null, "Nenhuma despesa variável encontrada para o usuário com o ID fornecido.");
-            }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

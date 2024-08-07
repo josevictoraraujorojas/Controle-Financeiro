@@ -7,7 +7,7 @@ public abstract class Despesas {
     private byte status;
     private String categoria;
     private String descricao;
-    private byte recorrencia;
+    private String recorrencia;
 
     public Despesas() {}
 
@@ -59,11 +59,11 @@ public abstract class Despesas {
         this.descricao = descricao;
     }
 
-    public byte getRecorrencia() {
+    public String getRecorrencia() {
         return recorrencia;
     }
 
-    public void setRecorrencia(byte recorrencia) {
+    public void setRecorrencia(String recorrencia) {
         this.recorrencia = recorrencia;
     }
 }
