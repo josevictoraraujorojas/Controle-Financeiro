@@ -21,9 +21,11 @@ public class JpanelPrincipal extends JPanel {
     private GridBagConstraints telaprincipalC;
     private JPanel painelGraficos;
     private GridBagConstraints painelGraficosC;
+    private DefaultPieDataset pizza;
     private JFreeChart graficoPizza;
     private ChartPanel painelGraficoPizza;
     private GridBagConstraints painelGraficoPizzaC;
+    private DefaultCategoryDataset barra;
     private JFreeChart graficoBarra;
     private ChartPanel painelGraficoBarra;
     private GridBagConstraints painelGraficoBarraC;
@@ -117,10 +119,7 @@ public class JpanelPrincipal extends JPanel {
         telaprincipal.add(painelGraficos,painelGraficosC);
 
         //grafico limite da carteira em formato de pizza
-        DefaultPieDataset pizza = new DefaultPieDataset();
-        pizza.setValue("metas",0.2*1400);
-        pizza.setValue("despesas fixas",0.5*1400);
-        pizza.setValue("despesas variaveis",0.3*1400);
+        pizza = new DefaultPieDataset();
         graficoPizza = ChartFactory.createPieChart("Limite Da Carteira",pizza,true,true,false);
         painelGraficoPizza = new ChartPanel(graficoPizza);
         painelGraficoPizza.setPreferredSize(new Dimension(730,430));
@@ -130,10 +129,7 @@ public class JpanelPrincipal extends JPanel {
         painelGraficos.add(painelGraficoPizza,painelGraficoPizzaC);
 
         //grafico de barra orcamento em tempo real
-        DefaultCategoryDataset barra = new DefaultCategoryDataset();
-        barra.addValue( 200, "Metas","metas");
-        barra.addValue( 600, "despesas fixas","despesas fixas" );
-        barra.addValue( 400, "despesas variaveis","despesas variaveis" );
+        barra = new DefaultCategoryDataset();
         graficoBarra = ChartFactory.createBarChart("Carteira","tipos de gastos","quantidade em real",barra,PlotOrientation.HORIZONTAL,true,true,false);
         CategoryPlot plot = (CategoryPlot) graficoBarra.getPlot();
 
@@ -483,5 +479,21 @@ public class JpanelPrincipal extends JPanel {
 
     public void setListaDespesasVariaveisC(GridBagConstraints listaDespesasVariaveisC) {
         this.listaDespesasVariaveisC = listaDespesasVariaveisC;
+    }
+
+    public DefaultPieDataset getPizza() {
+        return pizza;
+    }
+
+    public void setPizza(DefaultPieDataset pizza) {
+        this.pizza = pizza;
+    }
+
+    public DefaultCategoryDataset getBarra() {
+        return barra;
+    }
+
+    public void setBarra(DefaultCategoryDataset barra) {
+        this.barra = barra;
     }
 }

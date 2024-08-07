@@ -1,11 +1,16 @@
 package Controle;
 
+import Modelo.Usuario;
 import Visao.GuiAdicionarDespesasVariaveis;
+
 
 import javax.swing.*;
 
+
+
 public class ControleAdicionarDespesasVariaveis {
     private GuiAdicionarDespesasVariaveis tela;
+    private Usuario usuario;
 
     public ControleAdicionarDespesasVariaveis(GuiAdicionarDespesasVariaveis tela) {
         this.tela = tela;

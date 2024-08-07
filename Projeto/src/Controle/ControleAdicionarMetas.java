@@ -8,14 +8,16 @@ import Visao.GuiAdicionarMetas;
 import javax.swing.*;
 
 public class ControleAdicionarMetas {
+    private ControlePrincipal controlePrincipal;
     private GuiAdicionarMetas tela;
     private MetasDAO metasDAO = new MetasDAO();
     private Usuario usuario;
 
 
-    public ControleAdicionarMetas(GuiAdicionarMetas tela,Usuario usuario) {
+    public ControleAdicionarMetas(GuiAdicionarMetas tela,Usuario usuario, ControlePrincipal controlePrincipal) {
         this.usuario = usuario;
         this.tela = tela;
+        this.controlePrincipal = controlePrincipal;
         iniciaTela();
     }
     public void iniciaTela(){
@@ -42,8 +44,8 @@ public class ControleAdicionarMetas {
 
         metasDAO.passando(usuario);
         metasDAO.save(metas);
-
-        tela.setVisible(false);
+        controlePrincipal.iniciaGraficoBarra();
+        tela.dispose();
     }
 
 }

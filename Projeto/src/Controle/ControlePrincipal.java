@@ -1,5 +1,8 @@
 package Controle;
 
+import DAO.DespesaFixaDAO;
+import DAO.DespesaVariavelDAO;
+import DAO.MetasDAO;
 import Modelo.Carteira;
 import Modelo.Usuario;
 import Visao.*;
@@ -22,8 +25,24 @@ public class ControlePrincipal {
     }
     public void mostrar(){
         tela.getFundo().add(principal,new GridBagConstraints());
+        iniciaGraficoPizza();
+        iniciaGraficoBarra();
         this.tela.revalidate();
         this.tela.repaint();
+
+    }public void iniciaGraficoPizza(){
+        principal.getPizza().setValue("metas",0.2*1400);
+        principal.getPizza().setValue("despesas fixas",0.5*1400);
+        principal.getPizza().setValue("despesas variaveis",0.3*1400);
+    }
+    public void iniciaGraficoBarra(){
+        MetasDAO metasDAO = new MetasDAO();
+        DespesaVariavelDAO despesaVariavelDAO = new DespesaVariavelDAO();
+        DespesaFixaDAO despesaFixaDAO = new DespesaFixaDAO();
+        principal.getBarra().clear();
+        principal.getBarra().addValue( metasDAO.somaMetas(usuario.getId()), "Metas","metas");
+        principal.getBarra().addValue( despesaFixaDAO.sumDespesasByUserId(usuario.getId()), "despesas fixas","despesas fixas" );
+        principal.getBarra().addValue( despesaVariavelDAO.somaDespesaVariavel(usuario.getId()), "despesas variaveis","despesas variaveis" );
     }
     public void limpar(){
         this.tela.getFundo().remove(principal);
@@ -63,8 +82,6 @@ public class ControlePrincipal {
         ControleAdicionarDespesasFixas despesasFixas = new ControleAdicionarDespesasFixas(new GuiAdicionarDespesasFixas());
     }
     public void acessaAdicionarMetas() throws ParseException {
-        ControleAdicionarMetas metas = new ControleAdicionarMetas(new GuiAdicionarMetas(),usuario);
-
-
+        ControleAdicionarMetas metas = new ControleAdicionarMetas(new GuiAdicionarMetas(),usuario,this);
     }
 }
