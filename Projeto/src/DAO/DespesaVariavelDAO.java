@@ -14,7 +14,7 @@ import java.util.List;
 public class DespesaVariavelDAO {
     public void save(DespesaVariavel despesaVariavel, Usuario usuario) {
 
-        String sql = "INSERT INTO despesa_variavel(id,valor,, data_inicial, data_final, descricao, valor_total, valor_arrecadado, recorrencia) " +
+        String sql = "INSERT INTO despesa_variavel(id,valor,qtd_parcelas,parcelas_pagas, status, data_emissao,data_vencimento, descricao, recorrencia) " +
                 "VALUES(?,?, ?, ?, ?, ?, ?, ?, ?)";
 
         Connection conn = null;
@@ -151,4 +151,44 @@ public class DespesaVariavelDAO {
         return despesaVariavel;
     }
 
+    public double somaDespesaVariavel(int userId) {
+        String sql = "SELECT SUM(valor) AS total FROM despesa_variavel WHERE usuario_id = ?";
+        double total = 0.0;
+
+        Connection conn = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+
+        try {
+            conn = controllerBD.createConnectionToMySQL();
+            pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, userId);
+            rs = pstm.executeQuery();
+
+            if (rs.next()) {
+                total = rs.getDouble("total");
+                JOptionPane.showMessageDialog(null, "Soma total das despesas variáveis do usuário " + userId + ": " + total);
+            } else {
+                JOptionPane.showMessageDialog(null, "Nenhuma despesa variável encontrada para o usuário com o ID fornecido.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (pstm != null) {
+                    pstm.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return total;
+    }
 }
+

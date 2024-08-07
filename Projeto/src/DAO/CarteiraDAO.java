@@ -53,5 +53,44 @@ public class CarteiraDAO {
             }
         }
     }
+    public void update(Carteira carteira, Usuario usuario){
+        String sql = "UPDATE `usuario` SET senha = ?, saldo = ?, limite_despesa_fixa = ?, limite_despesa_variavel = ?, limite_metas = ?, status = ? WHERE login = ?";
+
+        Connection conn = null;
+        PreparedStatement pstm = null;
+
+        try {
+            conn = controllerBD.createConnectionToMySQL();
+            pstm = conn.prepareStatement(sql);
+            pstm.setString(1, usuario.getSenha());
+            pstm.setDouble(2, usuario.getSaldo());
+            pstm.setDouble(3, carteira.getLimiteDespesaFixa());
+            pstm.setDouble(4, carteira.getLimiteDespesaVariavel());
+            pstm.setDouble(5, carteira.getLimiteMetas());
+            pstm.setBoolean(6, carteira.isStatus());
+            pstm.setString(7, usuario.getLogin());
+
+            int rowsUpdated = pstm.executeUpdate();
+
+            if (rowsUpdated > 0) {
+                JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Não foi possível atualizar!");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (pstm != null) {
+                    pstm.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }
 

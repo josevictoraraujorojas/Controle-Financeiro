@@ -232,4 +232,44 @@ public class MetasDAO {
         return meta;
     }
 
+    public double somaMetas(int userId) {
+        String sql = "SELECT SUM(valor_total) AS total FROM metas WHERE id = ?";
+        double total = 0.0;
+
+        Connection conn = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+
+        try {
+            conn = controllerBD.createConnectionToMySQL();
+            pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, userId);
+            rs = pstm.executeQuery();
+
+            if (rs.next()) {
+                total = rs.getDouble("total");
+                JOptionPane.showMessageDialog(null, "Soma total das metas do usuário " + userId + ": " + total);
+            } else {
+                JOptionPane.showMessageDialog(null, "Nenhuma meta encontrada para o usuário com o ID fornecido.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (pstm != null) {
+                    pstm.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return total;
+    }
+
 }

@@ -215,4 +215,44 @@ public class DespesaFixaDAO {
         }
         return despesaFixa;
     }
+
+    public double sumDespesasByUserId(int userId) {
+        String sql = "SELECT SUM(valor_mensal) AS total FROM despesa_fixa WHERE usuario_id = ?";
+        double total = 0.0;
+
+        Connection conn = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+
+        try {
+            conn = controllerBD.createConnectionToMySQL();
+            pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, userId);
+            rs = pstm.executeQuery();
+
+            if (rs.next()) {
+                total = rs.getDouble("total");
+                JOptionPane.showMessageDialog(null, "Soma total das despesas fixas do usuário " + userId + ": " + total);
+            } else {
+                JOptionPane.showMessageDialog(null, "Nenhuma despesa fixa encontrada para o usuário com o ID fornecido.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (pstm != null) {
+                    pstm.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return total;
+    }
 }
