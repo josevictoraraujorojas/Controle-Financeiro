@@ -14,8 +14,8 @@ import java.util.List;
 public class DespesaVariavelDAO {
     public void save(DespesaVariavel despesaVariavel, Usuario usuario) {
 
-        String sql = "INSERT INTO despesa_variavel(id,valor,qtd_parcelas,parcelas_pagas, status, data_emissao,data_vencimento, descricao, recorrencia) " +
-                "VALUES(?,?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO despesa_variavel(id,valor,qtd_parcelas,parcelas_pagas, status,categoria, data_emissao,data_vencimento, descricao, recorrencia) " +
+                "VALUES(?,?, ?, ?, ?, ?, ?, ?, ?,?)";
 
         Connection conn = null;
         PreparedStatement pstm = null;
@@ -26,8 +26,8 @@ public class DespesaVariavelDAO {
             pstm.setDouble(2, despesaVariavel.getValor());
             pstm.setInt(3, despesaVariavel.getQtdParcelas());
             pstm.setInt(4, despesaVariavel.getQtdParcelasPagas());
-            pstm.setString(5, despesaVariavel.getCategoria());
-            pstm.setByte(6, despesaVariavel.getStatus());
+            pstm.setByte(5, despesaVariavel.getStatus());
+            pstm.setString(6, despesaVariavel.getCategoria());
             pstm.setString(7, despesaVariavel.getDataEmissao());
             pstm.setString(8, despesaVariavel.getDataDeVencimento());
             pstm.setString(9, despesaVariavel.getDescricao());
@@ -176,6 +176,8 @@ public class DespesaVariavelDAO {
             pstm = conn.prepareStatement(sql);
             pstm.setInt(1, userId);
             rs = pstm.executeQuery();
+            rs.next();
+            total = rs.getDouble("total");
 
         } catch (Exception e) {
             e.printStackTrace();

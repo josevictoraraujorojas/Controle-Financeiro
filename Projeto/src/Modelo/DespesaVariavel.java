@@ -32,4 +32,9 @@ public class DespesaVariavel extends Despesas{
     public void setQtdParcelas(int qtdParcelas) {
         this.qtdParcelas = qtdParcelas;
     }
+
+    @Override
+    public String toString() {
+        return getCategoria();
+    }
 }

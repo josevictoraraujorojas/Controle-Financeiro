@@ -12,4 +12,9 @@ public class DespesaFixa extends Despesas{
     public void setValorMensal(double valorMensal) {
         this.valorMensal = valorMensal;
     }
+
+    @Override
+    public String toString() {
+        return getCategoria();
+    }
 }

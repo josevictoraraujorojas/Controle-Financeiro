@@ -61,7 +61,7 @@ public class MetasDAO {
         }
     }
     public List<Metas> listarMPeloID(int id) {
-        String sql = "SELECT * FROM meta WHERE id = ?";
+        String sql = "SELECT * FROM metas WHERE id = ?";
         List<Metas> metas = new ArrayList<>();
 
         Connection conn = null;
@@ -240,6 +240,8 @@ public class MetasDAO {
             pstm = conn.prepareStatement(sql);
             pstm.setInt(1, userId);
             rs = pstm.executeQuery();
+            rs.next();
+            total = rs.getDouble("total");
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -87,4 +87,9 @@ public class Metas {
     public void setRecorrencia(String recorrencia) {
         this.recorrencia = recorrencia;
     }
+
+    @Override
+    public String toString() {
+        return getCategoria();
+    }
 }

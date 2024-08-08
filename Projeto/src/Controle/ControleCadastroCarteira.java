@@ -71,7 +71,7 @@ public class ControleCadastroCarteira {
         Usuario usuarioautenticado = loginDAO.autenticar(usuario.getLogin(),usuario.getSenha());
 
 
-        ControleMenu menu = new ControleMenu(tela,new JpanelMenu(),usuarioautenticado);
+        ControleMenu menu = new ControleMenu(tela,new JpanelMenu(),usuarioautenticado,carteira);
 
     }
 

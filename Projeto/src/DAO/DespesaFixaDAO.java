@@ -235,6 +235,8 @@ public class DespesaFixaDAO {
             pstm = conn.prepareStatement(sql);
             pstm.setInt(1, userId);
             rs = pstm.executeQuery();
+            rs.next();
+            total = rs.getDouble("total");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

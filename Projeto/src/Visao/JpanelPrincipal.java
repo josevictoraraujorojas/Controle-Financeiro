@@ -1,5 +1,8 @@
 package Visao;
 
+import Modelo.DespesaFixa;
+import Modelo.DespesaVariavel;
+import Modelo.Metas;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -45,22 +48,23 @@ public class JpanelPrincipal extends JPanel {
     private GridBagConstraints adicionarDespesasVariaveisC;
     private JPanel painelLista;
     private GridBagConstraints painelListaC;
-    private JList listaMetas;
+    private DefaultListModel<Metas> listaModeloMetas;
+    private JList<Metas> listaMetas;
     private GridBagConstraints listaMetasC;
-    private JList listaDespesasFixas;
+    private DefaultListModel<DespesaFixa> listaModeloDespesasFixa;
+    private JList<DespesaFixa> listaDespesasFixas;
     private GridBagConstraints listaDespesasFixasC;
-    private JList listaDespesasVariaveis;
+    private DefaultListModel<DespesaVariavel> listaModeloDespesasVariavel;
+    private JList<DespesaVariavel> listaDespesasVariaveis;
     private GridBagConstraints listaDespesasVariaveisC;
-
-    private static  final String[] metas = {"viajar","comprar um carro","guardar dinheiro"};
-    private static  final String[] despesasFixas = {"conta de agua","conta de luz","conta supermercado"};
-    private static  final String[] despesasVariaveis = {"comprei roupa","comprei um sorvete","comprei pizza"};
 
     public JpanelPrincipal() {
         setLayout(new GridBagLayout());
         Font fonte = new Font("Serif",Font.PLAIN,20);
         Border borda = BorderFactory.createLineBorder(Color.black, 2);
 
+        telaprincipalC = new GridBagConstraints();
+        telaprincipalC.ipady=28;
 
         painelGraficosC = new GridBagConstraints();
         painelGraficosC.gridwidth=GridBagConstraints.REMAINDER;
@@ -96,16 +100,28 @@ public class JpanelPrincipal extends JPanel {
         adicionarDespesasVariaveisC = new GridBagConstraints();
 
         painelListaC = new GridBagConstraints();
+        painelListaC.fill = GridBagConstraints.BOTH;
+        painelListaC.weightx = 1.0;
+        painelListaC.weighty = 1.0;
 
         listaMetasC = new GridBagConstraints();
+        listaMetasC.fill = GridBagConstraints.BOTH;
+        listaMetasC.weightx = 1.0;
+        listaMetasC.weighty = 1.0;
         listaMetasC.ipadx=333;
         listaMetasC.ipady=200;
 
         listaDespesasFixasC = new GridBagConstraints();
+        listaDespesasFixasC.fill = GridBagConstraints.BOTH;
+        listaDespesasFixasC.weightx = 1.0;
+        listaDespesasFixasC.weighty = 1.0;
         listaDespesasFixasC.ipadx=333;
         listaDespesasFixasC.ipady=200;
 
         listaDespesasVariaveisC = new GridBagConstraints();
+        listaDespesasVariaveisC.fill = GridBagConstraints.BOTH;
+        listaDespesasVariaveisC.weightx = 1.0;
+        listaDespesasVariaveisC.weighty = 1.0;
         listaDespesasVariaveisC.ipadx=331;
         listaDespesasVariaveisC.ipady=200;
 
@@ -200,27 +216,37 @@ public class JpanelPrincipal extends JPanel {
 
         painelLista = new JPanel();
         painelLista.setLayout(new GridBagLayout());
+        painelLista.setBackground(Color.white);
         telaprincipal.add(painelLista,painelListaC);
 
-        listaMetas = new JList<>(metas);
+        listaModeloMetas = new DefaultListModel<>();
+
+        listaMetas = new JList<>(listaModeloMetas);
         listaMetas.setFont(fonte);
         listaMetas.setToolTipText("Metas");
         listaMetas.setVisibleRowCount(5);
         listaMetas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        listaMetas.setBackground(Color.white);
         painelLista.add(listaMetas,listaMetasC);
 
-        listaDespesasFixas = new JList<>(despesasFixas);
+        listaModeloDespesasFixa = new DefaultListModel<>();
+
+        listaDespesasFixas = new JList<>(listaModeloDespesasFixa);
         listaDespesasFixas.setFont(fonte);
         listaDespesasFixas.setToolTipText("Despesas Fixas");
         listaDespesasFixas.setVisibleRowCount(5);
         listaDespesasFixas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        listaDespesasFixas.setBackground(Color.white);
         painelLista.add(listaDespesasFixas,listaDespesasFixasC);
 
-        listaDespesasVariaveis = new JList<>(despesasVariaveis);
+        listaModeloDespesasVariavel = new DefaultListModel<>();
+
+        listaDespesasVariaveis = new JList<>(listaModeloDespesasVariavel);
         listaDespesasVariaveis.setFont(fonte);
         listaDespesasVariaveis.setToolTipText("Despesas Variaveis");
         listaDespesasVariaveis.setVisibleRowCount(5);
         listaDespesasVariaveis.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        listaDespesasVariaveis.setBackground(Color.white);
         painelLista.add(listaDespesasVariaveis,listaDespesasVariaveisC);
 
     }
@@ -495,5 +521,29 @@ public class JpanelPrincipal extends JPanel {
 
     public void setBarra(DefaultCategoryDataset barra) {
         this.barra = barra;
+    }
+
+    public DefaultListModel<Metas> getListaModeloMetas() {
+        return listaModeloMetas;
+    }
+
+    public void setListaModeloMetas(DefaultListModel<Metas> listaModeloMetas) {
+        this.listaModeloMetas = listaModeloMetas;
+    }
+
+    public DefaultListModel<DespesaFixa> getListaModeloDespesasFixa() {
+        return listaModeloDespesasFixa;
+    }
+
+    public void setListaModeloDespesasFixa(DefaultListModel<DespesaFixa> listaModeloDespesasFixa) {
+        this.listaModeloDespesasFixa = listaModeloDespesasFixa;
+    }
+
+    public DefaultListModel<DespesaVariavel> getListaModeloDespesasVariavel() {
+        return listaModeloDespesasVariavel;
+    }
+
+    public void setListaModeloDespesasVariavel(DefaultListModel<DespesaVariavel> listaModeloDespesasVariavel) {
+        this.listaModeloDespesasVariavel = listaModeloDespesasVariavel;
     }
 }

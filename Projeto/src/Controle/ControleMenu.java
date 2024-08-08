@@ -15,7 +15,7 @@ public class ControleMenu {
     private Usuario usuario;
     private Carteira carteira;
 
-    public ControleMenu(GuiTela tela, JpanelMenu menu, Usuario usuario) {
+    public ControleMenu(GuiTela tela, JpanelMenu menu, Usuario usuario, Carteira carteira) {
         this.tela = tela;
         this.menu = menu;
         this.usuario = usuario;
@@ -23,7 +23,7 @@ public class ControleMenu {
         this.tela.getFundo().add(this.menu,new GridBagConstraints());
         this.tela.revalidate();
         this.tela.repaint();
-        principal = new ControlePrincipal(new JpanelPrincipal(),this.tela,usuario);
+        principal = new ControlePrincipal(new JpanelPrincipal(),this.tela,usuario,carteira);
         principal.mostrar();
         perfil = new ControlePerfil(new JpanelPerfil(),this.tela,usuario);
         login= new ControleLogin(new JpanelLogin(),this.tela);

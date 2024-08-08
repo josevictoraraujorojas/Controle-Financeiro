@@ -1,7 +1,9 @@
 package Controle;
 
 
+import DAO.CarteiraDAO;
 import DAO.UsuarioDAO;
+import Modelo.Carteira;
 import Modelo.Usuario;
 import Visao.GuiTela;
 import Visao.JpanelCadastro;
@@ -42,11 +44,14 @@ public class ControleLogin{
         String login = this.login.getLogin().getText();
         String senha = this.login.getSenha().getText();
         UsuarioDAO loginDAO = new UsuarioDAO();
+        CarteiraDAO carteiraDAO = new CarteiraDAO();
         Usuario usuarioAutenticado = loginDAO.autenticar(login, senha);
+
 
         if (usuarioAutenticado != null) {
             this.tela.getFundo().remove(this.login);
-            ControleMenu menu = new ControleMenu(this.tela,new JpanelMenu(),usuarioAutenticado);
+            Carteira carteira = carteiraDAO.getCarteira(usuarioAutenticado.getId());
+            ControleMenu menu = new ControleMenu(this.tela,new JpanelMenu(),usuarioAutenticado,carteira);
 
 
         }else{

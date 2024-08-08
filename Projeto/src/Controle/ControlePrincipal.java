@@ -16,7 +16,7 @@ public class ControlePrincipal {
     private JpanelPrincipal principal;
     private GuiTela tela;
 
-    public ControlePrincipal(JpanelPrincipal principal, GuiTela tela, Usuario usuario) {
+    public ControlePrincipal(JpanelPrincipal principal, GuiTela tela, Usuario usuario, Carteira carteira) {
         this.carteira = carteira;
         this.usuario = usuario;
         this.principal = principal;
@@ -27,13 +27,16 @@ public class ControlePrincipal {
         tela.getFundo().add(principal,new GridBagConstraints());
         iniciaGraficoPizza();
         iniciaGraficoBarra();
+        listarDespesasVariavel();
+        listarMetas();
+        listarDespesasFixa();
         this.tela.revalidate();
         this.tela.repaint();
 
     }public void iniciaGraficoPizza(){
-        principal.getPizza().setValue("metas",0.2*1400);
-        principal.getPizza().setValue("despesas fixas",0.5*1400);
-        principal.getPizza().setValue("despesas variaveis",0.3*1400);
+        principal.getPizza().setValue("metas",carteira.getLimiteMetas());
+        principal.getPizza().setValue("despesas fixas",carteira.getLimiteDespesaFixa());
+        principal.getPizza().setValue("despesas variaveis",carteira.getLimiteDespesaVariavel());
     }
     public void iniciaGraficoBarra(){
         MetasDAO metasDAO = new MetasDAO();
@@ -43,6 +46,21 @@ public class ControlePrincipal {
         principal.getBarra().addValue( metasDAO.somaMetas(usuario.getId()), "Metas","metas");
         principal.getBarra().addValue( despesaFixaDAO.somaDespesaFixa(usuario.getId()), "despesas fixas","despesas fixas" );
         principal.getBarra().addValue( despesaVariavelDAO.somaDespesaVariavel(usuario.getId()), "despesas variaveis","despesas variaveis" );
+    }
+    public void listarMetas(){
+        MetasDAO metasDAO = new MetasDAO();
+        principal.getListaModeloMetas().clear();
+        principal.getListaModeloMetas().addAll(metasDAO.listarMPeloID(usuario.getId()));
+    }
+    public void listarDespesasFixa(){
+        DespesaFixaDAO despesaFixaDAO = new DespesaFixaDAO();
+        principal.getListaModeloDespesasFixa().clear();
+        principal.getListaModeloDespesasFixa().addAll(despesaFixaDAO.listarDFPeloID(usuario.getId()));
+    }
+    public void listarDespesasVariavel(){
+        DespesaVariavelDAO despesaVariavelDAO = new DespesaVariavelDAO();
+        principal.getListaModeloDespesasVariavel().clear();
+        principal.getListaModeloDespesasVariavel().addAll(despesaVariavelDAO.listarDVPeloID(usuario.getId()));
     }
     public void limpar(){
         this.tela.getFundo().remove(principal);
@@ -75,11 +93,11 @@ public class ControlePrincipal {
     }
 
     public void acessaDespesasVariaveis() throws ParseException {
-        ControleAdicionarDespesasVariaveis despesasVariaveis = new ControleAdicionarDespesasVariaveis(new GuiAdicionarDespesasVariaveis());
+        ControleAdicionarDespesasVariaveis despesasVariaveis = new ControleAdicionarDespesasVariaveis(new GuiAdicionarDespesasVariaveis(),usuario,this);
 
     }
     public void acessaDespesasFixas() throws ParseException {
-        ControleAdicionarDespesasFixas despesasFixas = new ControleAdicionarDespesasFixas(new GuiAdicionarDespesasFixas());
+        ControleAdicionarDespesasFixas despesasFixas = new ControleAdicionarDespesasFixas(new GuiAdicionarDespesasFixas(),usuario,this);
     }
     public void acessaAdicionarMetas() throws ParseException {
         ControleAdicionarMetas metas = new ControleAdicionarMetas(new GuiAdicionarMetas(),usuario,this);

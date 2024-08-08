@@ -32,6 +32,10 @@ public class GuiAdicionarDespesasVariaveis extends JFrame {
     private GridBagConstraints textoQuantidadeParcelasC;
     private JTextFieldArredondado quantidadeParcelas;
     private GridBagConstraints quantidadeParcelasC;
+    private JLabel textoQuantidadeParcelasPagas;
+    private GridBagConstraints textoQuantidadeParcelasPagasC;
+    private JTextFieldArredondado quantidadeParcelasPagas;
+    private GridBagConstraints quantidadeParcelasPagasC;
     private JLabel textoRecorrencia;
     private GridBagConstraints textoRecorrenciaC;
     private JTextFieldArredondado recorrencia;
@@ -104,6 +108,15 @@ public class GuiAdicionarDespesasVariaveis extends JFrame {
         quantidadeParcelasC.insets = new Insets(50, 0, 0, 0);
         quantidadeParcelasC.gridwidth=GridBagConstraints.REMAINDER;
 
+        textoQuantidadeParcelasPagasC = new GridBagConstraints();
+        textoQuantidadeParcelasPagasC.insets = new Insets(50, 0, 0, 0);
+
+        quantidadeParcelasPagasC = new GridBagConstraints();
+        quantidadeParcelasPagasC.ipadx=200;
+        quantidadeParcelasPagasC.ipady=20;
+        quantidadeParcelasPagasC.insets = new Insets(50, 0, 0, 0);
+        quantidadeParcelasPagasC.gridwidth=GridBagConstraints.REMAINDER;
+
         textoRecorrenciaC = new GridBagConstraints();
         textoRecorrenciaC.insets = new Insets(50, 0, 0, 0);
 
@@ -156,7 +169,7 @@ public class GuiAdicionarDespesasVariaveis extends JFrame {
         descricao.setBackground(Color.white);
         menuAdicionar.add(descricao,descricaoC);
 
-        textoValor = new JLabel("valor mensal:");
+        textoValor = new JLabel("valor:");
         menuAdicionar.add(textoValor,textoValorC);
 
         valor = new JTextFieldArredondado();
@@ -171,6 +184,14 @@ public class GuiAdicionarDespesasVariaveis extends JFrame {
         quantidadeParcelas.setColumns(10);
         quantidadeParcelas.setBackground(Color.white);
         menuAdicionar.add(quantidadeParcelas,quantidadeParcelasC);
+
+        textoQuantidadeParcelasPagas = new JLabel("quantidade parcelas pagas:");
+        menuAdicionar.add(textoQuantidadeParcelasPagas,textoQuantidadeParcelasPagasC);
+
+        quantidadeParcelasPagas = new JTextFieldArredondado();
+        quantidadeParcelasPagas.setColumns(10);
+        quantidadeParcelasPagas.setBackground(Color.white);
+        menuAdicionar.add(quantidadeParcelasPagas,quantidadeParcelasPagasC);
 
         textoRecorrencia = new JLabel("recorrencia:");
         menuAdicionar.add(textoRecorrencia,textoRecorrenciaC);
@@ -462,5 +483,37 @@ public class GuiAdicionarDespesasVariaveis extends JFrame {
 
     public void setCancelarC(GridBagConstraints cancelarC) {
         this.cancelarC = cancelarC;
+    }
+
+    public JLabel getTextoQuantidadeParcelasPagas() {
+        return textoQuantidadeParcelasPagas;
+    }
+
+    public void setTextoQuantidadeParcelasPagas(JLabel textoQuantidadeParcelasPagas) {
+        this.textoQuantidadeParcelasPagas = textoQuantidadeParcelasPagas;
+    }
+
+    public GridBagConstraints getTextoQuantidadeParcelasPagasC() {
+        return textoQuantidadeParcelasPagasC;
+    }
+
+    public void setTextoQuantidadeParcelasPagasC(GridBagConstraints textoQuantidadeParcelasPagasC) {
+        this.textoQuantidadeParcelasPagasC = textoQuantidadeParcelasPagasC;
+    }
+
+    public JTextFieldArredondado getQuantidadeParcelasPagas() {
+        return quantidadeParcelasPagas;
+    }
+
+    public void setQuantidadeParcelasPagas(JTextFieldArredondado quantidadeParcelasPagas) {
+        this.quantidadeParcelasPagas = quantidadeParcelasPagas;
+    }
+
+    public GridBagConstraints getQuantidadeParcelasPagasC() {
+        return quantidadeParcelasPagasC;
+    }
+
+    public void setQuantidadeParcelasPagasC(GridBagConstraints quantidadeParcelasPagasC) {
+        this.quantidadeParcelasPagasC = quantidadeParcelasPagasC;
     }
 }

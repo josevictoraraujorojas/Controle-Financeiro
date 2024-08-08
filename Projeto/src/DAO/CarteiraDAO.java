@@ -94,9 +94,9 @@ public class CarteiraDAO {
     }
 
     public Carteira getCarteira(int id) {
-        String sql = "SELECT u.saldo, u.limite_despesa_fixa, u.limite_despesa_variavel, u.limite_metas, u.status " +
-                "FROM usuario u" +
-                "WHERE u.id = ?";
+        String sql = "SELECT saldo, limite_despesa_fixa, limite_despesa_variavel, limite_metas, status " +
+                "FROM usuario " +
+                "WHERE id = ?";
         Connection conn = null;
         PreparedStatement pstm = null;
         ResultSet rs = null;
