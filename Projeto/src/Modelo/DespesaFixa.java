@@ -1,6 +1,7 @@
 package Modelo;
 
 public class DespesaFixa extends Despesas{
+    private int idDespesaFixa;
     private double valorMensal;
 
     public DespesaFixa() {}
@@ -11,6 +12,14 @@ public class DespesaFixa extends Despesas{
 
     public void setValorMensal(double valorMensal) {
         this.valorMensal = valorMensal;
+    }
+
+    public int getIdDespesaFixa() {
+        return idDespesaFixa;
+    }
+
+    public void setIdDespesaFixa(int idDespesaFixa) {
+        this.idDespesaFixa = idDespesaFixa;
     }
 
     @Override

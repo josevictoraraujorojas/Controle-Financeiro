@@ -48,7 +48,7 @@ public class GuiAdicionarDespesasVariaveis extends JFrame {
     public GuiAdicionarDespesasVariaveis() throws ParseException {
         super("adicionar despesas variaveis");
         setLayout(new GridBagLayout());
-        MaskFormatter data = new MaskFormatter("##/##/##");
+        MaskFormatter data = new MaskFormatter("####-##-##");
 
 
         menuAdicionarC = new GridBagConstraints();

@@ -4,8 +4,11 @@ import DAO.DespesaFixaDAO;
 import DAO.DespesaVariavelDAO;
 import DAO.MetasDAO;
 import Modelo.Carteira;
+import Modelo.DespesaVariavel;
 import Modelo.Usuario;
 import Visao.*;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.ValueMarker;
 
 import java.awt.*;
 import java.text.ParseException;
@@ -46,6 +49,32 @@ public class ControlePrincipal {
         principal.getBarra().addValue( metasDAO.somaMetas(usuario.getId()), "Metas","metas");
         principal.getBarra().addValue( despesaFixaDAO.somaDespesaFixa(usuario.getId()), "despesas fixas","despesas fixas" );
         principal.getBarra().addValue( despesaVariavelDAO.somaDespesaVariavel(usuario.getId()), "despesas variaveis","despesas variaveis" );
+
+        CategoryPlot plot = (CategoryPlot) principal.getGraficoBarra().getPlot();
+
+        // aumenta o grafico de barra para o valor total
+        plot.getRangeAxis().setRange(0, usuario.getSaldo());
+
+        //aponato o limite das metas no grafico de barra
+         // Limite para metas
+        ValueMarker markerMetas = new ValueMarker(carteira.getLimiteMetas());
+        markerMetas.setPaint(Color.RED);
+        markerMetas.setStroke(new BasicStroke(3f)); // Defina a largura desejada
+        plot.addRangeMarker(markerMetas);
+
+        //aponato o limite das despesas fixas no grafico de barra
+
+        ValueMarker markerDespesasFixas = new ValueMarker(carteira.getLimiteDespesaFixa());
+        markerDespesasFixas.setPaint(Color.blue);
+        markerDespesasFixas.setStroke(new BasicStroke(3f)); // Defina a largura desejada
+        plot.addRangeMarker(markerDespesasFixas);
+
+        //aponato o limite das despesas variaveis no grafico de barra
+
+        ValueMarker markerDespesasVariaveis = new ValueMarker(carteira.getLimiteDespesaVariavel());
+        markerDespesasVariaveis.setPaint(Color.green);
+        markerDespesasVariaveis.setStroke(new BasicStroke(3f)); // Defina a largura desejada
+        plot.addRangeMarker(markerDespesasVariaveis);
     }
     public void listarMetas(){
         MetasDAO metasDAO = new MetasDAO();
@@ -90,6 +119,22 @@ public class ControlePrincipal {
                 throw new RuntimeException(ex);
             }
         });
+        principal.getListaDespesasFixas().addListSelectionListener(e ->{});
+
+        principal.getListaMetas().addListSelectionListener(e ->{});
+
+        principal.getListaDespesasVariaveis().addListSelectionListener(e -> {
+            try {
+                if (principal.getListaDespesasVariaveis().getSelectedValue()!=null){
+                    acessaListaDespesasVariaveis();
+                    principal.getListaDespesasVariaveis().clearSelection();
+                }
+            } catch (ParseException ignored) {
+            }
+        });
+    }
+    public void acessaListaDespesasVariaveis() throws ParseException {
+        ControleDetalheDespesasVariaveis detalheDespesasVariaveis  = new ControleDetalheDespesasVariaveis(new GuiDetalheDespesasVariaveis(), (DespesaVariavel) principal.getListaDespesasVariaveis().getSelectedValue(),this);
     }
 
     public void acessaDespesasVariaveis() throws ParseException {

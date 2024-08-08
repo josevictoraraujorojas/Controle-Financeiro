@@ -66,7 +66,9 @@ public class ControleCadastro {
 
     public void acessaCancelar(){
         limpar();
-        controleCadastroCarteira.limpar();
+        if (controleCadastroCarteira!=null) {
+            controleCadastroCarteira.limpar();
+        }
         login.mostrar();
     }
 }

@@ -56,6 +56,7 @@ public class DespesaVariavelDAO {
 
             while (rs.next()) {
                 DespesaVariavel despesaVariavel = new DespesaVariavel();
+                despesaVariavel.setIdDespesaVariavel(rs.getInt("id_despesa_variavel"));
                 despesaVariavel.setId(rs.getInt("id"));
                 despesaVariavel.setValor(rs.getDouble("valor"));
                 despesaVariavel.setQtdParcelas(rs.getInt("qtd_parcelas"));
@@ -91,6 +92,7 @@ public class DespesaVariavelDAO {
 
         try  {
             conn = controllerBD.createConnectionToMySQL();
+            pstm = conn.prepareStatement(sql);
             pstm.setInt(1, idDespesaVariavel);
             int rowsAffected = pstm.executeUpdate();
 
@@ -110,6 +112,9 @@ public class DespesaVariavelDAO {
         PreparedStatement pstm = null;
         try  {
             conn = controllerBD.createConnectionToMySQL();
+            pstm = conn.prepareStatement(sql);  // Inicializa o PreparedStatement com a consulta SQL
+
+            // Define os valores para os parâmetros da consulta SQL
             pstm.setDouble(1, despesaVariavel.getValor());
             pstm.setInt(2, despesaVariavel.getQtdParcelas());
             pstm.setInt(3, despesaVariavel.getQtdParcelasPagas());
@@ -119,17 +124,26 @@ public class DespesaVariavelDAO {
             pstm.setString(7, despesaVariavel.getDataDeVencimento());
             pstm.setString(8, despesaVariavel.getDescricao());
             pstm.setString(9, despesaVariavel.getRecorrencia());
-            pstm.setInt(10, despesaVariavel.getId());
+            pstm.setInt(10, despesaVariavel.getIdDespesaVariavel());
 
+            // Executa a atualização no banco de dados
             int rowsAffected = pstm.executeUpdate();
             if (rowsAffected > 0) {
-
+                System.out.println("Despesa variável atualizada com sucesso.");
             } else {
                 System.out.println("Nenhuma despesa variável encontrada com o ID fornecido.");
             }
 
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            // Fecha os recursos
+            try {
+                if (pstm != null) pstm.close();
+                if (conn != null) conn.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
     }

@@ -49,6 +49,7 @@ public class ControleAdicionarDespesasVariaveis {
 
         despesaVariavelDAO.save(despesaVariavel,usuario);
         controlePrincipal.iniciaGraficoBarra();
+        controlePrincipal.listarDespesasVariavel();
         tela.dispose();
     }
 

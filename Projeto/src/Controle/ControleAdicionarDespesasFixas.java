@@ -43,6 +43,7 @@ public class ControleAdicionarDespesasFixas {
 
         despesaFixaDAO.save(despesaFixa,usuario);
         controlePrincipal.iniciaGraficoBarra();
+        controlePrincipal.listarDespesasFixa();
         tela.dispose();
     }
 

@@ -149,30 +149,6 @@ public class JpanelPrincipal extends JPanel {
         graficoBarra = ChartFactory.createBarChart("Carteira","tipos de gastos","quantidade em real",barra,PlotOrientation.HORIZONTAL,true,true,false);
         CategoryPlot plot = (CategoryPlot) graficoBarra.getPlot();
 
-        // aumenta o grafico de barra para o valor total
-        plot.getRangeAxis().setRange(0, 1400); // Altere 1400 para o valor máximo desejado
-
-        //aponato o limite das metas no grafico de barra
-        double limiteMetas = 0.2 * 1400; // Limite para metas
-        ValueMarker markerMetas = new ValueMarker(limiteMetas);
-        markerMetas.setPaint(Color.RED);
-        markerMetas.setStroke(new BasicStroke(3f)); // Defina a largura desejada
-        plot.addRangeMarker(markerMetas);
-
-        //aponato o limite das despesas fixas no grafico de barra
-        double limiteDespesasFixas = 0.5 * 1400; // Limite para despesas fixas
-        ValueMarker markerDespesasFixas = new ValueMarker(limiteDespesasFixas);
-        markerDespesasFixas.setPaint(Color.blue);
-        markerDespesasFixas.setStroke(new BasicStroke(3f)); // Defina a largura desejada
-        plot.addRangeMarker(markerDespesasFixas);
-
-        //aponato o limite das despesas variaveis no grafico de barra
-        double limiteDespesasVariaveis = 0.3 * 1400; // Limite para despesas variaveis
-        ValueMarker markerDespesasVariaveis = new ValueMarker(limiteDespesasVariaveis);
-        markerDespesasVariaveis.setPaint(Color.green);
-        markerDespesasVariaveis.setStroke(new BasicStroke(3f)); // Defina a largura desejada
-        plot.addRangeMarker(markerDespesasVariaveis);
-
         painelGraficoBarra = new ChartPanel(graficoBarra);
         painelGraficoBarra.setPreferredSize(new Dimension(730, 430));
         painelGraficoBarra.setMinimumSize(new Dimension(400, 300));

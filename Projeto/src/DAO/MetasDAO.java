@@ -75,7 +75,8 @@ public class MetasDAO {
 
             while (rs.next()) {
                 Metas meta = new Metas();
-                meta.setId(rs.getInt("id"));
+                meta.setIdUsuario(rs.getInt("id"));
+                meta.setIdMetas(rs.getInt("id_metas"));
                 meta.setCategoria(rs.getString("categoria"));
                 meta.setStatus(rs.getBoolean("status"));
                 meta.setDataInicial(rs.getString("data_inicial"));
@@ -119,7 +120,7 @@ public class MetasDAO {
             pstm.setFloat(6, metas.getValorTotal());
             pstm.setFloat(7, metas.getValorArrecadado());
             pstm.setString(8, metas.getRecorrencia());
-            pstm.setInt(9, metas.getId());
+            pstm.setInt(9, metas.getIdMetas());
 
             int rowsAffected = pstm.executeUpdate();
             if (rowsAffected > 0) {
@@ -194,7 +195,8 @@ public class MetasDAO {
 
             if (rs.next()) {
                 meta = new Metas();
-                meta.setId(rs.getInt("id"));
+                meta.setIdUsuario(rs.getInt("id"));
+                meta.setIdMetas(rs.getInt("id_metas"));
                 meta.setCategoria(rs.getString("categoria"));
                 meta.setStatus(rs.getBoolean("status"));
                 meta.setDataInicial(rs.getString("data_inicial"));

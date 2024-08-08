@@ -46,6 +46,7 @@ public class ControleAdicionarMetas {
         metasDAO.save(metas);
 
         controlePrincipal.iniciaGraficoBarra();
+        controlePrincipal.listarMetas();
         tela.dispose();
     }
 

@@ -67,7 +67,7 @@ public class DespesaFixaDAO {
             pstm.setString(5, despesaFixa.getDataDeVencimento());
             pstm.setString(6, despesaFixa.getDescricao());
             pstm.setString(7, despesaFixa.getRecorrencia());
-            pstm.setInt(8, despesaFixa.getId());
+            pstm.setInt(8, despesaFixa.getIdDespesaFixa());
 
             int rowsAffected = pstm.executeUpdate();
             if (rowsAffected > 0) {
@@ -153,6 +153,7 @@ public class DespesaFixaDAO {
             while (rs.next()) {
                 DespesaFixa despesaFixa = new DespesaFixa();
                 despesaFixa.setId(rs.getInt("id"));
+                despesaFixa.setIdDespesaFixa(rs.getInt("id_despesa_fixa"));
                 despesaFixa.setValorMensal(rs.getFloat("valor_mensal"));
                 despesaFixa.setCategoria(rs.getString("categoria"));
                 despesaFixa.setStatus(rs.getByte("status"));

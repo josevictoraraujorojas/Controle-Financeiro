@@ -16,12 +16,20 @@ public class Metas {
 
     }
 
-    public int getId() {
+    public int getIdMetas() {
         return idMetas;
     }
 
-    public void setId(int id) {
-        this.idMetas = id;
+    public void setIdMetas(int idMetas) {
+        this.idMetas = idMetas;
+    }
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public String getCategoria() {

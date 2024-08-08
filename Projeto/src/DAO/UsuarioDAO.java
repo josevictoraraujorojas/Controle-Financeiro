@@ -65,6 +65,7 @@ public class UsuarioDAO {
                 usuario.setId(rs.getInt("id"));
                 usuario.setLogin(rs.getString("login"));
                 usuario.setSenha(rs.getString("senha"));
+                usuario.setSaldo(rs.getDouble("saldo"));
 
 
                 return usuario;

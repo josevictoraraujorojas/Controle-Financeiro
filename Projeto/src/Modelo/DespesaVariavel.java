@@ -1,7 +1,7 @@
 package Modelo;
 
 public class DespesaVariavel extends Despesas{
-
+    private int idDespesaVariavel;
     private double valor;
     private int qtdParcelasPagas;
     private int qtdParcelas;
@@ -31,6 +31,14 @@ public class DespesaVariavel extends Despesas{
 
     public void setQtdParcelas(int qtdParcelas) {
         this.qtdParcelas = qtdParcelas;
+    }
+
+    public int getIdDespesaVariavel() {
+        return idDespesaVariavel;
+    }
+
+    public void setIdDespesaVariavel(int idDespesaVariavel) {
+        this.idDespesaVariavel = idDespesaVariavel;
     }
 
     @Override
