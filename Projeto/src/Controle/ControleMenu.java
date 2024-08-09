@@ -25,7 +25,7 @@ public class ControleMenu {
         this.tela.repaint();
         principal = new ControlePrincipal(new JpanelPrincipal(),this.tela,usuario,carteira);
         principal.mostrar();
-        perfil = new ControlePerfil(new JpanelPerfil(),this.tela,usuario);
+        perfil = new ControlePerfil(new JpanelPerfil(),this.tela,usuario,carteira);
         login= new ControleLogin(new JpanelLogin(),this.tela);
         this.iniciaControle();
     }

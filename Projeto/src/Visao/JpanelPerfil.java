@@ -152,7 +152,6 @@ public class JpanelPerfil extends JPanel {
             login = new JTextFieldArredondado();
             login.setBackground(Color.cyan);
             login.setColumns(10);
-            login.setText("Jose");
             login.setFont(fonte);
             login.setEditable(false);
             detalhePessoal.add(login, loginC);
@@ -165,7 +164,6 @@ public class JpanelPerfil extends JPanel {
             senha = new JPasswordArredondado();
             senha.setBackground(Color.cyan);
             senha.setColumns(10);
-            senha.setText("Rojas");
             senha.setFont(fonte);
             senha.setEditable(false);
             detalhePessoal.add(senha,senhaC);
@@ -177,7 +175,6 @@ public class JpanelPerfil extends JPanel {
             saldo = new JTextFieldArredondado();
             saldo.setBackground(Color.cyan);
             saldo.setColumns(10);
-            saldo.setText("1400");
             saldo.setFont(fonte);
             saldo.setEditable(false);
             detalhePessoal.add(saldo,saldoC);
@@ -194,7 +191,6 @@ public class JpanelPerfil extends JPanel {
             limiteDespesasFixas = new JTextFieldArredondado();
             limiteDespesasFixas.setBackground(Color.cyan);
             limiteDespesasFixas.setColumns(10);
-            limiteDespesasFixas.setText("50%");
             limiteDespesasFixas.setFont(fonte);
             limiteDespesasFixas.setEditable(false);
             detalheCarteira.add(limiteDespesasFixas, limiteDespesasFixasC);
@@ -206,7 +202,6 @@ public class JpanelPerfil extends JPanel {
             limiteDespesasVariaveis = new JTextFieldArredondado();
             limiteDespesasVariaveis.setBackground(Color.cyan);
             limiteDespesasVariaveis.setColumns(10);
-            limiteDespesasVariaveis.setText("30%");
             limiteDespesasVariaveis.setFont(fonte);
             limiteDespesasVariaveis.setEditable(false);
             detalheCarteira.add(limiteDespesasVariaveis, limiteDespesasVariaveisC);
@@ -218,7 +213,6 @@ public class JpanelPerfil extends JPanel {
             limiteMetas = new JTextFieldArredondado();
             limiteMetas.setBackground(Color.cyan);
             limiteMetas.setColumns(10);
-            limiteMetas.setText("20%");
             limiteMetas.setFont(fonte);
             limiteMetas.setEditable(false);
             detalheCarteira.add(limiteMetas, limiteMetasC);

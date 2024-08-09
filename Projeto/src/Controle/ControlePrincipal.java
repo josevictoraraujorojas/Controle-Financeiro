@@ -4,6 +4,7 @@ import DAO.DespesaFixaDAO;
 import DAO.DespesaVariavelDAO;
 import DAO.MetasDAO;
 import Modelo.Carteira;
+import Modelo.DespesaFixa;
 import Modelo.DespesaVariavel;
 import Modelo.Usuario;
 import Visao.*;
@@ -132,11 +133,24 @@ public class ControlePrincipal {
             } catch (ParseException ignored) {
             }
         });
+
+        principal.getListaDespesasFixas().addListSelectionListener(e -> {
+            try {
+                if (principal.getListaDespesasFixas().getSelectedValue()!=null){
+                    acessaListaDespesasFixas();
+                    principal.getListaDespesasFixas().clearSelection();
+                }
+            } catch (ParseException ignored) {
+            }
+        });
     }
     public void acessaListaDespesasVariaveis() throws ParseException {
         ControleDetalheDespesasVariaveis detalheDespesasVariaveis  = new ControleDetalheDespesasVariaveis(new GuiDetalheDespesasVariaveis(), (DespesaVariavel) principal.getListaDespesasVariaveis().getSelectedValue(),this);
     }
 
+    public void acessaListaDespesasFixas() throws ParseException {
+        ControleDetalheDespesasFixas detalheDespesasFixas = new ControleDetalheDespesasFixas(new GuiDetalheDespesasFixas(),(DespesaFixa) principal.getListaDespesasFixas().getSelectedValue(),this);
+    }
     public void acessaDespesasVariaveis() throws ParseException {
         ControleAdicionarDespesasVariaveis despesasVariaveis = new ControleAdicionarDespesasVariaveis(new GuiAdicionarDespesasVariaveis(),usuario,this);
 
