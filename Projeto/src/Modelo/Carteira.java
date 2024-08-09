@@ -75,8 +75,7 @@ public class Carteira {
         return quantidadeVariavel;
     }
 
-    public void setQuantidadeVariavel(double quantidadeVariavel) {
-        this.quantidadeVariavel = quantidadeVariavel;
+    public void setQuantidadeVariavel(double quantidadeVariavel) {this.quantidadeVariavel = quantidadeVariavel;
     }
 
     public double getQuantidadeMetas() {

@@ -92,6 +92,41 @@ public class DespesaFixaDAO {
         }
     }
 
+    public void delete(int idDespesaFixa) {
+        String sql = "DELETE FROM despesa_fixa WHERE id_despesa_fixa = ?";
+
+        Connection conn = null;
+        PreparedStatement pstm = null;
+
+        try {
+            conn = controllerBD.createConnectionToMySQL();
+            pstm = conn.prepareStatement(sql);
+
+            pstm.setInt(1, idDespesaFixa);
+
+            int rowsAffected = pstm.executeUpdate();
+            if (rowsAffected > 0) {
+                JOptionPane.showMessageDialog(null, "Despesa fixa excluída com sucesso!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Nenhuma despesa fixa encontrada para o ID fornecido.");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (pstm != null) {
+                    pstm.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public List<DespesaFixa> listAll() {
         String sql = "SELECT * FROM despesa_fixa";
         List<DespesaFixa> despesasFixas = new ArrayList<>();
