@@ -4,7 +4,7 @@ use controle_financeiro;
 
 CREATE TABLE `usuario` (
                            `id` INT NOT NULL AUTO_INCREMENT,
-                           `login` VARCHAR(100) NOT NULL,
+                           `login` VARCHAR(100) NOT NULL unique,
                            `senha` VARCHAR(100) NOT NULL,
                            `saldo` FLOAT(10) NOT NULL,
                            `limite_despesa_fixa` FLOAT(10) NOT NULL,

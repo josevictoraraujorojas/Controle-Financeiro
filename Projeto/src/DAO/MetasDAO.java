@@ -103,7 +103,9 @@ public class MetasDAO {
     }
 
     public void update(Metas metas) {
-        String sql = "UPDATE metas SET categoria = ?, status = ?, data_inicial = ?, data_final = ?, descricao = ?, valor_total = ?, valor_arrecadado = ?, recorrencia = ? WHERE id = ?";
+        String sql = "UPDATE metas SET categoria = ?, status = ?, data_inicial = ?, data_final = ?, descricao = ?, valor_total = ?, valor_arrecadado = ?, recorrencia = ? WHERE id_metas = ?";
+
+        System.out.println(metas.getIdMetas());
 
         Connection conn = null;
         PreparedStatement pstm = null;
@@ -146,7 +148,7 @@ public class MetasDAO {
     }
 
     public void deleteById(int id) {
-        String sql = "DELETE FROM metas WHERE id = ?";
+        String sql = "DELETE FROM metas WHERE id_metas = ?";
 
         Connection conn = null;
         PreparedStatement pstm = null;

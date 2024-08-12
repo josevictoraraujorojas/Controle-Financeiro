@@ -3,10 +3,7 @@ package Controle;
 import DAO.DespesaFixaDAO;
 import DAO.DespesaVariavelDAO;
 import DAO.MetasDAO;
-import Modelo.Carteira;
-import Modelo.DespesaFixa;
-import Modelo.DespesaVariavel;
-import Modelo.Usuario;
+import Modelo.*;
 import Visao.*;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.ValueMarker;
@@ -143,6 +140,15 @@ public class ControlePrincipal {
             } catch (ParseException ignored) {
             }
         });
+        principal.getListaMetas().addListSelectionListener(e -> {
+            try {
+                if (principal.getListaMetas().getSelectedValue()!=null){
+                    acessaListaMetas();
+                    principal.getListaMetas().clearSelection();
+                }
+            } catch (ParseException ignored) {
+            }
+        });
     }
     public void acessaListaDespesasVariaveis() throws ParseException {
         ControleDetalheDespesasVariaveis detalheDespesasVariaveis  = new ControleDetalheDespesasVariaveis(new GuiDetalheDespesasVariaveis(), (DespesaVariavel) principal.getListaDespesasVariaveis().getSelectedValue(),this);
@@ -150,6 +156,9 @@ public class ControlePrincipal {
 
     public void acessaListaDespesasFixas() throws ParseException {
         ControleDetalheDespesasFixas detalheDespesasFixas = new ControleDetalheDespesasFixas(new GuiDetalheDespesasFixas(),(DespesaFixa) principal.getListaDespesasFixas().getSelectedValue(),this);
+    }
+    public void acessaListaMetas() throws ParseException {
+        ControleDetalheMetas detalheMetas = new ControleDetalheMetas(new GuiDetalheMetas(),(Metas) principal.getListaMetas().getSelectedValue(),this);
     }
     public void acessaDespesasVariaveis() throws ParseException {
         ControleAdicionarDespesasVariaveis despesasVariaveis = new ControleAdicionarDespesasVariaveis(new GuiAdicionarDespesasVariaveis(),usuario,this);

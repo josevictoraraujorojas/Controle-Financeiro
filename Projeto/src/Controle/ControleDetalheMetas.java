@@ -65,8 +65,8 @@ public class ControleDetalheMetas {
     }
 
     public void acessaExcluir(){
-        DespesaFixaDAO dao = new DespesaFixaDAO();
-        dao.delete(metas.getIdMetas());
+        MetasDAO dao = new MetasDAO();
+        dao.deleteById(metas.getIdMetas());
         tela.dispose();
         controlePrincipal.iniciaGraficoBarra();
         controlePrincipal.listarMetas();
