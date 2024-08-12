@@ -1,6 +1,5 @@
 package Controle;
 
-import DAO.DespesaFixaDAO;
 import DAO.MetasDAO;
 import Modelo.Metas;
 import Visao.GuiDetalheMetas;
@@ -29,6 +28,7 @@ public class ControleDetalheMetas {
         tela.getDataFinal().setText(metas.getDataFinal());
         tela.getDescricao().setText(metas.getDescricao());
         tela.getValorTotal().setText(String.valueOf(metas.getValorTotal()));
+        tela.getValorArrecadado().setText(String.valueOf(metas.getValorArrecadado()));
         tela.getRecorrencia().setText(String.valueOf(metas.getRecorrencia()));
     }
     public void iniciaControle(){
@@ -42,6 +42,7 @@ public class ControleDetalheMetas {
         tela.getDataFinal().setEditable(true);
         tela.getDescricao().setEditable(true);
         tela.getValorTotal().setEditable(true);
+        tela.getValorArrecadado().setEditable(true);
         tela.getRecorrencia().setEditable(true);
 
     }
@@ -53,6 +54,7 @@ public class ControleDetalheMetas {
         metas.setDataFinal(tela.getDataFinal().getText());
         metas.setDescricao(tela.getDescricao().getText());
         metas.setValorTotal(Float.parseFloat(tela.getValorTotal().getText()));
+        metas.setValorArrecadado(Float.parseFloat(tela.getValorArrecadado().getText()));
         metas.setRecorrencia(tela.getRecorrencia().getText());
 
 

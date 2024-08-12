@@ -95,33 +95,33 @@ public class JpanelCadastroCarteira extends JPanel {
         textoCarteira.setFont(fonte);
         menuCadastro.add(textoCarteira, textoCarteiraC);
 
-        textoLimiteDespesasFixas = new JLabel("despesas fixas:");
+        textoLimiteDespesasFixas = new JLabel("despesas fixas: %");
         textoLimiteDespesasFixas.setFont(fonte);
         menuCadastro.add(textoLimiteDespesasFixas, textoLimiteDespesasFixasC);
 
         limiteDespesasFixas = new JTextFieldArredondado();
         limiteDespesasFixas.setColumns(10);
-        limiteDespesasFixas.setText("50%");
+        limiteDespesasFixas.setText("50");
         limiteDespesasFixas.setFont(fonte);
         menuCadastro.add(limiteDespesasFixas, limiteDespesasFixasC);
 
-        textoLimiteDespesasVariaveis = new JLabel("despesas variaveis:");
+        textoLimiteDespesasVariaveis = new JLabel("despesas variaveis: %");
         textoLimiteDespesasVariaveis.setFont(fonte);
         menuCadastro.add(textoLimiteDespesasVariaveis, textoLimiteDespesasVariaveisC);
 
         LimiteDespesasVariaveis = new JTextFieldArredondado();
         LimiteDespesasVariaveis.setColumns(10);
-        LimiteDespesasVariaveis.setText("30%");
+        LimiteDespesasVariaveis.setText("30");
         LimiteDespesasVariaveis.setFont(fonte);
         menuCadastro.add(LimiteDespesasVariaveis, LimiteDespesasVariaveisC);
 
-        textoLimiteMetas = new JLabel("metas:");
+        textoLimiteMetas = new JLabel("metas: %");
         textoLimiteMetas.setFont(fonte);
         menuCadastro.add(textoLimiteMetas, textoLimiteMetasC);
 
         limiteMetas = new JTextFieldArredondado();
         limiteMetas.setColumns(10);
-        limiteMetas.setText("20%");
+        limiteMetas.setText("20");
         limiteMetas.setFont(fonte);
         menuCadastro.add(limiteMetas, limiteMetasC);
 

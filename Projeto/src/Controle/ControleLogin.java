@@ -50,8 +50,8 @@ public class ControleLogin{
 
         if (usuarioAutenticado != null) {
             this.tela.getFundo().remove(this.login);
-            Carteira carteira = carteiraDAO.getCarteira(usuarioAutenticado.getId());
-            ControleMenu menu = new ControleMenu(this.tela,new JpanelMenu(),usuarioAutenticado,carteira);
+            usuarioAutenticado.setCarteira(carteiraDAO.getCarteira(usuarioAutenticado.getId()));
+            ControleMenu menu = new ControleMenu(this.tela,new JpanelMenu(),usuarioAutenticado);
 
 
         }else{

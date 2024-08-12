@@ -9,8 +9,9 @@ import java.sql.Connection;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.List;
 
 public class MetasDAO {
     Metas metas = new Metas();
@@ -29,14 +30,26 @@ public class MetasDAO {
         Connection conn = null;
         PreparedStatement pstm = null;
 
+        // Definir os formatadores de data
+        DateTimeFormatter formatoBrasileiro = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter formatoAmericano = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
         try {
             conn = controllerBD.createConnectionToMySQL();
             pstm = conn.prepareStatement(sql);
+
+
+            LocalDate dataInicial = LocalDate.parse(metas.getDataInicial(), formatoBrasileiro);
+            LocalDate dataFinal = LocalDate.parse(metas.getDataFinal(), formatoBrasileiro);
+
+            String dataInicialAmericana = dataInicial.format(formatoAmericano);
+            String dataFinalAmericana = dataFinal.format(formatoAmericano);
+
             pstm.setInt(1, this.usuario.getId());
             pstm.setString(2, metas.getCategoria());
             pstm.setBoolean(3, true);
-            pstm.setString(4, metas.getDataInicial());
-            pstm.setString(5, metas.getDataFinal());
+            pstm.setString(4,dataInicialAmericana);
+            pstm.setString(5, dataFinalAmericana);
             pstm.setString(6, metas.getDescricao());
             pstm.setFloat(7, metas.getValorTotal());
             pstm.setFloat(8, metas.getValorArrecadado());
@@ -60,48 +73,6 @@ public class MetasDAO {
             }
         }
     }
-    public List<Metas> listarMPeloID(int id) {
-        String sql = "SELECT * FROM metas WHERE id = ?";
-        List<Metas> metas = new ArrayList<>();
-
-        Connection conn = null;
-        PreparedStatement pstm = null;
-        ResultSet rs = null;
-        try {
-            conn = controllerBD.createConnectionToMySQL();
-            pstm = conn.prepareStatement(sql);
-            pstm.setInt(1, id);
-            rs = pstm.executeQuery();
-
-            while (rs.next()) {
-                Metas meta = new Metas();
-                meta.setIdUsuario(rs.getInt("id"));
-                meta.setIdMetas(rs.getInt("id_metas"));
-                meta.setCategoria(rs.getString("categoria"));
-                meta.setStatus(rs.getBoolean("status"));
-                meta.setDataInicial(rs.getString("data_inicial"));
-                meta.setDataFinal(rs.getString("data_final"));
-                meta.setDescricao(rs.getString("descricao"));
-                meta.setValorTotal(rs.getFloat("valor_total"));
-                meta.setValorArrecadado(rs.getFloat("valor_arrecadado"));
-                meta.setRecorrencia(rs.getString("recorrencia"));
-                metas.add(meta);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            // Close the resources properly
-            try {
-                if (rs != null) rs.close();
-                if (pstm != null) pstm.close();
-                if (conn != null) conn.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return metas;
-    }
-
     public void update(Metas metas) {
         String sql = "UPDATE metas SET categoria = ?, status = ?, data_inicial = ?, data_final = ?, descricao = ?, valor_total = ?, valor_arrecadado = ?, recorrencia = ? WHERE id_metas = ?";
 
@@ -110,14 +81,24 @@ public class MetasDAO {
         Connection conn = null;
         PreparedStatement pstm = null;
 
+        // Definir os formatadores de data
+        DateTimeFormatter formatoBrasileiro = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter formatoAmericano = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
         try {
             conn = controllerBD.createConnectionToMySQL();
             pstm = conn.prepareStatement(sql);
 
+            LocalDate dataInicial = LocalDate.parse(metas.getDataInicial(), formatoBrasileiro);
+            LocalDate dataFinal = LocalDate.parse(metas.getDataFinal(), formatoBrasileiro);
+
+            String dataInicialAmericana = dataInicial.format(formatoAmericano);
+            String dataFinalAmericana = dataFinal.format(formatoAmericano);
+
             pstm.setString(1, metas.getCategoria());
             pstm.setBoolean(2, metas.isStatus());
-            pstm.setString(3, metas.getDataInicial());
-            pstm.setString(4, metas.getDataFinal());
+            pstm.setString(3, dataInicialAmericana);
+            pstm.setString(4, dataFinalAmericana);
             pstm.setString(5, metas.getDescricao());
             pstm.setFloat(6, metas.getValorTotal());
             pstm.setFloat(7, metas.getValorArrecadado());
@@ -181,13 +162,16 @@ public class MetasDAO {
         }
     }
 
-    public Metas findById(int id) {
+    public ArrayList<Metas> listarMPeloID(int id) {
         String sql = "SELECT * FROM metas WHERE id = ?";
-        Metas meta = null;
+        ArrayList<Metas> metas = new ArrayList<>();
 
         Connection conn = null;
         PreparedStatement pstm = null;
         ResultSet rs = null;
+
+        DateTimeFormatter formatoBrasileiro = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter formatoAmericano = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
         try {
             conn = controllerBD.createConnectionToMySQL();
@@ -195,42 +179,40 @@ public class MetasDAO {
             pstm.setInt(1, id);
             rs = pstm.executeQuery();
 
-            if (rs.next()) {
-                meta = new Metas();
+            while (rs.next()) {
+                LocalDate dataInicial = LocalDate.parse(rs.getString("data_inicial"), formatoAmericano);
+                LocalDate dataFinal = LocalDate.parse(rs.getString("data_final"), formatoAmericano);
+
+                String dataInicialBrasileira = dataInicial.format(formatoBrasileiro);
+                String dataFinalBrasileira = dataFinal.format(formatoBrasileiro);
+
+                Metas meta = new Metas();
                 meta.setIdUsuario(rs.getInt("id"));
                 meta.setIdMetas(rs.getInt("id_metas"));
                 meta.setCategoria(rs.getString("categoria"));
                 meta.setStatus(rs.getBoolean("status"));
-                meta.setDataInicial(rs.getString("data_inicial"));
-                meta.setDataFinal(rs.getString("data_final"));
+                meta.setDataInicial(dataInicialBrasileira);
+                meta.setDataFinal(dataFinalBrasileira);
                 meta.setDescricao(rs.getString("descricao"));
                 meta.setValorTotal(rs.getFloat("valor_total"));
                 meta.setValorArrecadado(rs.getFloat("valor_arrecadado"));
                 meta.setRecorrencia(rs.getString("recorrencia"));
-                JOptionPane.showMessageDialog(null, "Meta encontrada: " + meta.getDescricao());
-            } else {
-                JOptionPane.showMessageDialog(null, "Nenhuma meta encontrada com o ID fornecido.");
+                metas.add(meta);
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
+            // Close the resources properly
             try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (pstm != null) {
-                    pstm.close();
-                }
-                if (conn != null) {
-                    conn.close();
-                }
+                if (rs != null) rs.close();
+                if (pstm != null) pstm.close();
+                if (conn != null) conn.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        return meta;
+        return metas;
     }
-
     public double somaMetas(int userId) {
         String sql = "SELECT SUM(valor_total) AS total FROM metas WHERE id = ?";
         double total = 0.0;

@@ -1,6 +1,7 @@
 package DAO;
 
 import Controle.controllerBD;
+import Modelo.Carteira;
 import Modelo.Usuario;
 
 import javax.swing.*;
@@ -11,23 +12,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UsuarioDAO {
-    public void save(Usuario usuario) {
-        String sql = "INSERT INTO usuario(login,senha,saldo)"+
-                 "VALUES(?,?,?)";
+    public void saveUsuarioCarteira(Usuario usuario){
+
+        String sql = "INSERT INTO `usuario` (login, senha, saldo, limite_despesa_fixa, limite_despesa_variavel, limite_metas, status)"+
+                "VALUES(?,?,?,?,?,?,?)";
 
         Connection conn = null;
         PreparedStatement pstm = null;
+
         try {
             conn = controllerBD.createConnectionToMySQL();
             pstm = conn.prepareStatement(sql);
             pstm.setString(1, usuario.getLogin());
             pstm.setString(2, usuario.getSenha());
-            pstm.setDouble(3,usuario.getSaldo());
+            pstm.setDouble(3, usuario.getSaldo());
+            pstm.setDouble(4, usuario.getCarteira().getLimiteDespesaFixa());
+            pstm.setDouble(5, usuario.getCarteira().getLimiteDespesaVariavel());
+            pstm.setDouble(6, usuario.getCarteira().getLimiteMetas());
+            pstm.setBoolean(7, usuario.getCarteira().isStatus());
             pstm.execute();
+
             if (pstm.getUpdateCount()>0)
                 JOptionPane.showMessageDialog(null,"Salvo com sucesso!");
             else
-                JOptionPane.showMessageDialog(null,"N�o foi poss�vel inserir!!");
+                JOptionPane.showMessageDialog(null,"Nao foi possivel inserir!!");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -41,6 +49,46 @@ public class UsuarioDAO {
                     conn.close();
                 }
             }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void updateUsuarioCarteira(Usuario usuario){
+        String sql = "UPDATE `usuario` SET senha = ?, saldo = ?, limite_despesa_fixa = ?, limite_despesa_variavel = ?, limite_metas = ?, status = ? WHERE login = ?";
+
+        Connection conn = null;
+        PreparedStatement pstm = null;
+
+        try {
+            conn = controllerBD.createConnectionToMySQL();
+            pstm = conn.prepareStatement(sql);
+            pstm.setString(1, usuario.getSenha());
+            pstm.setDouble(2, usuario.getSaldo());
+            pstm.setDouble(3, usuario.getCarteira().getLimiteDespesaFixa());
+            pstm.setDouble(4, usuario.getCarteira().getLimiteDespesaVariavel());
+            pstm.setDouble(5, usuario.getCarteira().getLimiteMetas());
+            pstm.setBoolean(6, usuario.getCarteira().isStatus());
+            pstm.setString(7, usuario.getLogin());
+
+            int rowsUpdated = pstm.executeUpdate();
+
+            if (rowsUpdated > 0) {
+                JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Não foi possível atualizar!");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (pstm != null) {
+                    pstm.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }

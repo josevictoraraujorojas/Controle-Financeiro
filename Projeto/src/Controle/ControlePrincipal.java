@@ -13,12 +13,10 @@ import java.text.ParseException;
 
 public class ControlePrincipal {
     private Usuario usuario;
-    private Carteira carteira;
     private JpanelPrincipal principal;
     private GuiTela tela;
 
-    public ControlePrincipal(JpanelPrincipal principal, GuiTela tela, Usuario usuario, Carteira carteira) {
-        this.carteira = carteira;
+    public ControlePrincipal(JpanelPrincipal principal, GuiTela tela, Usuario usuario) {
         this.usuario = usuario;
         this.principal = principal;
         this.tela = tela;
@@ -35,9 +33,9 @@ public class ControlePrincipal {
         this.tela.repaint();
 
     }public void iniciaGraficoPizza(){
-        principal.getPizza().setValue("metas",carteira.getLimiteMetas());
-        principal.getPizza().setValue("despesas fixas",carteira.getLimiteDespesaFixa());
-        principal.getPizza().setValue("despesas variaveis",carteira.getLimiteDespesaVariavel());
+        principal.getPizza().setValue("metas",usuario.getCarteira().getLimiteMetas());
+        principal.getPizza().setValue("despesas fixas",usuario.getCarteira().getLimiteDespesaFixa());
+        principal.getPizza().setValue("despesas variaveis",usuario.getCarteira().getLimiteDespesaVariavel());
     }
     public void iniciaGraficoBarra(){
         MetasDAO metasDAO = new MetasDAO();
@@ -52,42 +50,47 @@ public class ControlePrincipal {
 
         // aumenta o grafico de barra para o valor total
         plot.getRangeAxis().setRange(0, usuario.getSaldo());
+        plot.clearRangeMarkers();
 
         //aponato o limite das metas no grafico de barra
          // Limite para metas
-        ValueMarker markerMetas = new ValueMarker(carteira.getLimiteMetas());
+        ValueMarker markerMetas = new ValueMarker(usuario.getCarteira().getLimiteMetas());
         markerMetas.setPaint(Color.RED);
         markerMetas.setStroke(new BasicStroke(3f)); // Defina a largura desejada
         plot.addRangeMarker(markerMetas);
 
         //aponato o limite das despesas fixas no grafico de barra
 
-        ValueMarker markerDespesasFixas = new ValueMarker(carteira.getLimiteDespesaFixa());
+        ValueMarker markerDespesasFixas = new ValueMarker(usuario.getCarteira().getLimiteDespesaFixa());
         markerDespesasFixas.setPaint(Color.blue);
         markerDespesasFixas.setStroke(new BasicStroke(3f)); // Defina a largura desejada
         plot.addRangeMarker(markerDespesasFixas);
 
         //aponato o limite das despesas variaveis no grafico de barra
 
-        ValueMarker markerDespesasVariaveis = new ValueMarker(carteira.getLimiteDespesaVariavel());
+        ValueMarker markerDespesasVariaveis = new ValueMarker(usuario.getCarteira().getLimiteDespesaVariavel());
         markerDespesasVariaveis.setPaint(Color.green);
         markerDespesasVariaveis.setStroke(new BasicStroke(3f)); // Defina a largura desejada
         plot.addRangeMarker(markerDespesasVariaveis);
+
     }
     public void listarMetas(){
         MetasDAO metasDAO = new MetasDAO();
+        usuario.getCarteira().setListaMetas(metasDAO.listarMPeloID(usuario.getId()));
         principal.getListaModeloMetas().clear();
-        principal.getListaModeloMetas().addAll(metasDAO.listarMPeloID(usuario.getId()));
+        principal.getListaModeloMetas().addAll(usuario.getCarteira().getListaMetas());
     }
     public void listarDespesasFixa(){
         DespesaFixaDAO despesaFixaDAO = new DespesaFixaDAO();
+        usuario.getCarteira().setListaDespesaFixa(despesaFixaDAO.listarDFPeloID(usuario.getId()));
         principal.getListaModeloDespesasFixa().clear();
-        principal.getListaModeloDespesasFixa().addAll(despesaFixaDAO.listarDFPeloID(usuario.getId()));
+        principal.getListaModeloDespesasFixa().addAll(usuario.getCarteira().getListaDespesaFixa());
     }
     public void listarDespesasVariavel(){
         DespesaVariavelDAO despesaVariavelDAO = new DespesaVariavelDAO();
+        usuario.getCarteira().setListaDespesaVariavel(despesaVariavelDAO.listarDVPeloID(usuario.getId()));
         principal.getListaModeloDespesasVariavel().clear();
-        principal.getListaModeloDespesasVariavel().addAll(despesaVariavelDAO.listarDVPeloID(usuario.getId()));
+        principal.getListaModeloDespesasVariavel().addAll(usuario.getCarteira().getListaDespesaVariavel());
     }
     public void limpar(){
         this.tela.getFundo().remove(principal);

@@ -28,6 +28,10 @@ public class GuiAdicionarMetas extends JFrame{
     private GridBagConstraints textoValorTotalC;
     private JTextFieldArredondado valorTotal;
     private GridBagConstraints valorTotalC;
+    private JLabel textoValorArrecadado;
+    private GridBagConstraints textoValorArrecadadoC;
+    private JTextFieldArredondado valorArrecadado;
+    private GridBagConstraints valorArrecadadoC;
     private JLabel textoRecorrencia;
     private GridBagConstraints textoRecorrenciaC;
     private JTextFieldArredondado recorrencia;
@@ -40,7 +44,7 @@ public class GuiAdicionarMetas extends JFrame{
     public GuiAdicionarMetas() throws ParseException {
         super("adicionar meta");
         setLayout(new GridBagLayout());
-        MaskFormatter data = new MaskFormatter("##/##/##");
+        MaskFormatter data = new MaskFormatter("##/##/####");
 
 
         menuAdicionarC = new GridBagConstraints();
@@ -91,6 +95,15 @@ public class GuiAdicionarMetas extends JFrame{
         valorTotalC.ipady=20;
         valorTotalC.gridwidth=GridBagConstraints.REMAINDER;
 
+        textoValorArrecadadoC = new GridBagConstraints();
+        textoValorArrecadadoC.insets = new Insets(50, 0, 0, 0);
+
+        valorArrecadadoC = new GridBagConstraints();
+        valorArrecadadoC.insets = new Insets(50, 0, 0, 0);
+        valorArrecadadoC.ipadx=100;
+        valorArrecadadoC.ipady=20;
+        valorArrecadadoC.gridwidth=GridBagConstraints.REMAINDER;
+
         textoRecorrenciaC = new GridBagConstraints();
         textoRecorrenciaC.insets = new Insets(50, 0, 0, 0);
 
@@ -122,7 +135,7 @@ public class GuiAdicionarMetas extends JFrame{
         menuAdicionar.add(textoDataInicial,textoDataInicialC);
 
         dataInicial = new JFormattedTextFieldArredondado(data);
-        dataInicial.setText("000000");
+        dataInicial.setText("");
         dataInicial.setBackground(Color.white);
         menuAdicionar.add(dataInicial,dataInicialC);
 
@@ -130,7 +143,7 @@ public class GuiAdicionarMetas extends JFrame{
         menuAdicionar.add(textoDataFinal,textoDataFinalC);
 
         dataFinal = new JFormattedTextFieldArredondado(data);
-        dataFinal.setText("000000");
+        dataFinal.setText("");
         dataFinal.setBackground(Color.white);
         menuAdicionar.add(dataFinal,dataFinalC);
 
@@ -150,6 +163,14 @@ public class GuiAdicionarMetas extends JFrame{
         valorTotal.setColumns(10);
         valorTotal.setBackground(Color.white);
         menuAdicionar.add(valorTotal,valorTotalC);
+
+        textoValorArrecadado = new JLabel("valor arrecadado:");
+        menuAdicionar.add(textoValorArrecadado,textoValorArrecadadoC);
+
+        valorArrecadado = new JTextFieldArredondado();
+        valorArrecadado.setColumns(10);
+        valorArrecadado.setBackground(Color.white);
+        menuAdicionar.add(valorArrecadado,valorArrecadadoC);
 
         textoRecorrencia = new JLabel("recorrencia:");
         menuAdicionar.add(textoRecorrencia,textoRecorrenciaC);
@@ -409,5 +430,37 @@ public class GuiAdicionarMetas extends JFrame{
 
     public void setCancelarC(GridBagConstraints cancelarC) {
         this.cancelarC = cancelarC;
+    }
+
+    public JLabel getTextoValorArrecadado() {
+        return textoValorArrecadado;
+    }
+
+    public void setTextoValorArrecadado(JLabel textoValorArrecadado) {
+        this.textoValorArrecadado = textoValorArrecadado;
+    }
+
+    public GridBagConstraints getTextoValorArrecadadoC() {
+        return textoValorArrecadadoC;
+    }
+
+    public void setTextoValorArrecadadoC(GridBagConstraints textoValorArrecadadoC) {
+        this.textoValorArrecadadoC = textoValorArrecadadoC;
+    }
+
+    public JTextFieldArredondado getValorArrecadado() {
+        return valorArrecadado;
+    }
+
+    public void setValorArrecadado(JTextFieldArredondado valorArrecadado) {
+        this.valorArrecadado = valorArrecadado;
+    }
+
+    public GridBagConstraints getValorArrecadadoC() {
+        return valorArrecadadoC;
+    }
+
+    public void setValorArrecadadoC(GridBagConstraints valorArrecadadoC) {
+        this.valorArrecadadoC = valorArrecadadoC;
     }
 }

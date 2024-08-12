@@ -5,6 +5,7 @@ public class Usuario {
     private String login;
     private String senha;
     private double saldo;
+    private Carteira carteira;
 
     public Usuario(){
 
@@ -40,5 +41,13 @@ public class Usuario {
 
     public void setSaldo(double saldo) {
         this.saldo = saldo;
+    }
+
+    public Carteira getCarteira() {
+        return carteira;
+    }
+
+    public void setCarteira(Carteira carteira) {
+        this.carteira = carteira;
     }
 }

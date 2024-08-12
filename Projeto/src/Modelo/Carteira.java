@@ -1,34 +1,17 @@
 package Modelo;
 
+import java.util.ArrayList;
+
 public class Carteira {
-    private int id;
-    private int usuarioID;
     private double limiteDespesaFixa;
     private double limiteDespesaVariavel;
     private double limiteMetas;
     private boolean status;
-    private double quantidadeFixas;
-    private  double quantidadeVariavel;
-    private  double quantidadeMetas;
+    private ArrayList<Metas> listaMetas;
+    private ArrayList<DespesaFixa> listaDespesaFixa;
+    private ArrayList<DespesaVariavel> listaDespesaVariavel;
 
     public Carteira(){
-
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getUsuarioID() {
-        return usuarioID;
-    }
-
-    public void setUsuarioID(int usuarioID) {
-        this.usuarioID = usuarioID;
     }
 
     public double getLimiteDespesaFixa() {
@@ -63,26 +46,27 @@ public class Carteira {
         this.status = status;
     }
 
-    public double getQuantidadeFixas() {
-        return quantidadeFixas;
+    public ArrayList<Metas> getListaMetas() {
+        return listaMetas;
     }
 
-    public void setQuantidadeFixas(double quantidadeFixas) {
-        this.quantidadeFixas = quantidadeFixas;
+    public void setListaMetas(ArrayList<Metas> listaMetas) {
+        this.listaMetas = listaMetas;
     }
 
-    public double getQuantidadeVariavel() {
-        return quantidadeVariavel;
+    public ArrayList<DespesaFixa> getListaDespesaFixa() {
+        return listaDespesaFixa;
     }
 
-    public void setQuantidadeVariavel(double quantidadeVariavel) {this.quantidadeVariavel = quantidadeVariavel;
+    public void setListaDespesaFixa(ArrayList<DespesaFixa> listaDespesaFixa) {
+        this.listaDespesaFixa = listaDespesaFixa;
     }
 
-    public double getQuantidadeMetas() {
-        return quantidadeMetas;
+    public ArrayList<DespesaVariavel> getListaDespesaVariavel() {
+        return listaDespesaVariavel;
     }
 
-    public void setQuantidadeMetas(double quantidadeMetas) {
-        this.quantidadeMetas = quantidadeMetas;
+    public void setListaDespesaVariavel(ArrayList<DespesaVariavel> listaDespesaVariavel) {
+        this.listaDespesaVariavel = listaDespesaVariavel;
     }
 }

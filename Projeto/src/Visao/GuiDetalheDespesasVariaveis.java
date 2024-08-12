@@ -50,7 +50,7 @@ public class GuiDetalheDespesasVariaveis extends JFrame {
     public GuiDetalheDespesasVariaveis() throws ParseException {
         super("detalhe despesas variaveis");
         setLayout(new GridBagLayout());
-        MaskFormatter data = new MaskFormatter("####-##-##");
+        MaskFormatter data = new MaskFormatter("##/##/####");
 
 
         menuAdicionarC = new GridBagConstraints();

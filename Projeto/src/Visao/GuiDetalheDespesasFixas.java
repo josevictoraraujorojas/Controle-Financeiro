@@ -43,7 +43,7 @@ public class GuiDetalheDespesasFixas extends JFrame {
     public GuiDetalheDespesasFixas() throws ParseException {
         super("detalhe despesas fixas");
         setLayout(new GridBagLayout());
-        MaskFormatter data = new MaskFormatter("##/##/##");
+        MaskFormatter data = new MaskFormatter("##/##/####");
 
 
         menuAdicionarC = new GridBagConstraints();

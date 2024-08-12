@@ -8,6 +8,8 @@ import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,17 +21,29 @@ public class DespesaVariavelDAO {
 
         Connection conn = null;
         PreparedStatement pstm = null;
+
+        DateTimeFormatter formatoBrasileiro = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter formatoAmericano = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
         try{
             conn = controllerBD.createConnectionToMySQL();
             pstm = conn.prepareStatement(sql);
+
+            // Converter e formatar as datas
+            LocalDate dataEmissao = LocalDate.parse(despesaVariavel.getDataEmissao(), formatoBrasileiro);
+            LocalDate dataVencimento = LocalDate.parse(despesaVariavel.getDataDeVencimento(), formatoBrasileiro);
+
+            String dataEmissaoAmericana = dataEmissao.format(formatoAmericano);
+            String dataVencimentoAmericana = dataVencimento.format(formatoAmericano);
+
             pstm.setInt(1, usuario.getId());
             pstm.setDouble(2, despesaVariavel.getValor());
             pstm.setInt(3, despesaVariavel.getQtdParcelas());
             pstm.setInt(4, despesaVariavel.getQtdParcelasPagas());
             pstm.setByte(5, despesaVariavel.getStatus());
             pstm.setString(6, despesaVariavel.getCategoria());
-            pstm.setString(7, despesaVariavel.getDataEmissao());
-            pstm.setString(8, despesaVariavel.getDataDeVencimento());
+            pstm.setString(7, dataEmissaoAmericana);
+            pstm.setString(8, dataVencimentoAmericana);
             pstm.setString(9, despesaVariavel.getDescricao());
             pstm.setString(10, despesaVariavel.getRecorrencia());
 
@@ -41,78 +55,27 @@ public class DespesaVariavelDAO {
         }
     }
 
-    public List<DespesaVariavel> listarDVPeloID(int id) {
-        String sql = "SELECT * FROM despesa_variavel WHERE id = ?";
-        List<DespesaVariavel> despesasVariaveis = new ArrayList<>();
 
-        Connection conn = null;
-        PreparedStatement pstm = null;
-        ResultSet rs = null;
-        try {
-            conn = controllerBD.createConnectionToMySQL();
-            pstm = conn.prepareStatement(sql);
-            pstm.setInt(1, id);
-            rs = pstm.executeQuery();
-
-            while (rs.next()) {
-                DespesaVariavel despesaVariavel = new DespesaVariavel();
-                despesaVariavel.setIdDespesaVariavel(rs.getInt("id_despesa_variavel"));
-                despesaVariavel.setId(rs.getInt("id"));
-                despesaVariavel.setValor(rs.getDouble("valor"));
-                despesaVariavel.setQtdParcelas(rs.getInt("qtd_parcelas"));
-                despesaVariavel.setQtdParcelasPagas(rs.getInt("parcelas_pagas"));
-                despesaVariavel.setCategoria(rs.getString("categoria"));
-                despesaVariavel.setStatus(rs.getByte("status"));
-                despesaVariavel.setDataEmissao(rs.getString("data_emissao"));
-                despesaVariavel.setDataDeVencimento(rs.getString("data_vencimento"));
-                despesaVariavel.setDescricao(rs.getString("descricao"));
-                despesaVariavel.setRecorrencia(rs.getString("recorrencia"));
-                despesasVariaveis.add(despesaVariavel);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (rs != null) rs.close();
-                if (pstm != null) pstm.close();
-                if (conn != null) conn.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return despesasVariaveis;
-    }
-
-
-    public void deleteById(int idDespesaVariavel) {
-        String sql = "DELETE FROM despesa_variavel WHERE id_despesa_variavel = ?";
-
-        Connection conn;
-        PreparedStatement pstm = null;
-
-        try  {
-            conn = controllerBD.createConnectionToMySQL();
-            pstm = conn.prepareStatement(sql);
-            pstm.setInt(1, idDespesaVariavel);
-            int rowsAffected = pstm.executeUpdate();
-
-            if (rowsAffected > 0) {
-                JOptionPane.showMessageDialog(null,"Despesa Deletada!!");
-            } else {
-                JOptionPane.showMessageDialog(null,"Despesa não encontrada");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
     public void update(DespesaVariavel despesaVariavel) {
         String sql = "UPDATE despesa_variavel SET valor = ?, qtd_parcelas = ?, parcelas_pagas = ?, categoria = ?, status = ?, data_emissao = ?, data_vencimento = ?, descricao = ?, recorrencia = ? WHERE id_despesa_variavel = ?";
 
         Connection conn = null;
         PreparedStatement pstm = null;
+
+        // Definir os formatadores de data
+        DateTimeFormatter formatoBrasileiro = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter formatoAmericano = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
         try  {
             conn = controllerBD.createConnectionToMySQL();
-            pstm = conn.prepareStatement(sql);  // Inicializa o PreparedStatement com a consulta SQL
+            pstm = conn.prepareStatement(sql);
+
+            // Converter e formatar as datas
+            LocalDate dataEmissao = LocalDate.parse(despesaVariavel.getDataEmissao(), formatoBrasileiro);
+            LocalDate dataVencimento = LocalDate.parse(despesaVariavel.getDataDeVencimento(), formatoBrasileiro);
+
+            String dataEmissaoAmericana = dataEmissao.format(formatoAmericano);
+            String dataVencimentoAmericana = dataVencimento.format(formatoAmericano);
 
             // Define os valores para os parâmetros da consulta SQL
             pstm.setDouble(1, despesaVariavel.getValor());
@@ -120,8 +83,8 @@ public class DespesaVariavelDAO {
             pstm.setInt(3, despesaVariavel.getQtdParcelasPagas());
             pstm.setString(4, despesaVariavel.getCategoria());
             pstm.setByte(5, despesaVariavel.getStatus());
-            pstm.setString(6, despesaVariavel.getDataEmissao());
-            pstm.setString(7, despesaVariavel.getDataDeVencimento());
+            pstm.setString(6,dataEmissaoAmericana);
+            pstm.setString(7, dataVencimentoAmericana);
             pstm.setString(8, despesaVariavel.getDescricao());
             pstm.setString(9, despesaVariavel.getRecorrencia());
             pstm.setInt(10, despesaVariavel.getIdDespesaVariavel());
@@ -147,34 +110,80 @@ public class DespesaVariavelDAO {
         }
 
     }
-    public DespesaVariavel findById(int id) {
+
+    public void deleteById(int idDespesaVariavel) {
+        String sql = "DELETE FROM despesa_variavel WHERE id_despesa_variavel = ?";
+
+        Connection conn;
+        PreparedStatement pstm = null;
+
+        try  {
+            conn = controllerBD.createConnectionToMySQL();
+            pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, idDespesaVariavel);
+            int rowsAffected = pstm.executeUpdate();
+
+            if (rowsAffected > 0) {
+                JOptionPane.showMessageDialog(null,"Despesa Deletada!!");
+            } else {
+                JOptionPane.showMessageDialog(null,"Despesa não encontrada");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public ArrayList<DespesaVariavel> listarDVPeloID(int id) {
+
         String sql = "SELECT * FROM despesa_variavel WHERE id = ?";
-        DespesaVariavel despesaVariavel = null;
+        ArrayList<DespesaVariavel> despesasVariaveis = new ArrayList<>();
 
         Connection conn = null;
         PreparedStatement pstm = null;
-        try  {
-            conn = controllerBD.createConnectionToMySQL();
-            pstm.setInt(1, id);
-            ResultSet rs = pstm.executeQuery();
+        ResultSet rs = null;
 
-            if (rs.next()) {
-                despesaVariavel = new DespesaVariavel();
+        DateTimeFormatter formatoBrasileiro = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter formatoAmericano = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        try {
+            conn = controllerBD.createConnectionToMySQL();
+            pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, id);
+            rs = pstm.executeQuery();
+
+            while (rs.next()) {
+
+                LocalDate dataEmissao = LocalDate.parse(rs.getString("data_emissao"), formatoAmericano);
+                LocalDate dataVencimento = LocalDate.parse(rs.getString("data_vencimento"), formatoAmericano);
+
+                String dataEmissaoBrasileira = dataEmissao.format(formatoBrasileiro);
+                String dataVencimentoBrasileira = dataVencimento.format(formatoBrasileiro);
+
+                DespesaVariavel despesaVariavel = new DespesaVariavel();
+                despesaVariavel.setIdDespesaVariavel(rs.getInt("id_despesa_variavel"));
                 despesaVariavel.setId(rs.getInt("id"));
                 despesaVariavel.setValor(rs.getDouble("valor"));
                 despesaVariavel.setQtdParcelas(rs.getInt("qtd_parcelas"));
                 despesaVariavel.setQtdParcelasPagas(rs.getInt("parcelas_pagas"));
                 despesaVariavel.setCategoria(rs.getString("categoria"));
                 despesaVariavel.setStatus(rs.getByte("status"));
-                despesaVariavel.setDataEmissao(rs.getString("data_emissao"));
-                despesaVariavel.setDataDeVencimento(rs.getString("data_vencimento"));
+                despesaVariavel.setDataEmissao(dataEmissaoBrasileira);
+                despesaVariavel.setDataDeVencimento(dataVencimentoBrasileira);
                 despesaVariavel.setDescricao(rs.getString("descricao"));
                 despesaVariavel.setRecorrencia(rs.getString("recorrencia"));
+                despesasVariaveis.add(despesaVariavel);
             }
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (pstm != null) pstm.close();
+                if (conn != null) conn.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-        return despesaVariavel;
+        return despesasVariaveis;
     }
 
     public double somaDespesaVariavel(int userId) {

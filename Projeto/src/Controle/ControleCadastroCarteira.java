@@ -1,6 +1,5 @@
 package Controle;
 
-import DAO.CarteiraDAO;
 import DAO.UsuarioDAO;
 import Modelo.Carteira;
 import Modelo.Usuario;
@@ -63,15 +62,20 @@ public class ControleCadastroCarteira {
         carteira.setLimiteDespesaVariavel(limiteDespesaVariavel);
         carteira.setLimiteMetas(limiteMetas);
         carteira.setStatus(false);
-        CarteiraDAO carteiraDAO = new CarteiraDAO();
-        carteiraDAO.save(carteira,usuario);
 
-        UsuarioDAO loginDAO = new UsuarioDAO();
-
-        Usuario usuarioautenticado = loginDAO.autenticar(usuario.getLogin(),usuario.getSenha());
+        usuario.setCarteira(carteira);
 
 
-        ControleMenu menu = new ControleMenu(tela,new JpanelMenu(),usuarioautenticado,carteira);
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+
+        usuarioDAO.saveUsuarioCarteira(usuario);
+
+        Usuario usuarioautenticado = usuarioDAO.autenticar(usuario.getLogin(),usuario.getSenha());
+
+        usuarioautenticado.setCarteira(carteira);
+
+
+        ControleMenu menu = new ControleMenu(tela,new JpanelMenu(),usuarioautenticado);
 
     }
 

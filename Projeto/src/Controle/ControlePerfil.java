@@ -1,7 +1,6 @@
 package Controle;
 
-import DAO.CarteiraDAO;
-import Modelo.Carteira;
+import DAO.UsuarioDAO;
 import Modelo.Usuario;
 import Visao.GuiTela;
 import Visao.JpanelPerfil;
@@ -10,13 +9,11 @@ import java.awt.*;
 
 public class ControlePerfil {
     private Usuario usuario;
-    private Carteira carteira;
     private JpanelPerfil perfil;
     private GuiTela tela;
 
-    public ControlePerfil(JpanelPerfil perfil, GuiTela tela, Usuario usuario,Carteira carteira) {
+    public ControlePerfil(JpanelPerfil perfil, GuiTela tela, Usuario usuario) {
         this.usuario = usuario;
-        this.carteira = carteira;
         this.perfil = perfil;
         this.tela = tela;
         iiniciaControle();
@@ -28,9 +25,9 @@ public class ControlePerfil {
         this.perfil.getLogin().setText(usuario.getLogin());
         this.perfil.getSenha().setText(usuario.getSenha());
         this.perfil.getSaldo().setText(String.valueOf(usuario.getSaldo()));
-        this.perfil.getLimiteDespesasFixas().setText(String.valueOf(carteira.getLimiteDespesaFixa()));
-        this.perfil.getLimiteDespesasVariaveis().setText(String.valueOf(carteira.getLimiteDespesaVariavel()));
-        this.perfil.getLimiteMetas().setText(String.valueOf(carteira.getLimiteMetas()));
+        this.perfil.getLimiteDespesasFixas().setText(String.valueOf(usuario.getCarteira().getLimiteDespesaFixa()));
+        this.perfil.getLimiteDespesasVariaveis().setText(String.valueOf(usuario.getCarteira().getLimiteDespesaVariavel()));
+        this.perfil.getLimiteMetas().setText(String.valueOf(usuario.getCarteira().getLimiteMetas()));
     }
     public void iiniciaControle(){
 
@@ -48,12 +45,12 @@ public class ControlePerfil {
     public void acessaSalvar(){
         usuario.setSenha(this.perfil.getSenha().getText());
         usuario.setSaldo(Double.parseDouble(this.perfil.getSaldo().getText()));
-        carteira.setLimiteDespesaFixa(Double.parseDouble(this.perfil.getLimiteDespesasFixas().getText()));
-        carteira.setLimiteDespesaVariavel(Double.parseDouble(this.perfil.getLimiteDespesasVariaveis().getText()));
-        carteira.setLimiteMetas(Double.parseDouble(this.perfil.getLimiteMetas().getText()));
+        usuario.getCarteira().setLimiteDespesaFixa(Double.parseDouble(this.perfil.getLimiteDespesasFixas().getText()));
+        usuario.getCarteira().setLimiteDespesaVariavel(Double.parseDouble(this.perfil.getLimiteDespesasVariaveis().getText()));
+        usuario.getCarteira().setLimiteMetas(Double.parseDouble(this.perfil.getLimiteMetas().getText()));
 
-        CarteiraDAO carteiraDAO = new CarteiraDAO();
-        carteiraDAO.update(carteira,usuario);
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        usuarioDAO.updateUsuarioCarteira(usuario);
 
 
     }

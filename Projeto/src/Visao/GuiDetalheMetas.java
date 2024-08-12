@@ -28,6 +28,10 @@ public class GuiDetalheMetas extends JFrame{
     private GridBagConstraints textoValorTotalC;
     private JTextFieldArredondado valorTotal;
     private GridBagConstraints valorTotalC;
+    private JLabel textoValorArrecadado;
+    private GridBagConstraints textoValorArrecadadoC;
+    private JTextFieldArredondado valorArrecadado;
+    private GridBagConstraints valorArrecadadoC;
     private JLabel textoRecorrencia;
     private GridBagConstraints textoRecorrenciaC;
     private JTextFieldArredondado recorrencia;
@@ -42,7 +46,7 @@ public class GuiDetalheMetas extends JFrame{
     public GuiDetalheMetas() throws ParseException {
         super("detalhe meta");
         setLayout(new GridBagLayout());
-        MaskFormatter data = new MaskFormatter("##/##/##");
+        MaskFormatter data = new MaskFormatter("##/##/####");
 
 
         menuAdicionarC = new GridBagConstraints();
@@ -92,6 +96,15 @@ public class GuiDetalheMetas extends JFrame{
         valorTotalC.ipadx=100;
         valorTotalC.ipady=20;
         valorTotalC.gridwidth=GridBagConstraints.REMAINDER;
+
+        textoValorArrecadadoC = new GridBagConstraints();
+        textoValorArrecadadoC.insets = new Insets(50, 0, 0, 0);
+
+        valorArrecadadoC = new GridBagConstraints();
+        valorArrecadadoC.insets = new Insets(50, 0, 0, 0);
+        valorArrecadadoC.ipadx=100;
+        valorArrecadadoC.ipady=20;
+        valorArrecadadoC.gridwidth=GridBagConstraints.REMAINDER;
 
         textoRecorrenciaC = new GridBagConstraints();
         textoRecorrenciaC.insets = new Insets(50, 0, 0, 0);
@@ -160,6 +173,15 @@ public class GuiDetalheMetas extends JFrame{
         valorTotal.setEditable(false);
         valorTotal.setBackground(Color.white);
         menuAdicionar.add(valorTotal,valorTotalC);
+
+        textoValorArrecadado = new JLabel("valor arrecadado:");
+        menuAdicionar.add(textoValorArrecadado,textoValorArrecadadoC);
+
+        valorArrecadado = new JTextFieldArredondado();
+        valorArrecadado.setColumns(10);
+        valorArrecadado.setEditable(false);
+        valorArrecadado.setBackground(Color.white);
+        menuAdicionar.add(valorArrecadado,valorArrecadadoC);
 
         textoRecorrencia = new JLabel("recorrencia:");
         menuAdicionar.add(textoRecorrencia,textoRecorrenciaC);
@@ -440,5 +462,37 @@ public class GuiDetalheMetas extends JFrame{
 
     public void setExcluirC(GridBagConstraints excluirC) {
         this.excluirC = excluirC;
+    }
+
+    public JLabel getTextoValorArrecadado() {
+        return textoValorArrecadado;
+    }
+
+    public void setTextoValorArrecadado(JLabel textoValorArrecadado) {
+        this.textoValorArrecadado = textoValorArrecadado;
+    }
+
+    public GridBagConstraints getTextoValorArrecadadoC() {
+        return textoValorArrecadadoC;
+    }
+
+    public void setTextoValorArrecadadoC(GridBagConstraints textoValorArrecadadoC) {
+        this.textoValorArrecadadoC = textoValorArrecadadoC;
+    }
+
+    public JTextFieldArredondado getValorArrecadado() {
+        return valorArrecadado;
+    }
+
+    public void setValorArrecadado(JTextFieldArredondado valorArrecadado) {
+        this.valorArrecadado = valorArrecadado;
+    }
+
+    public GridBagConstraints getValorArrecadadoC() {
+        return valorArrecadadoC;
+    }
+
+    public void setValorArrecadadoC(GridBagConstraints valorArrecadadoC) {
+        this.valorArrecadadoC = valorArrecadadoC;
     }
 }

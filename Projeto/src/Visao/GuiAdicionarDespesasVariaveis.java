@@ -48,7 +48,7 @@ public class GuiAdicionarDespesasVariaveis extends JFrame {
     public GuiAdicionarDespesasVariaveis() throws ParseException {
         super("adicionar despesas variaveis");
         setLayout(new GridBagLayout());
-        MaskFormatter data = new MaskFormatter("####-##-##");
+        MaskFormatter data = new MaskFormatter("##/##/####");
 
 
         menuAdicionarC = new GridBagConstraints();
@@ -148,7 +148,7 @@ public class GuiAdicionarDespesasVariaveis extends JFrame {
         menuAdicionar.add(textoDataEmicao,textoDataEmicaoC);
 
         dataEmicao = new JFormattedTextFieldArredondado(data);
-        dataEmicao.setText("000000");
+        dataEmicao.setText("");
         dataEmicao.setBackground(Color.white);
         menuAdicionar.add(dataEmicao,dataEmicaoC);
 
@@ -156,7 +156,7 @@ public class GuiAdicionarDespesasVariaveis extends JFrame {
         menuAdicionar.add(textoDataVencimento,textoDataVencimentoC);
 
         dataVencimento= new JFormattedTextFieldArredondado(data);
-        dataVencimento.setText("000000");
+        dataVencimento.setText("");
         dataVencimento.setBackground(Color.white);
         menuAdicionar.add(dataVencimento,dataVencimentoC);
 

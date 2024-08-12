@@ -22,7 +22,7 @@ public class ControleAdicionarMetas {
     }
     public void iniciaTela(){
         this.tela.setVisible(true);
-        this.tela.setSize(700,700);
+        this.tela.setSize(750,750);
         this.tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         iniciaControler();
 
@@ -39,7 +39,7 @@ public class ControleAdicionarMetas {
         metas.setDataFinal(tela.getDataFinal().getText());
         metas.setDataInicial(tela.getDataInicial().getText());
         metas.setValorTotal(Float.parseFloat(tela.getValorTotal().getText()));
-        metas.setValorArrecadado(100);
+        metas.setValorArrecadado(Float.parseFloat(tela.getValorArrecadado().getText()));
         metas.setRecorrencia(tela.getRecorrencia().getText());
 
         metasDAO.passando(usuario);
