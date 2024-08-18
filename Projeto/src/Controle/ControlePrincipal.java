@@ -42,10 +42,14 @@ public class ControlePrincipal {
         DespesaVariavelDAO despesaVariavelDAO = new DespesaVariavelDAO();
         DespesaFixaDAO despesaFixaDAO = new DespesaFixaDAO();
 
+        double totalDespesaVariavel = despesaVariavelDAO.somaDespesaVariavel(usuario.getId());
+        double totalDespesaFixa =despesaFixaDAO.somaDespesaFixa(usuario.getId());
+        double totalMetas = metasDAO.somaMetas(usuario.getId());
+
         principal.getBarra().clear();
-        principal.getBarra().addValue( metasDAO.somaMetas(usuario.getId()), "Metas","metas");
-        principal.getBarra().addValue( despesaFixaDAO.somaDespesaFixa(usuario.getId()), "despesas fixas","despesas fixas" );
-        principal.getBarra().addValue( despesaVariavelDAO.somaDespesaVariavel(usuario.getId()), "despesas variaveis","despesas variaveis" );
+        principal.getBarra().addValue( totalMetas, "Metas","metas");
+        principal.getBarra().addValue( totalDespesaVariavel, "despesas fixas","despesas fixas" );
+        principal.getBarra().addValue( totalDespesaFixa, "despesas variaveis","despesas variaveis" );
 
         CategoryPlot plot = (CategoryPlot) principal.getGraficoBarra().getPlot();
 
@@ -54,7 +58,7 @@ public class ControlePrincipal {
         plot.clearRangeMarkers();
 
         //aponato o limite das metas no grafico de barra
-         // Limite para metas
+        // Limite para metas
         ValueMarker markerMetas = new ValueMarker(usuario.getCarteira().getLimiteMetas());
         markerMetas.setPaint(Color.RED);
         markerMetas.setStroke(new BasicStroke(3f)); // Defina a largura desejada
@@ -73,7 +77,6 @@ public class ControlePrincipal {
         markerDespesasVariaveis.setPaint(Color.green);
         markerDespesasVariaveis.setStroke(new BasicStroke(3f)); // Defina a largura desejada
         plot.addRangeMarker(markerDespesasVariaveis);
-
     }
     public void listarMetas(){
         MetasDAO metasDAO = new MetasDAO();
