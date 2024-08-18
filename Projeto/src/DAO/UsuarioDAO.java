@@ -14,8 +14,8 @@ import java.util.List;
 public class UsuarioDAO {
     public void saveUsuarioCarteira(Usuario usuario){
 
-        String sql = "INSERT INTO `usuario` (login, senha, saldo, limite_despesa_fixa, limite_despesa_variavel, limite_metas, status)"+
-                "VALUES(?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO `usuario` (login, senha, saldo, limite_despesa_fixa, limite_despesa_variavel, limite_metas)"+
+                "VALUES(?,?,?,?,?,?)";
 
         Connection conn = null;
         PreparedStatement pstm = null;
@@ -29,7 +29,6 @@ public class UsuarioDAO {
             pstm.setDouble(4, usuario.getCarteira().getLimiteDespesaFixa());
             pstm.setDouble(5, usuario.getCarteira().getLimiteDespesaVariavel());
             pstm.setDouble(6, usuario.getCarteira().getLimiteMetas());
-            pstm.setBoolean(7, usuario.getCarteira().isStatus());
             pstm.execute();
 
             if (pstm.getUpdateCount()>0)
@@ -55,7 +54,7 @@ public class UsuarioDAO {
     }
 
     public void updateUsuarioCarteira(Usuario usuario){
-        String sql = "UPDATE `usuario` SET senha = ?, saldo = ?, limite_despesa_fixa = ?, limite_despesa_variavel = ?, limite_metas = ?, status = ? WHERE login = ?";
+        String sql = "UPDATE `usuario` SET senha = ?, saldo = ?, limite_despesa_fixa = ?, limite_despesa_variavel = ?, limite_metas = ? WHERE login = ?";
 
         Connection conn = null;
         PreparedStatement pstm = null;
@@ -68,8 +67,7 @@ public class UsuarioDAO {
             pstm.setDouble(3, usuario.getCarteira().getLimiteDespesaFixa());
             pstm.setDouble(4, usuario.getCarteira().getLimiteDespesaVariavel());
             pstm.setDouble(5, usuario.getCarteira().getLimiteMetas());
-            pstm.setBoolean(6, usuario.getCarteira().isStatus());
-            pstm.setString(7, usuario.getLogin());
+            pstm.setString(6, usuario.getLogin());
 
             int rowsUpdated = pstm.executeUpdate();
 

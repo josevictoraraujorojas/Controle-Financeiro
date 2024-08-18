@@ -43,11 +43,15 @@ public class ControleAdicionarMetas {
         metas.setRecorrencia(tela.getRecorrencia().getText());
 
         metasDAO.passando(usuario);
-        metasDAO.save(metas);
 
-        controlePrincipal.iniciaGraficoBarra();
-        controlePrincipal.listarMetas();
-        tela.dispose();
+        if (metasDAO.save(metas)){
+            controlePrincipal.iniciaGraficoBarra();
+            controlePrincipal.listarMetas();
+            tela.dispose();
+            JOptionPane.showMessageDialog(null, "Meta adicionada com sucesso!");
+        }else {
+            JOptionPane.showMessageDialog(null, "Erro ao adicionar a meta!");
+        }
     }
 
 }

@@ -4,7 +4,6 @@ public class Metas {
     private int idMetas;
     private int idUsuario;
     private String categoria;
-    private boolean status;
     private String dataInicial;
     private String dataFinal;
     private String descricao;
@@ -38,14 +37,6 @@ public class Metas {
 
     public void setCategoria(String categoria) {
         this.categoria = categoria;
-    }
-
-    public boolean isStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
     }
 
     public String getDataInicial() {

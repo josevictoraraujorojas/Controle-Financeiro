@@ -21,11 +21,11 @@ public class MetasDAO {
         this.usuario = usuario;
         System.out.println(usuario.getId());
     }
-    public void save(Metas metas) {
+    public boolean save(Metas metas) {
         System.out.println(usuario.getId());
 
-        String sql = "INSERT INTO metas(id,categoria, status, data_inicial, data_final, descricao, valor_total, valor_arrecadado, recorrencia) " +
-                "VALUES(?,?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO metas(id,categoria, data_inicial, data_final, descricao, valor_total, valor_arrecadado, recorrencia) " +
+                "VALUES(?,?, ?, ?, ?, ?, ?, ?)";
 
         Connection conn = null;
         PreparedStatement pstm = null;
@@ -47,19 +47,18 @@ public class MetasDAO {
 
             pstm.setInt(1, this.usuario.getId());
             pstm.setString(2, metas.getCategoria());
-            pstm.setBoolean(3, true);
-            pstm.setString(4,dataInicialAmericana);
-            pstm.setString(5, dataFinalAmericana);
-            pstm.setString(6, metas.getDescricao());
-            pstm.setFloat(7, metas.getValorTotal());
-            pstm.setFloat(8, metas.getValorArrecadado());
-            pstm.setString(9, metas.getRecorrencia());
+            pstm.setString(3,dataInicialAmericana);
+            pstm.setString(4, dataFinalAmericana);
+            pstm.setString(5, metas.getDescricao());
+            pstm.setFloat(6, metas.getValorTotal());
+            pstm.setFloat(7, metas.getValorArrecadado());
+            pstm.setString(8, metas.getRecorrencia());
 
             pstm.execute();
 
-            JOptionPane.showMessageDialog(null,"Meta Cadastrada, Vamos Lá !!!!");
+            return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            return false;
         } finally {
             try {
                 if (pstm != null) {
@@ -73,8 +72,8 @@ public class MetasDAO {
             }
         }
     }
-    public void update(Metas metas) {
-        String sql = "UPDATE metas SET categoria = ?, status = ?, data_inicial = ?, data_final = ?, descricao = ?, valor_total = ?, valor_arrecadado = ?, recorrencia = ? WHERE id_metas = ?";
+    public int update(Metas metas) {
+        String sql = "UPDATE metas SET categoria = ?, data_inicial = ?, data_final = ?, descricao = ?, valor_total = ?, valor_arrecadado = ?, recorrencia = ? WHERE id_metas = ?";
 
         System.out.println(metas.getIdMetas());
 
@@ -96,24 +95,23 @@ public class MetasDAO {
             String dataFinalAmericana = dataFinal.format(formatoAmericano);
 
             pstm.setString(1, metas.getCategoria());
-            pstm.setBoolean(2, metas.isStatus());
-            pstm.setString(3, dataInicialAmericana);
-            pstm.setString(4, dataFinalAmericana);
-            pstm.setString(5, metas.getDescricao());
-            pstm.setFloat(6, metas.getValorTotal());
-            pstm.setFloat(7, metas.getValorArrecadado());
-            pstm.setString(8, metas.getRecorrencia());
-            pstm.setInt(9, metas.getIdMetas());
+            pstm.setString(2, dataInicialAmericana);
+            pstm.setString(3, dataFinalAmericana);
+            pstm.setString(4, metas.getDescricao());
+            pstm.setFloat(5, metas.getValorTotal());
+            pstm.setFloat(6, metas.getValorArrecadado());
+            pstm.setString(7, metas.getRecorrencia());
+            pstm.setInt(8, metas.getIdMetas());
 
             int rowsAffected = pstm.executeUpdate();
             if (rowsAffected > 0) {
-                JOptionPane.showMessageDialog(null, "Meta atualizada com sucesso!");
+                return 1;
             } else {
-                JOptionPane.showMessageDialog(null, "Nenhuma meta encontrada com o ID fornecido.");
+                return 2;
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
+           return 3;
         } finally {
             try {
                 if (pstm != null) {
@@ -190,7 +188,6 @@ public class MetasDAO {
                 meta.setIdUsuario(rs.getInt("id"));
                 meta.setIdMetas(rs.getInt("id_metas"));
                 meta.setCategoria(rs.getString("categoria"));
-                meta.setStatus(rs.getBoolean("status"));
                 meta.setDataInicial(dataInicialBrasileira);
                 meta.setDataFinal(dataFinalBrasileira);
                 meta.setDescricao(rs.getString("descricao"));

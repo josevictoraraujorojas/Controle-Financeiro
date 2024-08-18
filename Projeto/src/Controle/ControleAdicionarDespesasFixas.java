@@ -41,10 +41,14 @@ public class ControleAdicionarDespesasFixas {
         despesaFixa.setValorMensal(Double.parseDouble(tela.getValorMensal().getText()));
         despesaFixa.setRecorrencia(tela.getRecorrencia().getText());
 
-        despesaFixaDAO.save(despesaFixa,usuario);
-        controlePrincipal.iniciaGraficoBarra();
-        controlePrincipal.listarDespesasFixa();
-        tela.dispose();
+        if (despesaFixaDAO.save(despesaFixa,usuario)) {
+            controlePrincipal.iniciaGraficoBarra();
+            controlePrincipal.listarDespesasFixa();
+            tela.dispose();
+            JOptionPane.showMessageDialog(null, "Despesa Fixa adicionada com sucesso!");
+        }else {
+            JOptionPane.showMessageDialog(null, "Erro ao adicionar a despesa Fixa!");
+        }
     }
 
 }

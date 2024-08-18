@@ -6,7 +6,6 @@ public class Carteira {
     private double limiteDespesaFixa;
     private double limiteDespesaVariavel;
     private double limiteMetas;
-    private boolean status;
     private ArrayList<Metas> listaMetas;
     private ArrayList<DespesaFixa> listaDespesaFixa;
     private ArrayList<DespesaVariavel> listaDespesaVariavel;
@@ -36,14 +35,6 @@ public class Carteira {
 
     public void setLimiteMetas(double limiteMetas) {
         this.limiteMetas = limiteMetas;
-    }
-
-    public boolean isStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
     }
 
     public ArrayList<Metas> getListaMetas() {

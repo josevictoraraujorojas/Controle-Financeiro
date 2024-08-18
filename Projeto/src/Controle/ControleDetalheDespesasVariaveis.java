@@ -63,11 +63,17 @@ public class ControleDetalheDespesasVariaveis {
         System.out.println(despesaVariavel.getId());
 
         DespesaVariavelDAO despesaVariavelDAO = new DespesaVariavelDAO();
-        despesaVariavelDAO.update(despesaVariavel);
 
-        tela.dispose();
-        controlePrincipal.iniciaGraficoBarra();
-        controlePrincipal.listarDespesasVariavel();
+        if (despesaVariavelDAO.update(despesaVariavel)==1){
+            tela.dispose();
+            controlePrincipal.iniciaGraficoBarra();
+            controlePrincipal.listarDespesasFixa();
+            JOptionPane.showMessageDialog(null," Despesa variavel editada com sucesso!");
+        }else if (despesaVariavelDAO.update(despesaVariavel)==2){
+            JOptionPane.showMessageDialog(null," Despesa variavel não encontrada");
+        }else {
+            JOptionPane.showMessageDialog(null,"Falha na validação dos dados");
+        }
     }
 
     public void acessaExcluir(){

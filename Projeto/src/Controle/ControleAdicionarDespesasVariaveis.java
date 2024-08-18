@@ -47,10 +47,14 @@ public class ControleAdicionarDespesasVariaveis {
         despesaVariavel.setQtdParcelasPagas(Integer.parseInt(tela.getQuantidadeParcelasPagas().getText()));
         despesaVariavel.setRecorrencia(tela.getRecorrencia().getText());
 
-        despesaVariavelDAO.save(despesaVariavel,usuario);
-        controlePrincipal.iniciaGraficoBarra();
-        controlePrincipal.listarDespesasVariavel();
-        tela.dispose();
+        if (despesaVariavelDAO.save(despesaVariavel,usuario)) {
+            controlePrincipal.iniciaGraficoBarra();
+            controlePrincipal.listarDespesasVariavel();
+            tela.dispose();
+            JOptionPane.showMessageDialog(null, "Despesa Variavel adicionada com sucesso!");
+        }else{
+            JOptionPane.showMessageDialog(null, "Erro ao adicionar a despesa variavel!");
+        }
     }
 
 }

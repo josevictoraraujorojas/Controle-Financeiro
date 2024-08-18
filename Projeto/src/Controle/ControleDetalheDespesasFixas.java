@@ -59,11 +59,18 @@ public class ControleDetalheDespesasFixas {
 
 
         DespesaFixaDAO despesaFixaDAO = new DespesaFixaDAO();
-        despesaFixaDAO.update(despesaFixa);
 
-        tela.dispose();
-        controlePrincipal.iniciaGraficoBarra();
-        controlePrincipal.listarDespesasFixa();
+        if (despesaFixaDAO.update(despesaFixa)==1){
+            tela.dispose();
+            controlePrincipal.iniciaGraficoBarra();
+            controlePrincipal.listarDespesasFixa();
+            JOptionPane.showMessageDialog(null," Despesa Fixa editada com sucesso!");
+        }else if (despesaFixaDAO.update(despesaFixa)==2){
+            JOptionPane.showMessageDialog(null," Despesa fixa não encontrada");
+        }else {
+            JOptionPane.showMessageDialog(null,"Falha na validação dos dados");
+        }
+
     }
 
     public void acessaExcluir(){

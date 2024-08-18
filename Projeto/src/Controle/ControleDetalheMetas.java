@@ -59,11 +59,16 @@ public class ControleDetalheMetas {
 
 
         MetasDAO metasDAO = new MetasDAO();
-        metasDAO.update(metas);
-
-        tela.dispose();
-        controlePrincipal.iniciaGraficoBarra();
-        controlePrincipal.listarMetas();
+        if (metasDAO.update(metas)==1){
+            tela.dispose();
+            controlePrincipal.iniciaGraficoBarra();
+            controlePrincipal.listarDespesasFixa();
+            JOptionPane.showMessageDialog(null," Meta editada com sucesso!");
+        }else if (metasDAO.update(metas)==2){
+            JOptionPane.showMessageDialog(null," Meta não encontrada");
+        }else {
+            JOptionPane.showMessageDialog(null,"Falha na validação dos dados");
+        }
     }
 
     public void acessaExcluir(){

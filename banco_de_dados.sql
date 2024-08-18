@@ -10,7 +10,6 @@ CREATE TABLE `usuario` (
                            `limite_despesa_fixa` FLOAT(10) NOT NULL,
                            `limite_despesa_variavel` FLOAT(10) NOT NULL,
                            `limite_metas` FLOAT(10) NOT NULL,
-                           `status` BOOLEAN NOT NULL,
                            PRIMARY KEY (`id`)
 );
 
@@ -18,7 +17,6 @@ CREATE TABLE `metas` (
                          `id_metas` INT NOT NULL AUTO_INCREMENT,
                          `id` INT NOT NULL,
                          `categoria` VARCHAR(100) NOT NULL,
-                         `status` BOOLEAN NOT NULL,
                          `data_inicial` VARCHAR(10) NOT NULL,
                          `data_final` VARCHAR(10) NOT NULL,
                          `descricao` VARCHAR(100) NOT NULL,
@@ -34,7 +32,6 @@ CREATE TABLE `despesa_fixa` (
                                 `id` INT NOT NULL,
                                 `valor_mensal` FLOAT(10) NOT NULL,
                                 `categoria` VARCHAR(100) NOT NULL,
-                                `status` BOOLEAN NOT NULL,
                                 `data_emissao` VARCHAR(10) NOT NULL,
                                 `data_vencimento` VARCHAR(10) NOT NULL,
                                 `descricao` VARCHAR(100) NOT NULL,
@@ -50,7 +47,6 @@ CREATE TABLE `despesa_variavel` (
      `qtd_parcelas` INT NOT NULL,
       `parcelas_pagas` INT NOT NULL,
     `categoria` VARCHAR(100) NOT NULL,
-                                    `status` BOOLEAN NOT NULL,
                                     `data_emissao` DATE NOT NULL,
                                     `data_vencimento` DATE NOT NULL,
                                     `descricao` VARCHAR(100) NOT NULL,

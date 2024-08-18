@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 public class CarteiraDAO {
 
     public Carteira getCarteira(int id) {
-        String sql = "SELECT saldo, limite_despesa_fixa, limite_despesa_variavel, limite_metas, status " +
+        String sql = "SELECT saldo, limite_despesa_fixa, limite_despesa_variavel, limite_metas " +
                 "FROM usuario " +
                 "WHERE id = ?";
         Connection conn = null;
@@ -34,7 +34,6 @@ public class CarteiraDAO {
                 carteira.setLimiteDespesaFixa(rs.getDouble("limite_despesa_fixa"));
                 carteira.setLimiteDespesaVariavel(rs.getDouble("limite_despesa_variavel"));
                 carteira.setLimiteMetas(rs.getDouble("limite_metas"));
-                carteira.setStatus(rs.getBoolean("status"));
             }
         } catch (Exception e) {
             e.printStackTrace();

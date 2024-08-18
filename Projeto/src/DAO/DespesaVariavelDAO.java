@@ -14,10 +14,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DespesaVariavelDAO {
-    public void save(DespesaVariavel despesaVariavel, Usuario usuario) {
+    public boolean save(DespesaVariavel despesaVariavel, Usuario usuario) {
 
-        String sql = "INSERT INTO despesa_variavel(id,valor,qtd_parcelas,parcelas_pagas, status,categoria, data_emissao,data_vencimento, descricao, recorrencia) " +
-                "VALUES(?,?, ?, ?, ?, ?, ?, ?, ?,?)";
+        String sql = "INSERT INTO despesa_variavel(id,valor,qtd_parcelas,parcelas_pagas,categoria, data_emissao,data_vencimento, descricao, recorrencia) " +
+                "VALUES(?,?, ?, ?, ?, ?, ?, ?, ?)";
 
         Connection conn = null;
         PreparedStatement pstm = null;
@@ -40,24 +40,23 @@ public class DespesaVariavelDAO {
             pstm.setDouble(2, despesaVariavel.getValor());
             pstm.setInt(3, despesaVariavel.getQtdParcelas());
             pstm.setInt(4, despesaVariavel.getQtdParcelasPagas());
-            pstm.setByte(5, despesaVariavel.getStatus());
-            pstm.setString(6, despesaVariavel.getCategoria());
-            pstm.setString(7, dataEmissaoAmericana);
-            pstm.setString(8, dataVencimentoAmericana);
-            pstm.setString(9, despesaVariavel.getDescricao());
-            pstm.setString(10, despesaVariavel.getRecorrencia());
+            pstm.setString(5, despesaVariavel.getCategoria());
+            pstm.setString(6, dataEmissaoAmericana);
+            pstm.setString(7, dataVencimentoAmericana);
+            pstm.setString(8, despesaVariavel.getDescricao());
+            pstm.setString(9, despesaVariavel.getRecorrencia());
 
             pstm.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Despesa Salva!!");
+            return true;
 
         } catch (Exception e) {
-            e.printStackTrace();
+            return false;
         }
     }
 
 
-    public void update(DespesaVariavel despesaVariavel) {
-        String sql = "UPDATE despesa_variavel SET valor = ?, qtd_parcelas = ?, parcelas_pagas = ?, categoria = ?, status = ?, data_emissao = ?, data_vencimento = ?, descricao = ?, recorrencia = ? WHERE id_despesa_variavel = ?";
+    public int update(DespesaVariavel despesaVariavel) {
+        String sql = "UPDATE despesa_variavel SET valor = ?, qtd_parcelas = ?, parcelas_pagas = ?, categoria = ?, data_emissao = ?, data_vencimento = ?, descricao = ?, recorrencia = ? WHERE id_despesa_variavel = ?";
 
         Connection conn = null;
         PreparedStatement pstm = null;
@@ -82,23 +81,22 @@ public class DespesaVariavelDAO {
             pstm.setInt(2, despesaVariavel.getQtdParcelas());
             pstm.setInt(3, despesaVariavel.getQtdParcelasPagas());
             pstm.setString(4, despesaVariavel.getCategoria());
-            pstm.setByte(5, despesaVariavel.getStatus());
-            pstm.setString(6,dataEmissaoAmericana);
-            pstm.setString(7, dataVencimentoAmericana);
-            pstm.setString(8, despesaVariavel.getDescricao());
-            pstm.setString(9, despesaVariavel.getRecorrencia());
-            pstm.setInt(10, despesaVariavel.getIdDespesaVariavel());
+            pstm.setString(5,dataEmissaoAmericana);
+            pstm.setString(6, dataVencimentoAmericana);
+            pstm.setString(7, despesaVariavel.getDescricao());
+            pstm.setString(8, despesaVariavel.getRecorrencia());
+            pstm.setInt(9, despesaVariavel.getIdDespesaVariavel());
 
             // Executa a atualização no banco de dados
             int rowsAffected = pstm.executeUpdate();
             if (rowsAffected > 0) {
-                System.out.println("Despesa variável atualizada com sucesso.");
+                return 1;
             } else {
-                System.out.println("Nenhuma despesa variável encontrada com o ID fornecido.");
+                return 2;
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
+            return 3;
         } finally {
             // Fecha os recursos
             try {
@@ -165,7 +163,6 @@ public class DespesaVariavelDAO {
                 despesaVariavel.setQtdParcelas(rs.getInt("qtd_parcelas"));
                 despesaVariavel.setQtdParcelasPagas(rs.getInt("parcelas_pagas"));
                 despesaVariavel.setCategoria(rs.getString("categoria"));
-                despesaVariavel.setStatus(rs.getByte("status"));
                 despesaVariavel.setDataEmissao(dataEmissaoBrasileira);
                 despesaVariavel.setDataDeVencimento(dataVencimentoBrasileira);
                 despesaVariavel.setDescricao(rs.getString("descricao"));

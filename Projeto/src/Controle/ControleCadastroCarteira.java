@@ -61,7 +61,6 @@ public class ControleCadastroCarteira {
         carteira.setLimiteDespesaFixa(limiteDespesaFixa);
         carteira.setLimiteDespesaVariavel(limiteDespesaVariavel);
         carteira.setLimiteMetas(limiteMetas);
-        carteira.setStatus(false);
 
         usuario.setCarteira(carteira);
 

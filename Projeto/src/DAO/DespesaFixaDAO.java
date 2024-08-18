@@ -15,8 +15,8 @@ import java.util.List;
 
 public class DespesaFixaDAO {
 
-    public void save(DespesaFixa despesaFixa, Usuario usuario) {
-        String sql = "INSERT INTO despesa_fixa (id, valor_mensal, categoria, status, data_emissao, data_vencimento, descricao, recorrencia) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    public boolean save(DespesaFixa despesaFixa, Usuario usuario) {
+        String sql = "INSERT INTO despesa_fixa (id, valor_mensal, categoria, data_emissao, data_vencimento, descricao, recorrencia) VALUES ( ?, ?, ?, ?, ?, ?, ?)";
 
         Connection conn = null;
         PreparedStatement pstm = null;
@@ -40,17 +40,16 @@ public class DespesaFixaDAO {
             pstm.setInt(1, usuario.getId());
             pstm.setDouble(2, despesaFixa.getValorMensal());
             pstm.setString(3, despesaFixa.getCategoria());
-            pstm.setByte(4, despesaFixa.getStatus());
-            pstm.setString(5, dataEmissaoAmericana);
-            pstm.setString(6, dataVencimentoAmericana);
-            pstm.setString(7, despesaFixa.getDescricao());
-            pstm.setString(8, despesaFixa.getRecorrencia());
+            pstm.setString(4, dataEmissaoAmericana);
+            pstm.setString(5, dataVencimentoAmericana);
+            pstm.setString(6, despesaFixa.getDescricao());
+            pstm.setString(7, despesaFixa.getRecorrencia());
 
             pstm.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Despesa fixa salva com sucesso!");
+            return true;
 
         } catch (Exception e) {
-            e.printStackTrace();
+            return false;
         } finally {
             try {
                 if (pstm != null) {
@@ -65,8 +64,8 @@ public class DespesaFixaDAO {
         }
     }
 
-    public void update(DespesaFixa despesaFixa) {
-        String sql = "UPDATE despesa_fixa SET valor_mensal = ?, categoria = ?, status = ?, data_emissao = ?, data_vencimento = ?, descricao = ?, recorrencia = ? WHERE id_despesa_fixa = ?";
+    public int update(DespesaFixa despesaFixa) {
+        String sql = "UPDATE despesa_fixa SET valor_mensal = ?, categoria = ?, data_emissao = ?, data_vencimento = ?, descricao = ?, recorrencia = ? WHERE id_despesa_fixa = ?";
 
         Connection conn = null;
         PreparedStatement pstm = null;
@@ -89,22 +88,21 @@ public class DespesaFixaDAO {
             // Definir os valores no PreparedStatement
             pstm.setDouble(1, despesaFixa.getValorMensal());
             pstm.setString(2, despesaFixa.getCategoria());
-            pstm.setByte(3, despesaFixa.getStatus());
-            pstm.setString(4, dataEmissaoAmericana);
-            pstm.setString(5, dataVencimentoAmericana);
-            pstm.setString(6, despesaFixa.getDescricao());
-            pstm.setString(7, despesaFixa.getRecorrencia());
-            pstm.setInt(8, despesaFixa.getIdDespesaFixa());
+            pstm.setString(3, dataEmissaoAmericana);
+            pstm.setString(4, dataVencimentoAmericana);
+            pstm.setString(5, despesaFixa.getDescricao());
+            pstm.setString(6, despesaFixa.getRecorrencia());
+            pstm.setInt(7, despesaFixa.getIdDespesaFixa());
 
             int rowsAffected = pstm.executeUpdate();
             if (rowsAffected > 0) {
-                JOptionPane.showMessageDialog(null, "Despesa atualizada com sucesso!");
+                return 1;
             } else {
-                JOptionPane.showMessageDialog(null, "Nenhuma despesa fixa encontrada");
+                return 2;
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
+            return 3;
         } finally {
             try {
                 if (pstm != null) {
@@ -184,7 +182,6 @@ public class DespesaFixaDAO {
                 despesaFixa.setIdDespesaFixa(rs.getInt("id_despesa_fixa"));
                 despesaFixa.setValorMensal(rs.getFloat("valor_mensal"));
                 despesaFixa.setCategoria(rs.getString("categoria"));
-                despesaFixa.setStatus(rs.getByte("status"));
                 despesaFixa.setDataEmissao(dataEmissaoBrasileira);
                 despesaFixa.setDataDeVencimento(dataVencimentoBrasileira);
                 despesaFixa.setDescricao(rs.getString("descricao"));

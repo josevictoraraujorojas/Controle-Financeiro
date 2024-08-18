@@ -4,7 +4,6 @@ public abstract class Despesas {
     private int id;
     private String dataDeVencimento;
     private String dataEmissao;
-    private byte status;
     private String categoria;
     private String descricao;
     private String recorrencia;
@@ -33,14 +32,6 @@ public abstract class Despesas {
 
     public void setDataEmissao(String dataEmissao) {
         this.dataEmissao = dataEmissao;
-    }
-
-    public byte getStatus() {
-        return status;
-    }
-
-    public void setStatus(byte status) {
-        this.status = status;
     }
 
     public String getCategoria() {
