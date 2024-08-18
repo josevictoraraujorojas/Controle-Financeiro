@@ -90,34 +90,28 @@ public class JpanelPrincipal extends JPanel {
         painelTextoC.gridwidth = GridBagConstraints.REMAINDER;
 
         textoMetasC = new GridBagConstraints();
-        textoMetasC.fill = GridBagConstraints.BOTH;
-        textoMetasC.weighty = 1.0;
-        textoMetasC.weightx = 1.0;
+
 
         textoDespesasFixasC = new GridBagConstraints();
-        textoDespesasFixasC.fill = GridBagConstraints.BOTH;
-        textoDespesasFixasC.weighty = 1.0;
-        textoDespesasFixasC.weightx = 1;
+
 
         textoDespesasVariaveisC = new GridBagConstraints();
-        textoDespesasVariaveisC.fill = GridBagConstraints.BOTH;
-        textoDespesasVariaveisC.weighty = 1.0;
-        textoDespesasVariaveisC.weightx = 1;
+        textoDespesasVariaveisC.insets = new Insets(0, 0, 0, 150);
+
 
         adicionarMetasC = new GridBagConstraints();
-        adicionarMetasC.fill = GridBagConstraints.BOTH;
-        adicionarMetasC.weightx = 1.0;
         adicionarMetasC.weighty = 1.0;
+        adicionarMetasC.weightx = 1.0;
+
+
 
         adicionarDespesasFixasC = new GridBagConstraints();
-        adicionarDespesasFixasC.fill = GridBagConstraints.BOTH;
-        adicionarDespesasFixasC.weightx = 1.0;
         adicionarDespesasFixasC.weighty = 1.0;
+        adicionarDespesasFixasC.weightx = 1.0;
+
 
         adicionarDespesasVariaveisC = new GridBagConstraints();
-        adicionarDespesasVariaveisC.fill = GridBagConstraints.BOTH;
-        adicionarDespesasVariaveisC.weightx = 1.0;
-        adicionarDespesasVariaveisC.weighty = 1.0;
+
 
         painelListaC = new GridBagConstraints();
         painelListaC.fill = GridBagConstraints.BOTH;

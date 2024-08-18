@@ -52,7 +52,7 @@ public class JpanelPerfil extends JPanel {
 
             perfilC = new GridBagConstraints();
             perfilC.ipady = 215;
-            perfilC.ipadx = 754;
+            perfilC.ipadx = 880;
             perfilC.gridheight = GridBagConstraints.REMAINDER;
 
             textoPerfilC = new GridBagConstraints();

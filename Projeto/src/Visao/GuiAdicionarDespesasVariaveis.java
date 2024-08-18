@@ -148,7 +148,7 @@ public class GuiAdicionarDespesasVariaveis extends JFrame {
         menuAdicionar.add(textoDataEmicao,textoDataEmicaoC);
 
         dataEmicao = new JFormattedTextFieldArredondado(data);
-        dataEmicao.setText("");
+        dataEmicao.setText("00/00/0000");
         dataEmicao.setBackground(Color.white);
         menuAdicionar.add(dataEmicao,dataEmicaoC);
 
@@ -156,7 +156,7 @@ public class GuiAdicionarDespesasVariaveis extends JFrame {
         menuAdicionar.add(textoDataVencimento,textoDataVencimentoC);
 
         dataVencimento= new JFormattedTextFieldArredondado(data);
-        dataVencimento.setText("");
+        dataVencimento.setText("00/00/0000");
         dataVencimento.setBackground(Color.white);
         menuAdicionar.add(dataVencimento,dataVencimentoC);
 

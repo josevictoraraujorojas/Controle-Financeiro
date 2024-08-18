@@ -135,7 +135,7 @@ public class GuiAdicionarMetas extends JFrame{
         menuAdicionar.add(textoDataInicial,textoDataInicialC);
 
         dataInicial = new JFormattedTextFieldArredondado(data);
-        dataInicial.setText("");
+        dataInicial.setText("00/00/0000");
         dataInicial.setBackground(Color.white);
         menuAdicionar.add(dataInicial,dataInicialC);
 
@@ -143,7 +143,7 @@ public class GuiAdicionarMetas extends JFrame{
         menuAdicionar.add(textoDataFinal,textoDataFinalC);
 
         dataFinal = new JFormattedTextFieldArredondado(data);
-        dataFinal.setText("");
+        dataFinal.setText("00/00/0000");
         dataFinal.setBackground(Color.white);
         menuAdicionar.add(dataFinal,dataFinalC);
 
