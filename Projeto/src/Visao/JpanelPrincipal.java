@@ -60,20 +60,22 @@ public class JpanelPrincipal extends JPanel {
 
     public JpanelPrincipal() {
         setLayout(new GridBagLayout());
-        Font fonte = new Font("Serif",Font.PLAIN,20);
+        Font fonte = new Font("Serif", Font.PLAIN, 20);
         Border borda = BorderFactory.createLineBorder(Color.black, 2);
 
         telaprincipalC = new GridBagConstraints();
-        telaprincipalC.ipady=28;
+        telaprincipalC.ipady = 28;
 
         painelGraficosC = new GridBagConstraints();
-        painelGraficosC.gridwidth=GridBagConstraints.REMAINDER;
+        painelGraficosC.fill = GridBagConstraints.BOTH;
+        painelGraficosC.weighty = 1.0;
+        painelGraficosC.weightx = 1.0;
+        painelGraficosC.gridwidth = GridBagConstraints.REMAINDER;
 
         painelGraficoPizzaC = new GridBagConstraints();
         painelGraficoPizzaC.fill = GridBagConstraints.BOTH;
         painelGraficoPizzaC.weightx = 1.0;
         painelGraficoPizzaC.weighty = 1.0;
-
 
         painelGraficoBarraC = new GridBagConstraints();
         painelGraficoBarraC.fill = GridBagConstraints.BOTH;
@@ -81,23 +83,41 @@ public class JpanelPrincipal extends JPanel {
         painelGraficoBarraC.weighty = 1.0;
 
         painelTextoC = new GridBagConstraints();
-        painelTextoC.ipadx=830;
-        painelTextoC.gridwidth=GridBagConstraints.REMAINDER;
+        painelTextoC.fill = GridBagConstraints.BOTH;
+        painelTextoC.weighty = 1.0;
+        painelTextoC.weightx = 1.0;
+        painelTextoC.ipadx = 830;
+        painelTextoC.gridwidth = GridBagConstraints.REMAINDER;
 
         textoMetasC = new GridBagConstraints();
-        textoMetasC.weightx=1;
+        textoMetasC.fill = GridBagConstraints.BOTH;
+        textoMetasC.weighty = 1.0;
+        textoMetasC.weightx = 1.0;
 
         textoDespesasFixasC = new GridBagConstraints();
-        textoDespesasFixasC.weightx=1;
+        textoDespesasFixasC.fill = GridBagConstraints.BOTH;
+        textoDespesasFixasC.weighty = 1.0;
+        textoDespesasFixasC.weightx = 1;
 
         textoDespesasVariaveisC = new GridBagConstraints();
-        textoDespesasVariaveisC.weightx=1;
+        textoDespesasVariaveisC.fill = GridBagConstraints.BOTH;
+        textoDespesasVariaveisC.weighty = 1.0;
+        textoDespesasVariaveisC.weightx = 1;
 
-        adicionarMetasC =new GridBagConstraints();
+        adicionarMetasC = new GridBagConstraints();
+        adicionarMetasC.fill = GridBagConstraints.BOTH;
+        adicionarMetasC.weightx = 1.0;
+        adicionarMetasC.weighty = 1.0;
 
         adicionarDespesasFixasC = new GridBagConstraints();
+        adicionarDespesasFixasC.fill = GridBagConstraints.BOTH;
+        adicionarDespesasFixasC.weightx = 1.0;
+        adicionarDespesasFixasC.weighty = 1.0;
 
         adicionarDespesasVariaveisC = new GridBagConstraints();
+        adicionarDespesasVariaveisC.fill = GridBagConstraints.BOTH;
+        adicionarDespesasVariaveisC.weightx = 1.0;
+        adicionarDespesasVariaveisC.weighty = 1.0;
 
         painelListaC = new GridBagConstraints();
         painelListaC.fill = GridBagConstraints.BOTH;
@@ -108,124 +128,119 @@ public class JpanelPrincipal extends JPanel {
         listaMetasC.fill = GridBagConstraints.BOTH;
         listaMetasC.weightx = 1.0;
         listaMetasC.weighty = 1.0;
-        listaMetasC.ipadx=333;
-        listaMetasC.ipady=200;
+        listaMetasC.ipadx = 333;
+        listaMetasC.ipady = 200;
 
         listaDespesasFixasC = new GridBagConstraints();
         listaDespesasFixasC.fill = GridBagConstraints.BOTH;
         listaDespesasFixasC.weightx = 1.0;
         listaDespesasFixasC.weighty = 1.0;
-        listaDespesasFixasC.ipadx=333;
-        listaDespesasFixasC.ipady=200;
+        listaDespesasFixasC.ipadx = 333;
+        listaDespesasFixasC.ipady = 200;
 
         listaDespesasVariaveisC = new GridBagConstraints();
         listaDespesasVariaveisC.fill = GridBagConstraints.BOTH;
         listaDespesasVariaveisC.weightx = 1.0;
         listaDespesasVariaveisC.weighty = 1.0;
-        listaDespesasVariaveisC.ipadx=331;
-        listaDespesasVariaveisC.ipady=200;
+        listaDespesasVariaveisC.ipadx = 331;
+        listaDespesasVariaveisC.ipady = 200;
 
         telaprincipal = new JPanel();
         telaprincipal.setLayout(new GridBagLayout());
         telaprincipal.setBorder(borda);
-        add(telaprincipal,telaprincipalC);
+        add(telaprincipal, telaprincipalC);
 
         painelGraficos = new JPanel();
         painelGraficos.setLayout(new GridBagLayout());
-        telaprincipal.add(painelGraficos,painelGraficosC);
+        telaprincipal.add(painelGraficos, painelGraficosC);
 
-        //grafico limite da carteira em formato de pizza
+        // Gráfico de pizza
         pizza = new DefaultPieDataset();
-        graficoPizza = ChartFactory.createPieChart("Limite Da Carteira",pizza,true,true,false);
+        graficoPizza = ChartFactory.createPieChart("Limite Da Carteira", pizza, true, true, false);
         painelGraficoPizza = new ChartPanel(graficoPizza);
-        painelGraficoPizza.setPreferredSize(new Dimension(730,430));
         painelGraficoPizza.setPreferredSize(new Dimension(730, 430));
         painelGraficoPizza.setMinimumSize(new Dimension(400, 300));
         painelGraficoPizza.setMaximumSize(new Dimension(800, 600));
-        painelGraficos.add(painelGraficoPizza,painelGraficoPizzaC);
+        painelGraficos.add(painelGraficoPizza, painelGraficoPizzaC);
 
-        //grafico de barra orcamento em tempo real
+        // Gráfico de barra
         barra = new DefaultCategoryDataset();
-        graficoBarra = ChartFactory.createBarChart("Carteira","tipos de gastos","quantidade em real",barra,PlotOrientation.HORIZONTAL,true,true,false);
+        graficoBarra = ChartFactory.createBarChart("Carteira", "tipos de gastos", "quantidade em real", barra, PlotOrientation.HORIZONTAL, true, true, false);
         CategoryPlot plot = (CategoryPlot) graficoBarra.getPlot();
-
         painelGraficoBarra = new ChartPanel(graficoBarra);
         painelGraficoBarra.setPreferredSize(new Dimension(730, 430));
         painelGraficoBarra.setMinimumSize(new Dimension(400, 300));
         painelGraficoBarra.setMaximumSize(new Dimension(800, 600));
-        painelGraficos.add(painelGraficoBarra,painelGraficoBarraC);
+        painelGraficos.add(painelGraficoBarra, painelGraficoBarraC);
 
         painelTexto = new JPanel();
         painelTexto.setLayout(new GridBagLayout());
         painelTexto.setBackground(Color.WHITE);
-        telaprincipal.add(painelTexto,painelTextoC);
+        telaprincipal.add(painelTexto, painelTextoC);
 
         textoMetas = new JLabel("Metas");
         textoMetas.setFont(fonte);
-        painelTexto.add(textoMetas,textoMetasC);
+        painelTexto.add(textoMetas, textoMetasC);
 
         adicionarMetas = new BotaoArredondado();
         adicionarMetas.setText("+");
         adicionarMetas.setBackground(Color.WHITE);
         adicionarMetas.setFont(fonte);
-        painelTexto.add(adicionarMetas,adicionarMetasC);
+        painelTexto.add(adicionarMetas, adicionarMetasC);
 
         textoDespesasFixas = new JLabel("Despesas Fixas");
         textoDespesasFixas.setFont(fonte);
-        painelTexto.add(textoDespesasFixas,textoDespesasFixasC);
+        painelTexto.add(textoDespesasFixas, textoDespesasFixasC);
 
         adicionarDespesasFixas = new BotaoArredondado();
         adicionarDespesasFixas.setText("+");
         adicionarDespesasFixas.setBackground(Color.WHITE);
         adicionarDespesasFixas.setFont(fonte);
-        painelTexto.add(adicionarDespesasFixas,adicionarDespesasFixasC);
+        painelTexto.add(adicionarDespesasFixas, adicionarDespesasFixasC);
 
-        textoDespesasVariaveis = new JLabel("Despesas Variaveis");
+        textoDespesasVariaveis = new JLabel("Despesas Variáveis");
         textoDespesasVariaveis.setFont(fonte);
-        painelTexto.add(textoDespesasVariaveis,textoDespesasVariaveisC);
+        painelTexto.add(textoDespesasVariaveis, textoDespesasVariaveisC);
 
         adicionarDespesasVariaveis = new BotaoArredondado();
         adicionarDespesasVariaveis.setText("+");
         adicionarDespesasVariaveis.setBackground(Color.WHITE);
         adicionarDespesasVariaveis.setFont(fonte);
-        painelTexto.add(adicionarDespesasVariaveis,adicionarDespesasVariaveisC);
+        painelTexto.add(adicionarDespesasVariaveis, adicionarDespesasVariaveisC);
 
         painelLista = new JPanel();
         painelLista.setLayout(new GridBagLayout());
-        painelLista.setBackground(Color.white);
-        telaprincipal.add(painelLista,painelListaC);
+        telaprincipal.add(painelLista, painelListaC);
 
         listaModeloMetas = new DefaultListModel<>();
-
         listaMetas = new JList<>(listaModeloMetas);
         listaMetas.setFont(fonte);
-        listaMetas.setToolTipText("Metas");
-        listaMetas.setVisibleRowCount(5);
-        listaMetas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        listaMetas.setBackground(Color.white);
-        painelLista.add(listaMetas,listaMetasC);
+        JScrollPane scrollPaneMetas = new JScrollPane(listaMetas);
+        scrollPaneMetas.setPreferredSize(new Dimension(161, 59));
+        scrollPaneMetas.setMinimumSize(new Dimension(161, 59));
+        scrollPaneMetas.setMaximumSize(new Dimension(161, 59));
+        painelLista.add(scrollPaneMetas, listaMetasC);
 
         listaModeloDespesasFixa = new DefaultListModel<>();
-
         listaDespesasFixas = new JList<>(listaModeloDespesasFixa);
         listaDespesasFixas.setFont(fonte);
-        listaDespesasFixas.setToolTipText("Despesas Fixas");
-        listaDespesasFixas.setVisibleRowCount(5);
-        listaDespesasFixas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        listaDespesasFixas.setBackground(Color.white);
-        painelLista.add(listaDespesasFixas,listaDespesasFixasC);
+        JScrollPane scrollPaneDespesasFixas = new JScrollPane(listaDespesasFixas);
+        scrollPaneDespesasFixas.setPreferredSize(new Dimension(162, 59));
+        scrollPaneDespesasFixas.setMinimumSize(new Dimension(162, 59));
+        scrollPaneDespesasFixas.setMaximumSize(new Dimension(162, 59));
+        painelLista.add(scrollPaneMetas, listaMetasC);
+        painelLista.add(scrollPaneDespesasFixas, listaDespesasFixasC);
 
         listaModeloDespesasVariavel = new DefaultListModel<>();
-
         listaDespesasVariaveis = new JList<>(listaModeloDespesasVariavel);
         listaDespesasVariaveis.setFont(fonte);
-        listaDespesasVariaveis.setToolTipText("Despesas Variaveis");
-        listaDespesasVariaveis.setVisibleRowCount(5);
-        listaDespesasVariaveis.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        listaDespesasVariaveis.setBackground(Color.white);
-        painelLista.add(listaDespesasVariaveis,listaDespesasVariaveisC);
-
+        JScrollPane scrollPaneDespesasVariaveis = new JScrollPane(listaDespesasVariaveis);
+        scrollPaneDespesasVariaveis.setPreferredSize(new Dimension(162, 59));
+        scrollPaneDespesasVariaveis.setMinimumSize(new Dimension(162, 59));
+        scrollPaneDespesasVariaveis.setMaximumSize(new Dimension(162, 59));
+        painelLista.add(scrollPaneDespesasVariaveis, listaDespesasVariaveisC);
     }
+
 
     public JPanel getTelaprincipal() {
         return telaprincipal;

@@ -43,6 +43,6 @@ public class DespesaVariavel extends Despesas{
 
     @Override
     public String toString() {
-        return getCategoria();
+        return getCategoria() + " R$ " + getValor();
     }
 }

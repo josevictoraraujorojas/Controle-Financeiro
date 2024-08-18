@@ -24,6 +24,6 @@ public class DespesaFixa extends Despesas{
 
     @Override
     public String toString() {
-        return getCategoria();
+        return getCategoria() + " R$" + getValorMensal();
     }
 }

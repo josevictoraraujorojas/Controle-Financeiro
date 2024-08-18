@@ -184,7 +184,7 @@ public class JpanelPerfil extends JPanel {
             detalheCarteira.setLayout(new GridBagLayout());
             perfil.add(detalheCarteira, detalheCarteiraC);
 
-            textoLimiteDespesasFixas = new JLabel("despesas fixas:");
+            textoLimiteDespesasFixas = new JLabel("despesas fixas: %");
             textoLimiteDespesasFixas.setFont(fonte);
             detalheCarteira.add(textoLimiteDespesasFixas, textoLimiteDespesasFixasC);
 
@@ -195,7 +195,7 @@ public class JpanelPerfil extends JPanel {
             limiteDespesasFixas.setEditable(false);
             detalheCarteira.add(limiteDespesasFixas, limiteDespesasFixasC);
 
-            textoLimiteDespesasVariaveis = new JLabel("despesas variaveis:");
+            textoLimiteDespesasVariaveis = new JLabel("despesas variaveis: %");
             textoLimiteDespesasVariaveis.setFont(fonte);
             detalheCarteira.add(textoLimiteDespesasVariaveis, textoLimiteDespesasVariaveisC);
 
@@ -206,7 +206,7 @@ public class JpanelPerfil extends JPanel {
             limiteDespesasVariaveis.setEditable(false);
             detalheCarteira.add(limiteDespesasVariaveis, limiteDespesasVariaveisC);
 
-            textoLimiteMetas = new JLabel("metas:");
+            textoLimiteMetas = new JLabel("metas: %");
             textoLimiteMetas.setFont(fonte);
             detalheCarteira.add(textoLimiteMetas, textoLimiteMetasC);
 

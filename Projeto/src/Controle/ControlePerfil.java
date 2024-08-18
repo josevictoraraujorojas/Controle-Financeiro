@@ -25,9 +25,9 @@ public class ControlePerfil {
         this.perfil.getLogin().setText(usuario.getLogin());
         this.perfil.getSenha().setText(usuario.getSenha());
         this.perfil.getSaldo().setText(String.valueOf(usuario.getSaldo()));
-        this.perfil.getLimiteDespesasFixas().setText(String.valueOf(usuario.getCarteira().getLimiteDespesaFixa()));
-        this.perfil.getLimiteDespesasVariaveis().setText(String.valueOf(usuario.getCarteira().getLimiteDespesaVariavel()));
-        this.perfil.getLimiteMetas().setText(String.valueOf(usuario.getCarteira().getLimiteMetas()));
+        this.perfil.getLimiteDespesasFixas().setText(String.valueOf((int)((usuario.getCarteira().getLimiteDespesaFixa()/usuario.getSaldo())*100)));
+        this.perfil.getLimiteDespesasVariaveis().setText(String.valueOf((int)((usuario.getCarteira().getLimiteDespesaVariavel()/usuario.getSaldo())*100)));
+        this.perfil.getLimiteMetas().setText(String.valueOf((int)((usuario.getCarteira().getLimiteMetas()/usuario.getSaldo())*100)));
     }
     public void iiniciaControle(){
 
@@ -43,11 +43,15 @@ public class ControlePerfil {
         this.perfil.getLimiteMetas().setEditable(true);
     }
     public void acessaSalvar(){
+        double limiteDespesaFixa = (Double.parseDouble(this.perfil.getLimiteDespesasFixas().getText()) * Double.parseDouble(this.perfil.getSaldo().getText()))/100;
+        double limiteDespesaVariaveis = (Double.parseDouble(this.perfil.getLimiteDespesasVariaveis().getText()) * Double.parseDouble(this.perfil.getSaldo().getText()))/100;
+        double limiteMetas = (Double.parseDouble(this.perfil.getLimiteMetas().getText()) * Double.parseDouble(this.perfil.getSaldo().getText()))/100;
+
         usuario.setSenha(this.perfil.getSenha().getText());
         usuario.setSaldo(Double.parseDouble(this.perfil.getSaldo().getText()));
-        usuario.getCarteira().setLimiteDespesaFixa(Double.parseDouble(this.perfil.getLimiteDespesasFixas().getText()));
-        usuario.getCarteira().setLimiteDespesaVariavel(Double.parseDouble(this.perfil.getLimiteDespesasVariaveis().getText()));
-        usuario.getCarteira().setLimiteMetas(Double.parseDouble(this.perfil.getLimiteMetas().getText()));
+        usuario.getCarteira().setLimiteDespesaFixa(limiteDespesaFixa);
+        usuario.getCarteira().setLimiteDespesaVariavel(limiteDespesaVariaveis);
+        usuario.getCarteira().setLimiteMetas(limiteMetas);
 
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         usuarioDAO.updateUsuarioCarteira(usuario);

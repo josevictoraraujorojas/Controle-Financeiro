@@ -41,6 +41,7 @@ public class ControlePrincipal {
         MetasDAO metasDAO = new MetasDAO();
         DespesaVariavelDAO despesaVariavelDAO = new DespesaVariavelDAO();
         DespesaFixaDAO despesaFixaDAO = new DespesaFixaDAO();
+
         principal.getBarra().clear();
         principal.getBarra().addValue( metasDAO.somaMetas(usuario.getId()), "Metas","metas");
         principal.getBarra().addValue( despesaFixaDAO.somaDespesaFixa(usuario.getId()), "despesas fixas","despesas fixas" );

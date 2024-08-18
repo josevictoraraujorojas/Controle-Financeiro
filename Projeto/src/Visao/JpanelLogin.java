@@ -61,7 +61,6 @@ public class JpanelLogin extends JPanel {
 
 
         login = new JTextFieldArredondado();
-        login.setText("Login");
         login.setColumns(10);
         login.setFont(fonte);
         textoLogin = new JLabel("Login:");
@@ -70,7 +69,6 @@ public class JpanelLogin extends JPanel {
 
 
         senha = new JPasswordArredondado();
-        senha.setText("senha");
         senha.setColumns(10);
         senha.setFont(fonte);
         textoSenha= new JLabel("Senha: ");

@@ -98,6 +98,6 @@ public class Metas {
 
     @Override
     public String toString() {
-        return getCategoria();
+        return getCategoria() + " Arrecado R$" + valorArrecadado + "/ Total R$" + valorTotal;
     }
 }
