@@ -14,8 +14,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class MetasDAO {
-    Metas metas = new Metas();
-    Usuario usuario = new Usuario();
+    private Metas metas = new Metas();
+    private Usuario usuario = new Usuario();
 
     public void passando(Usuario usuario){
         this.usuario = usuario;

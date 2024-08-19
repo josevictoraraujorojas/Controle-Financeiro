@@ -1,12 +1,12 @@
 package Modelo;
 
 public abstract class Despesas {
-    private int id;
-    private String dataDeVencimento;
-    private String dataEmissao;
-    private String categoria;
-    private String descricao;
-    private String recorrencia;
+    protected int id;
+    protected String dataDeVencimento;
+    protected String dataEmissao;
+    protected String categoria;
+    protected String descricao;
+    protected String recorrencia;
 
     public Despesas() {}
 
